@@ -6,7 +6,8 @@ A local RAG (Retrieval-Augmented Generation) system for querying Telegram chat h
 
 - **LangChain** — RAG pipeline
 - **ChromaDB** — local vector store
-- **Mistral AI** — embeddings + LLM
+- **Mistral AI** — embeddings + LLM (`mistral-embed` + `mistral-small-latest`)
+- **Gradio** — web UI
 - **Python 3.11+**
 
 ## Project Structure
@@ -23,7 +24,8 @@ chat-rag/
 │   ├── __init__.py
 │   ├── ingest.py
 │   ├── rag.py
-│   └── query.py
+│   ├── query.py
+│   └── query_app.py
 └── chroma_db/             # auto-created after ingestion
 ```
 
@@ -43,14 +45,14 @@ source venv/bin/activate
 
 **3. Install dependencies**
 ```bash
-pip install langchain langchain-mistralai langchain-chroma chromadb python-dotenv
-pip freeze > requirements.txt
+pip install -r requirements.txt
 ```
 
-**4. Create `.env` file in the project root**
+**4. Create `.env` file from the template**
+```bash
+cp .env.example .env
 ```
-MISTRAL_API_KEY=your_key_here
-```
+Then fill in your values in `.env`.
 
 **5. Add your chat export to `data/messages.json`**
 
@@ -61,7 +63,12 @@ MISTRAL_API_KEY=your_key_here
 python src/ingest.py
 ```
 
-**Start querying:**
+**Start the web UI:**
+```bash
+python src/query_app.py
+```
+
+**Or use the interactive CLI:**
 ```bash
 python src/query.py
 ```
@@ -111,9 +118,10 @@ The system expects a Telegram-style chat export:
 
 ## How It Works
 
-1. `ingest.py` — loads the JSON export, groups messages by `topic`, splits into overlapping windows of 5 messages, embeds via Mistral and stores in ChromaDB
-2. `rag.py` — loads ChromaDB, builds a retrieval chain with MMR search and a custom prompt
+1. `ingest.py` — loads the JSON export, groups messages by `topic`, splits into sliding windows of 5 messages (step=2), embeds via Mistral and stores in ChromaDB
+2. `rag.py` — loads ChromaDB, builds a retrieval chain with MMR search (k=6, fetch_k=20) and a custom prompt using `mistral-small-latest`
 3. `query.py` — interactive CLI that takes your question, retrieves relevant chunks and returns an answer with sources
+4. `query_app.py` — Gradio web UI with a chatbot panel and a sources sidebar
 
 ## Notes
 
