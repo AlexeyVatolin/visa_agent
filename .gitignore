@@ -6,6 +6,12 @@ __pycache__/
 # mac
 .DS_Store
 
+# Gradio
+.gradio/
+
+# Chroma db
+chroma_db/
+
 # C extensions
 *.so
 
