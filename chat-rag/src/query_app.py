@@ -1,7 +1,8 @@
 import gradio as gr
 from rag import load_chain
 
-chain, retriever  = load_chain()
+chain, retriever = load_chain()
+
 
 def chat(question_text, history):
     if not question_text.strip():
@@ -31,7 +32,9 @@ with gr.Blocks(title="VISA chat History RAG") as demo:
         with gr.Column(scale=2):
             chatbot = gr.Chatbot(height=500)
             with gr.Row():
-                question = gr.Textbox(placeholder="Ask a question…", show_label=False, scale=4)
+                question = gr.Textbox(
+                    placeholder="Ask a question…", show_label=False, scale=4
+                )
                 send_btn = gr.Button("Send", scale=1)
         with gr.Column(scale=1):
             sources_box = gr.Textbox(label="Sources", lines=20, interactive=False)
@@ -40,5 +43,5 @@ with gr.Blocks(title="VISA chat History RAG") as demo:
     question.submit(chat, [question, chatbot], [chatbot, question, sources_box])
 
 if __name__ == "__main__":
-    demo.launch() # For local view
+    demo.launch()  # For local view
     # demo.launch(share=True) # For public view

@@ -19,9 +19,11 @@ def main():
         print("📎 Sources:")
         for doc in docs:
             m = doc.metadata
-            print(f"  • Topic: {m.get('topic', '')} | "
-                  f"{m.get('start_time', '')} → {m.get('end_time', '')} | "
-                  f"Senders: {m.get('senders', '')}")
+            print(
+                f"  • Topic: {m.get('topic', '')} | "
+                f"{m.get('start_time', '')} → {m.get('end_time', '')} | "
+                f"Senders: {m.get('senders', '')}"
+            )
         print("-" * 60 + "\n")
 
 

@@ -13,17 +13,17 @@ load_dotenv()
 def load_messages(path: str) -> list[dict]:
     with open(path, "r", encoding="utf-8") as f:
         data = json.load(f)
-    
+
     # Getting metadata from topic and messages
     chat_name = data.get("name", "")
     topic = data.get("topic", "")
     messages = data.get("messages", [])
-    
+
     # Adding metadata for each message
     for msg in messages:
         msg["chat_name"] = chat_name
         msg["topic"] = topic
-    
+
     return messages
 
 
@@ -35,8 +35,8 @@ def messages_to_documents(messages: list[dict]) -> list[Document]:
         convos.setdefault(cid, []).append(msg)
 
     documents = []
-    window_size = 5 # TODO: Think about logic for creating chunks
-    step = 2        # 2 steps betwen messages in chunk to save context
+    window_size = 5  # TODO: Think about logic for creating chunks
+    step = 2  # 2 steps betwen messages in chunk to save context
     # chunk 1 - [1, 2, 3, 4, 5]
     # chunk 2 - [3, 4, 5, 6, 7]
     # chunk 3 - [5, 6, 6, 7, 8]
@@ -50,7 +50,7 @@ def messages_to_documents(messages: list[dict]) -> list[Document]:
             text = "\n".join(
                 f"[{m.get('date', '')}] {m.get('from', 'Unknown')}: {m.get('text', '')}"
                 for m in chunk
-                if m.get('text')  # skipping empty messages
+                if m.get("text")  # skipping empty messages
             )
 
             if not text.strip():
@@ -64,9 +64,7 @@ def messages_to_documents(messages: list[dict]) -> list[Document]:
                     "topic": conv_id,
                     "start_time": chunk[0].get("date", ""),
                     "end_time": chunk[-1].get("date", ""),
-                    "senders": ", ".join(
-                        sorted(set(m.get("from", "") for m in chunk))
-                    ),
+                    "senders": ", ".join(sorted(set(m.get("from", "") for m in chunk))),
                 },
             )
             documents.append(doc)
