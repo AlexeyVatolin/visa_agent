@@ -1,4 +1,5 @@
 from rag import load_chain
+from models import ChunkMetadata
 
 
 def main():
@@ -18,11 +19,11 @@ def main():
         docs = retriever.invoke(question)
         print("📎 Sources:")
         for doc in docs:
-            m = doc.metadata
+            meta = ChunkMetadata.model_validate(doc.metadata)
             print(
-                f"  • Topic: {m.get('topic', '')} | "
-                f"{m.get('start_time', '')} → {m.get('end_time', '')} | "
-                f"Senders: {m.get('senders', '')}"
+                f"  • Topic: {meta.topic} | "
+                f"{meta.start_time} → {meta.end_time} | "
+                f"Senders: {meta.senders}"
             )
         print("-" * 60 + "\n")
 

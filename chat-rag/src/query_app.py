@@ -1,5 +1,6 @@
 import gradio as gr
 from rag import load_chain
+from models import ChunkMetadata
 
 chain, retriever = load_chain()
 
@@ -13,11 +14,11 @@ def chat(question_text, history):
 
     lines = []
     for doc in docs:
-        m = doc.metadata
+        meta = ChunkMetadata.model_validate(doc.metadata)
         lines.append(
-            f"• Topic: {m.get('topic', '')} | "
-            f"{m.get('start_time', '')} → {m.get('end_time', '')} | "
-            f"Senders: {m.get('senders', '')}"
+            f"• Topic: {meta.topic} | "
+            f"{meta.start_time} → {meta.end_time} | "
+            f"Senders: {meta.senders}"
         )
     sources_text = "\n".join(lines) if lines else "No sources found."
 

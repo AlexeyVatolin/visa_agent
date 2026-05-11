@@ -1,14 +1,10 @@
-import os
-from dotenv import load_dotenv
 from langchain_mistralai import ChatMistralAI, MistralAIEmbeddings
 from langchain_chroma import Chroma
 from langchain_core.prompts import PromptTemplate
 from langchain_core.runnables import RunnablePassthrough
 from langchain_core.output_parsers import StrOutputParser
 
-from constants import CHROMA_PATH, COLLECTION_NAME
-
-load_dotenv()
+from config import settings
 
 PROMPT_TEMPLATE = """You are an assistant analyzing Telegram chat history.
 Use the retrieved conversation excerpts below to answer the question accurately.
@@ -25,13 +21,13 @@ Answer:"""
 def load_chain():
     embeddings = MistralAIEmbeddings(
         model="mistral-embed",
-        api_key=os.environ["MISTRAL_API_KEY"],
+        api_key=settings.mistral_api_key,
     )
 
     vectorstore = Chroma(
-        collection_name=COLLECTION_NAME,
+        collection_name=settings.collection_name,
         embedding_function=embeddings,
-        persist_directory=CHROMA_PATH,
+        persist_directory=settings.chroma_path,
     )
 
     retriever = vectorstore.as_retriever(
@@ -41,7 +37,7 @@ def load_chain():
 
     llm = ChatMistralAI(
         model="mistral-small-latest",
-        api_key=os.environ["MISTRAL_API_KEY"],
+        api_key=settings.mistral_api_key,
         temperature=0.1,
     )
 

@@ -1,38 +1,31 @@
 import json
-import os
-from dotenv import load_dotenv
 from langchain_core.documents import Document
 from langchain_mistralai import MistralAIEmbeddings
 from langchain_chroma import Chroma
 
-from constants import CHROMA_PATH, COLLECTION_NAME, DATA_PATH
+from config import settings
+from models import ChatExport, ChunkMetadata, Message
 
-load_dotenv()
 
-
-def load_messages(path: str) -> list[dict]:
+def load_messages(path: str) -> list[Message]:
     with open(path, "r", encoding="utf-8") as f:
         data = json.load(f)
 
-    # Getting metadata from topic and messages
-    chat_name = data.get("name", "")
-    topic = data.get("topic", "")
-    messages = data.get("messages", [])
+    export = ChatExport.model_validate(data)
 
     # Adding metadata for each message
-    for msg in messages:
-        msg["chat_name"] = chat_name
-        msg["topic"] = topic
+    for msg in export.messages:
+        msg.chat_name = export.name
+        msg.topic = export.topic
 
-    return messages
+    return export.messages
 
 
-def messages_to_documents(messages: list[dict]) -> list[Document]:
+def messages_to_documents(messages: list[Message]) -> list[Document]:
     # All message from one chat — one conversation_id
-    convos: dict[str, list[dict]] = {}
+    convos: dict[str, list[Message]] = {}
     for msg in messages:
-        cid = msg.get("topic", "default")
-        convos.setdefault(cid, []).append(msg)
+        convos.setdefault(msg.topic or "default", []).append(msg)
 
     documents = []
     window_size = 5  # TODO: Think about logic for creating chunks
@@ -42,32 +35,31 @@ def messages_to_documents(messages: list[dict]) -> list[Document]:
     # chunk 3 - [5, 6, 6, 7, 8]
 
     for conv_id, msgs in convos.items():
-        msgs = sorted(msgs, key=lambda m: m.get("date", ""))
+        msgs = sorted(msgs, key=lambda m: m.date)
 
         for i in range(0, len(msgs), step):
             chunk = msgs[i : i + window_size]
+            text_msgs = [m for m in chunk if m.text]
 
-            text = "\n".join(
-                f"[{m.get('date', '')}] {m.get('from', 'Unknown')}: {m.get('text', '')}"
-                for m in chunk
-                if m.get("text")  # skipping empty messages
-            )
-
-            if not text.strip():
+            if not text_msgs:
                 continue
 
-            doc = Document(
-                page_content=text,
-                metadata={
-                    "conversation_id": conv_id,
-                    "chat_name": chunk[0].get("chat_name", ""),
-                    "topic": conv_id,
-                    "start_time": chunk[0].get("date", ""),
-                    "end_time": chunk[-1].get("date", ""),
-                    "senders": ", ".join(sorted(set(m.get("from", "") for m in chunk))),
-                },
+            text = "\n".join(
+                f"[{m.date.isoformat()}] {m.from_}: {m.text}" for m in text_msgs
             )
-            documents.append(doc)
+
+            meta = ChunkMetadata(
+                conversation_id=conv_id,
+                chat_name=chunk[0].chat_name,
+                topic=conv_id,
+                start_time=chunk[0].date,
+                end_time=chunk[-1].date,
+                senders=", ".join(sorted({m.from_ for m in chunk})),
+            )
+
+            documents.append(
+                Document(page_content=text, metadata=meta.model_dump(mode="json"))
+            )
 
     return documents
 
@@ -75,21 +67,21 @@ def messages_to_documents(messages: list[dict]) -> list[Document]:
 def build_vectorstore(documents: list[Document]) -> Chroma:
     embeddings = MistralAIEmbeddings(
         model="mistral-embed",
-        api_key=os.environ["MISTRAL_API_KEY"],
+        api_key=settings.mistral_api_key,
     )
 
     vectorstore = Chroma.from_documents(
         documents=documents,
         embedding=embeddings,
-        collection_name=COLLECTION_NAME,
-        persist_directory=CHROMA_PATH,
+        collection_name=settings.collection_name,
+        persist_directory=settings.chroma_path,
     )
     print(f"✅ Indexed {len(documents)} chunks into ChromaDB.")
     return vectorstore
 
 
 if __name__ == "__main__":
-    messages = load_messages(DATA_PATH)
+    messages = load_messages(settings.data_path)
     print(f"Loaded {len(messages)} messages.")
     docs = messages_to_documents(messages)
     print(f"Created {len(docs)} document chunks.")
