@@ -5,11 +5,9 @@ from langchain_core.documents import Document
 from langchain_mistralai import MistralAIEmbeddings
 from langchain_chroma import Chroma
 
-load_dotenv()
+from constants import CHROMA_PATH, COLLECTION_NAME, DATA_PATH
 
-DATA_PATH = "data/messages.json"
-CHROMA_PATH = "chroma_db"
-COLLECTION_NAME = "chat_history"
+load_dotenv()
 
 
 def load_messages(path: str) -> list[dict]:
@@ -30,8 +28,7 @@ def load_messages(path: str) -> list[dict]:
 
 
 def messages_to_documents(messages: list[dict]) -> list[Document]:
-    # Все сообщения в одном чате — один conversation_id
-    # Группируем по topic если нужно
+    # All message from one chat — one conversation_id
     convos: dict[str, list[dict]] = {}
     for msg in messages:
         cid = msg.get("topic", "default")

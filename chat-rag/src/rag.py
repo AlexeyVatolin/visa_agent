@@ -6,10 +6,9 @@ from langchain_core.prompts import PromptTemplate
 from langchain_core.runnables import RunnablePassthrough
 from langchain_core.output_parsers import StrOutputParser
 
-load_dotenv()
+from constants import CHROMA_PATH, COLLECTION_NAME
 
-CHROMA_PATH = "chroma_db"
-COLLECTION_NAME = "chat_history"
+load_dotenv()
 
 PROMPT_TEMPLATE = """You are an assistant analyzing Telegram chat history.
 Use the retrieved conversation excerpts below to answer the question accurately.
