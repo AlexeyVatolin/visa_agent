@@ -8,8 +8,10 @@ A local RAG (Retrieval-Augmented Generation) system for querying Telegram chat h
 - **ChromaDB** — local vector store
 - **Mistral AI** — embeddings + LLM (`mistral-embed` + `mistral-small-latest`)
 - **Gradio** — web UI
+- **Pydantic / pydantic-settings** — data models and settings validation
 - **Python 3.14**
 - **uv** — package manager
+- **Ruff** — linting and formatting
 
 ## Project Structure
 
@@ -27,6 +29,8 @@ chat-rag/
 │   └── messages.json
 ├── src/
 │   ├── __init__.py
+│   ├── config.py          # settings via pydantic-settings
+│   ├── models.py          # pydantic data models
 │   ├── ingest.py
 │   ├── rag.py
 │   ├── query.py
@@ -120,12 +124,36 @@ The system expects a Telegram-style chat export:
 | `messages[].from` | Sender identifier |
 | `messages[].text` | Message content |
 
+## Code Quality
+
+**Check for linting issues:**
+```bash
+uv run ruff check .
+```
+
+**Auto-fix linting issues:**
+```bash
+uv run ruff check --fix .
+```
+
+**Format code:**
+```bash
+uv run ruff format .
+```
+
+**Check formatting without applying changes:**
+```bash
+uv run ruff format --check .
+```
+
 ## How It Works
 
-1. `ingest.py` — loads the JSON export, groups messages by `topic`, splits into sliding windows of 5 messages (step=2), embeds via Mistral and stores in ChromaDB
-2. `rag.py` — loads ChromaDB, builds a retrieval chain with MMR search (k=6, fetch_k=20) and a custom prompt using `mistral-small-latest`
-3. `query.py` — interactive CLI that takes your question, retrieves relevant chunks and returns an answer with sources
-4. `query_app.py` — Gradio web UI with a chatbot panel and a sources sidebar
+1. `config.py` — loads settings (API key, paths) from `.env` via `pydantic-settings`
+2. `models.py` — pydantic models for `Message`, `ChatExport`, and `ChunkMetadata`
+3. `ingest.py` — loads the JSON export, groups messages by `topic`, splits into sliding windows of 5 messages (step=2), embeds via Mistral and stores in ChromaDB
+4. `rag.py` — loads ChromaDB, builds a retrieval chain with MMR search (k=6, fetch_k=20) and a custom prompt using `mistral-small-latest`
+5. `query.py` — interactive CLI that takes your question, retrieves relevant chunks and returns an answer with sources
+6. `query_app.py` — Gradio web UI with a chatbot panel and a sources sidebar
 
 ## Notes
 
