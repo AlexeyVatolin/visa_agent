@@ -8,16 +8,21 @@ A local RAG (Retrieval-Augmented Generation) system for querying Telegram chat h
 - **ChromaDB** — local vector store
 - **Mistral AI** — embeddings + LLM (`mistral-embed` + `mistral-small-latest`)
 - **Gradio** — web UI
-- **Python 3.11+**
+- **Python 3.14**
+- **uv** — package manager
 
 ## Project Structure
 
 ```
 chat-rag/
 ├── .env
+├── .env.example
+├── .python-version
 ├── .gitignore
 ├── README.md
-├── requirements.txt
+├── pyproject.toml
+├── uv.lock
+├── main.py
 ├── data/
 │   └── messages.json
 ├── src/
@@ -37,15 +42,14 @@ git clone https://github.com/your-username/chat-rag.git
 cd chat-rag
 ```
 
-**2. Create virtual environment**
+**2. Install uv** (if not already installed)
 ```bash
-python3 -m venv venv
-source venv/bin/activate
+curl -LsSf https://astral.sh/uv/install.sh | sh
 ```
 
 **3. Install dependencies**
 ```bash
-pip install -r requirements.txt
+uv sync
 ```
 
 **4. Create `.env` file from the template**
@@ -60,17 +64,17 @@ Then fill in your values in `.env`.
 
 **Index your data** (run once, or when messages.json changes):
 ```bash
-python src/ingest.py
+uv run src/ingest.py
 ```
 
 **Start the web UI:**
 ```bash
-python src/query_app.py
+uv run src/query_app.py
 ```
 
 **Or use the interactive CLI:**
 ```bash
-python src/query.py
+uv run src/query.py
 ```
 
 Example session:
