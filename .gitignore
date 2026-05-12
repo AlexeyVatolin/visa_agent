@@ -9,9 +9,6 @@ __pycache__/
 # Gradio
 .gradio/
 
-# Chroma db
-chroma_db/
-
 # C extensions
 *.so
 
