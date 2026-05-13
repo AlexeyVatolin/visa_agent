@@ -9,9 +9,6 @@ __pycache__/
 # Gradio
 .gradio/
 
-# Chroma db
-chroma_db/
-
 # C extensions
 *.so
 
@@ -225,3 +222,6 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# ChromaDB
+chat-rag/chroma_db/chroma.sqlite3

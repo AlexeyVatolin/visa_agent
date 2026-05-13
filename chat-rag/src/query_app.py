@@ -1,16 +1,15 @@
 import gradio as gr
-from rag import load_chain
+from graph import visa_graph
 from models import ChunkMetadata
-
-chain, retriever = load_chain()
 
 
 def chat(question_text, history):
     if not question_text.strip():
         return history, "", ""
 
-    answer = chain.invoke(question_text)
-    docs = retriever.invoke(question_text)
+    result = visa_graph.invoke({"question": question_text, "chat_docs": [], "official_data": {}, "answer": ""})
+    answer = result["answer"]
+    docs = result["chat_docs"]
 
     lines = []
     for doc in docs:

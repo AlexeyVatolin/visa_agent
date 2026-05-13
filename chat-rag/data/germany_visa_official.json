@@ -1,0 +1,112 @@
+{
+  "source": "https://belgrad.diplo.de/rs-de/service/05-visaeinreise/2629986-2629986",
+  "title": "Schengen Visa — German Embassy Belgrade",
+  "last_updated": "2026-01-01",
+  "visa_eligibility": {
+    "serbian_citizens": "Travel visa-free to Schengen countries for up to 90 days within 180 days for tourism, family visits, business, or medical treatment.",
+    "other_nationals": "May require a Schengen visa for short stays. Eligibility depends on nationality."
+  },
+  "processing_times": {
+    "minimum_calendar_days": 15,
+    "recommended_submission_weeks_before_travel": "4–6",
+    "maximum_calendar_days": 45,
+    "note_russian_passports": "Processing extended to 45 days for Russian passport holders.",
+    "important": "Applications cannot be accepted if planned trip starts within less than 15 calendar days."
+  },
+  "application_location": {
+    "center": "Visametric visa application center",
+    "address": "Makedonska 30, Belgrade",
+    "booking": "Appointments booked via Visametric website only. Direct submission to the consulate is not possible."
+  },
+  "visa_fees": {
+    "adults_eur": 90,
+    "children_6_to_12_eur": 45,
+    "children_under_6_eur": 0,
+    "visametric_service_fee_rsd": 3600,
+    "fee_exemptions": [
+      "Spouses and minor children of German/EU citizens",
+      "Parents of minor German citizens"
+    ]
+  },
+  "required_documents_all_applicants": [
+    "VIDEX form (completed and signed)",
+    "Signed declaration",
+    "Two biometric passport photos (not older than 6 months)",
+    "Passport valid for at least 6 months after the planned travel; not older than 10 years",
+    "Travel health insurance with minimum coverage of 30,000 EUR",
+    "Return travel ticket or reservation",
+    "Bank statements for the last 3 months (stamped)",
+    "Proof of regular income",
+    "Family ties documentation (if applicable)"
+  ],
+  "additional_documents_non_serbian_residents": [
+    "Valid residence permit for Serbia (original and copy)",
+    "Property ownership documentation (if applicable)"
+  ],
+  "documents_for_minors": {
+    "required": [
+      "Birth certificate",
+      "Parental consent documentation"
+    ],
+    "note": "Individual applications are mandatory for all minors under 18."
+  },
+  "purpose_specific_requirements": {
+    "business": [
+      "Invitation letter with company details",
+      "Letter from the sending company",
+      "Fair entry cards (if applicable)",
+      "Host sponsorship documentation"
+    ],
+    "family_or_private_visit": [
+      "Invitation letter from host",
+      "Host identification",
+      "Proof of relationship",
+      "Formal obligation per §§ 66–68 of the German Residence Act (Verpflichtungserklärung) confirmed by the local German Aliens Authority, or invitation letter with proof of sufficient funds"
+    ],
+    "tourism": [
+      "Hotel booking confirmation",
+      "Travel itinerary"
+    ],
+    "medical_treatment": [
+      "Medical institution documentation confirming illness, treatment duration, and cost pre-payment",
+      "Proof of financial sufficiency"
+    ],
+    "airport_transit": [
+      "Valid entry permit for the destination country",
+      "Onward travel documentation"
+    ]
+  },
+  "special_provisions_russian_passport_holders": {
+    "non_biometric_passports_accepted_until": "2025-12-31",
+    "non_biometric_passports_accepted_from_2026": false,
+    "processing_days": 45,
+    "visa_type": "Single-entry only (family visit exceptions may apply)",
+    "financial_documents": "Russian financial documents are not accepted",
+    "employment_note": "If the applicant left Russia after 2022, employment records from outside Russia are required"
+  },
+  "occupational_documentation": {
+    "employees": [
+      "Employer declaration",
+      "Employment contract",
+      "CROSO printout (Central Register of Compulsory Social Insurance)"
+    ],
+    "entrepreneurs": [
+      "Business registration certificate",
+      "Proof of tax payments",
+      "Bank statements",
+      "Evidence of business activity"
+    ],
+    "students": [
+      "School or university enrollment letter"
+    ],
+    "retirees": [
+      "Pension documentation"
+    ]
+  },
+  "contact_and_resources": {
+    "embassy_location": "Belgrade, Serbia",
+    "visametric_address": "Makedonska 30, Belgrade",
+    "german_federal_foreign_office": "Check visa requirements by nationality on the official website",
+    "consulate_website": "https://belgrad.diplo.de"
+  }
+}

@@ -1,10 +1,9 @@
-from rag import load_chain
+from graph import visa_graph
 from models import ChunkMetadata
 
 
 def main():
-    print("🔍 Chat History RAG — type 'quit' to exit\n")
-    chain, retriever = load_chain()
+    print("Chat History + Official Visa Info RAG — type 'quit' to exit\n")
 
     while True:
         question = input("Your question: ").strip()
@@ -13,12 +12,12 @@ def main():
         if not question:
             continue
 
-        answer = chain.invoke(question)
-        print(f"\n💬 Answer:\n{answer}\n")
+        result = visa_graph.invoke({"question": question, "chat_docs": [], "official_data": {}, "answer": ""})
 
-        docs = retriever.invoke(question)
-        print("📎 Sources:")
-        for doc in docs:
+        print(f"\nAnswer:\n{result['answer']}\n")
+
+        print("Sources (chat history):")
+        for doc in result["chat_docs"]:
             meta = ChunkMetadata.model_validate(doc.metadata)
             print(
                 f"  • Topic: {meta.topic} | "

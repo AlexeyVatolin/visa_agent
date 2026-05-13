@@ -1,10 +1,14 @@
 import json
+import time
 from langchain_core.documents import Document
 from langchain_mistralai import MistralAIEmbeddings
 from langchain_chroma import Chroma
 
 from config import settings
 from models import ChatExport, ChunkMetadata, Message
+
+BATCH_SIZE = 100
+BATCH_DELAY = 3  # seconds between batches
 
 
 def load_messages(path: str) -> list[Message]:
@@ -70,18 +74,37 @@ def build_vectorstore(documents: list[Document]) -> Chroma:
         api_key=settings.mistral_api_key,
     )
 
-    vectorstore = Chroma.from_documents(
-        documents=documents,
-        embedding=embeddings,
-        collection_name=settings.collection_name,
-        persist_directory=settings.chroma_path,
-    )
+    batches = [documents[i : i + BATCH_SIZE] for i in range(0, len(documents), BATCH_SIZE)]
+    vectorstore = None
+
+    for idx, batch in enumerate(batches):
+        print(f"Indexing batch {idx + 1}/{len(batches)} ({len(batch)} chunks)...")
+        if vectorstore is None:
+            vectorstore = Chroma.from_documents(
+                documents=batch,
+                embedding=embeddings,
+                collection_name=settings.collection_name,
+                persist_directory=settings.chroma_path,
+            )
+        else:
+            vectorstore.add_documents(batch)
+
+        if idx < len(batches) - 1:
+            time.sleep(BATCH_DELAY)
+
     print(f"✅ Indexed {len(documents)} chunks into ChromaDB.")
     return vectorstore
 
 
 if __name__ == "__main__":
+    import argparse
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--limit", type=int, default=None, help="Limit number of messages to ingest")
+    args = parser.parse_args()
+
     messages = load_messages(settings.data_path)
+    if args.limit:
+        messages = messages[: args.limit]
     print(f"Loaded {len(messages)} messages.")
     docs = messages_to_documents(messages)
     print(f"Created {len(docs)} document chunks.")
