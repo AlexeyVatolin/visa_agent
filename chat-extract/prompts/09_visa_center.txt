@@ -1,0 +1,22 @@
+Identify the visa processing center from a Russian Telegram message about a Schengen visa result.
+
+"visametric", "визаметрик", "визаметрик" = "visametric"
+"TLS", "TLS contact", "ТЛС" = "tls"
+"посольство", "консульство" (applied directly, not via center) = "embassy_direct"
+If unclear = "unknown"
+
+Fields:
+- visa_center: "visametric" | "tls" | "embassy_direct" | "unknown"
+
+Respond ONLY with valid JSON. No explanation.
+
+Example input:
+"#одобрено сдала документы в визаметрик 03.01, сегодня позвонили забирать."
+
+Example output:
+{"visa_center": "visametric"}
+
+---
+
+Input message:
+{MESSAGE}

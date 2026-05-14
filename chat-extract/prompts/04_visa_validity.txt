@@ -1,0 +1,31 @@
+Extract the granted visa validity duration from a Russian Telegram message about a Schengen visa result.
+
+Look for how many days/weeks/months the visa was granted for.
+"под даты поездки" or "строго под даты" = validity matches trip dates exactly.
+"на неделю" = 7 days.
+"на N дней/дня" = N days.
+"на N месяца/месяцев" = N*30 days (approximate).
+"на год" = 365 days.
+
+Fields:
+- validity_days: integer (number of days) or null if not found
+- exactly_under_dates: true if visa was given strictly for trip dates, false otherwise, null if unknown
+
+Respond ONLY with valid JSON. No explanation.
+
+Example input:
+"#одобрено под даты поездки, одобрили на 14 дней"
+
+Example output:
+{"validity_days": 14, "exactly_under_dates": true}
+
+Example input 2:
+"#одобрено на неделю, как и просили"
+
+Example output 2:
+{"validity_days": 7, "exactly_under_dates": false}
+
+---
+
+Input message:
+{MESSAGE}

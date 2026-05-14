@@ -1,0 +1,25 @@
+Extract rejection details from a Russian Telegram message tagged #отказ (visa rejection).
+Only use this prompt for messages that contain #отказ.
+
+Extract:
+1. rejection_codes: list of integer article/paragraph numbers mentioned (e.g. "пункт 4", "пункт 13" → [4, 13])
+2. rejection_reasons: list of short English reason strings. Map common reasons:
+   - "недостаток средств", "недостаточно средств", "insufficient funds" → "insufficient_funds"
+   - "сомнения в возврате", "не покинет шенген", "риск остаться", пункт 13 context → "overstay_risk"
+   - "цель/условия не заслуживают доверия", "Zweck nicht glaubhaft" → "purpose_not_credible"
+   - "небиометрический паспорт", "non-biometric" → "non_biometric_passport"
+   - Other reasons: use short English description
+3. rejection_reason_raw: the original Russian/German text of the stated reason (first sentence only)
+
+Respond ONLY with valid JSON. No explanation.
+
+Example input:
+"#отказ пункты 4 и 13 (4 - недостаточно средств, 13 - сомнения, что покину территорию шенгена по окончанию действия визы)"
+
+Example output:
+{"rejection_codes": [4, 13], "rejection_reasons": ["insufficient_funds", "overstay_risk"], "rejection_reason_raw": "пункты 4 и 13 (4 - недостаточно средств, 13 - сомнения, что покину территорию шенгена)"}
+
+---
+
+Input message:
+{MESSAGE}

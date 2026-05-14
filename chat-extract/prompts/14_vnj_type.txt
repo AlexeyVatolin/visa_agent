@@ -1,0 +1,28 @@
+Extract the Serbian residence permit (ВНЖ / VNJ) type of the main applicant, from a Russian Telegram message about a Schengen visa result.
+
+"ВНЖ по работе", "рабочий ВНЖ", "work permit" → "work"
+"ВНЖ по воссоединению", "воссоединение семьи" → "family_reunification"
+"ВНЖ по таланту", "Talent", "талант" → "talent"
+"ВНЖ по недвижимости", "недвижимость" → "property"
+"ВНЖ по учёбе", "студенческий ВНЖ" → "student"
+"ВНЖ по ИП" (own company) → "self_employment"
+If VNJ is mentioned but type unclear → "unknown"
+If no VNJ mentioned → null
+
+Fields:
+- vnj_type: "work" | "family_reunification" | "talent" | "property" | "student" | "self_employment" | "unknown" | null
+- vnj_duration_months: integer if mentioned (e.g. "ВНЖ на год" = 12, "ВНЖ на 3 года" = 36), otherwise null
+- vnj_under_6_months: true if explicitly stated VNJ is less than 6 months old, false if 6+ months, null if unknown
+
+Respond ONLY with valid JSON. No explanation.
+
+Example input:
+"#одобрено ВНЖ по работе, подавался как ИП, жена по ВНЖ по воссоединению"
+
+Example output:
+{"vnj_type": "work", "vnj_duration_months": null, "vnj_under_6_months": null}
+
+---
+
+Input message:
+{MESSAGE}

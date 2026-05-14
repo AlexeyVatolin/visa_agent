@@ -1,0 +1,31 @@
+Extract group size and composition from a Russian Telegram message about a Schengen visa result.
+
+Count TOTAL number of people applying (the message author + any family members applying together).
+"один/одна", "сам/сама" = 1 person.
+"вдвоем", "с мужем/женой" = 2 people.
+"с мужем и ребенком", "трое" = 3 people.
+"N человека/человек" = N people.
+
+Fields:
+- total_applicants: integer
+- has_children: true if children are mentioned, false otherwise
+- family_group: true if applying as family/couple, false if solo
+
+Respond ONLY with valid JSON. No explanation.
+
+Example input:
+"#одобрено 3 человека, поездка 07.02-17.02. Я, муж и дочь."
+
+Example output:
+{"total_applicants": 3, "has_children": true, "family_group": true}
+
+Example input 2:
+"#одобрено подавалась одна на туристическую"
+
+Example output 2:
+{"total_applicants": 1, "has_children": false, "family_group": false}
+
+---
+
+Input message:
+{MESSAGE}

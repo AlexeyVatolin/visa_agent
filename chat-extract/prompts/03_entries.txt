@@ -1,0 +1,23 @@
+Extract entry type and number of entries from a Russian Telegram message about a Schengen visa result.
+
+"однократная", "1 въезд", "одноразовая", "single" = single entry.
+"двукратная", "2 въезда", "на два въезда" = 2 entries.
+"мультивиза", "многократная", "multiple" = multi entry.
+If not mentioned, use null.
+
+Fields:
+- entry_type: "single" | "double" | "multi" | null
+- entries_count: integer (1, 2, null for multi)
+
+Respond ONLY with valid JSON. No explanation.
+
+Example input:
+"#одобрено под даты поездки, однократная виза на 10 дней"
+
+Example output:
+{"entry_type": "single", "entries_count": 1}
+
+---
+
+Input message:
+{MESSAGE}

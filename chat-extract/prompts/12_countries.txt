@@ -1,0 +1,28 @@
+Extract which Schengen countries the applicant plans to visit, from a Russian Telegram message about a visa result.
+
+The visa topic is Germany (#Германия), so Germany is always the primary country.
+Look for additional countries mentioned: Франция=France, Испания=Spain, Италия=Italy, Австрия=Austria, Нидерланды=Netherlands, Чехия=Czech Republic, Польша=Poland, Венгрия=Hungary, etc.
+
+Fields:
+- primary_country: always "Germany" for this chat
+- additional_countries: list of English country names, empty list [] if none mentioned
+- is_multi_country: true if visiting more than one Schengen country
+
+Respond ONLY with valid JSON. No explanation.
+
+Example input:
+"#одобрено поездка планировалась на две страны — Германия первая, потом неделя в Испании"
+
+Example output:
+{"primary_country": "Germany", "additional_countries": ["Spain"], "is_multi_country": true}
+
+Example input 2:
+"#одобрено туристическая под даты поездки, только Берлин"
+
+Example output 2:
+{"primary_country": "Germany", "additional_countries": [], "is_multi_country": false}
+
+---
+
+Input message:
+{MESSAGE}

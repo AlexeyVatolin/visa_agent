@@ -1,0 +1,28 @@
+Extract the employment status of the MAIN applicant from a Russian Telegram message about a Schengen visa result.
+
+Rules:
+- "ИП", "индивидуальный предприниматель", "свое ИП", "через ИП" = "self_employed"
+- "работодатель", "работаю на компанию", "наёмный", "трудовой договор", "справка с работы" (as main basis) = "employed"
+- "безработная/безработный", "не работаю" = "unemployed"
+- "студент", "учёба" = "student"
+- "пенсионер" = "retired"
+- If applying "по спонсорству" of spouse/family (main applicant has no independent income) = "sponsored"
+- If unclear = "unknown"
+
+For group applications, classify the primary/first applicant or the one whose case is described.
+
+Fields:
+- employment_status: "self_employed" | "employed" | "unemployed" | "student" | "retired" | "sponsored" | "unknown"
+
+Respond ONLY with valid JSON. No explanation.
+
+Example input:
+"#одобрено туристическая через ИП. Подавалась как ИП плюс жена по спонсорству."
+
+Example output:
+{"employment_status": "self_employed"}
+
+---
+
+Input message:
+{MESSAGE}
