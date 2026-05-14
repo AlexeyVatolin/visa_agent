@@ -1,0 +1,23 @@
+Classify the type of German visa described in this Russian Telegram message about a visa result.
+
+Choose ONE value from this list:
+- "tourist" — туристическая, туризм, по туристической (short stay Schengen C visa for leisure/travel)
+- "business" — бизнес, командировка, выставка, бизнес-встреча, invitation letter от компании
+- "family_visit" — краткосрочная поездка по приглашению родственников или друзей (short-stay Schengen visit to family/friends)
+- "family_reunion" — ONLY for national D visa for permanently joining family in Germany: воссоединение семьи, по воссоединению, виза для переезда к супругу/детям в Германию. NOTE: if someone mentions "ВНЖ по браку/воссоединению" as their Serbian residence type but is applying for a short-stay Schengen under dates, classify as "tourist" not "family_reunion"
+- "national_d" — национальная виза, виза D, карта шансов, Chancenkarte, виза IT-специалиста, Blue Card, виза для работы/учёбы/Ausbildung в Германии
+- "student" — студенческая национальная виза для учёбы в Германии (долгосрочная). Short workshop/course visits = "tourist"
+- "unknown" — cannot determine
+
+Respond ONLY with valid JSON. No explanation.
+
+Example input:
+"#одобрено бизнес-виза на 3 дня (3-ий шенген в Сербии за последний год)"
+
+Example output:
+{"visa_type": "business"}
+
+---
+
+Input message:
+{MESSAGE}

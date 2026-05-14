@@ -1,0 +1,31 @@
+Detect sponsorship arrangement from a Russian Telegram message about a Schengen visa result.
+
+"по спонсорству мужа" = sponsored by husband → "spouse"
+"по спонсорству жены" = sponsored by wife → "spouse"
+"спонсируемая/спонсируемый мной" = self is the sponsor → "self_is_sponsor"
+"по спонсорству родителей" = sponsored by parents → "parents"
+"по спонсорству" (generic, unclear who) = "unknown_sponsor"
+If no sponsorship mentioned (applicant is financially independent) → null
+
+Fields:
+- has_sponsorship: true | false
+- sponsor_relation: "spouse" | "parents" | "relatives" | "self_is_sponsor" | "unknown_sponsor" | null
+
+Respond ONLY with valid JSON. No explanation.
+
+Example input:
+"#одобрено я ИП, жена по спонсорству. Поездка на 10 дней."
+
+Example output:
+{"has_sponsorship": true, "sponsor_relation": "spouse"}
+
+Example input 2:
+"#одобрено подавался как ИП, финансово самостоятельно."
+
+Example output 2:
+{"has_sponsorship": false, "sponsor_relation": null}
+
+---
+
+Input message:
+{MESSAGE}

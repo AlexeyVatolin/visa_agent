@@ -1,0 +1,15 @@
+[project]
+name = "ai-visa-project"
+version = "0.1.0"
+requires-python = ">=3.13"
+dependencies = [
+    "pydantic-ai",
+    "typer",
+    "python-dotenv",
+    "tqdm",
+    "aiolimiter>=1.2.1",
+    "socksio>=1.0.0",
+]
+
+[dependency-groups]
+dev = []

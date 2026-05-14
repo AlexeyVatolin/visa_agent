@@ -1,0 +1,28 @@
+Detect whether additional documents were requested by the consulate/visa center during processing, from a Russian Telegram message about a visa result.
+
+Look for: "дозапрос", "запросили документы", "попросили дослать", "попросили принести", "запросили доп", "дополнительно запросили".
+Also: "попросили белый картон" = standard additional doc for VNJ < 6 months.
+
+Fields:
+- additional_docs_requested: true | false | null (null = not mentioned)
+- docs_requested_list: list of short English descriptions of what was requested, or empty list []
+  Common ones: "white_card" (белый картон), "motivation_letter", "bank_statement", "employment_proof", "accommodation_proof"
+
+Respond ONLY with valid JSON. No explanation.
+
+Example input:
+"#одобрено подали 13.03, попросили дослать белый картон. 28.03 готово."
+
+Example output:
+{"additional_docs_requested": true, "docs_requested_list": ["white_card"]}
+
+Example input 2:
+"#одобрено подали 03.01, забрали 15.01. Всё прошло без вопросов."
+
+Example output 2:
+{"additional_docs_requested": false, "docs_requested_list": []}
+
+---
+
+Input message:
+{MESSAGE}

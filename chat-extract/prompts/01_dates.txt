@@ -1,0 +1,27 @@
+Extract submission date, ready/pickup date, and travel dates from a Telegram message about a Schengen visa result.
+The message is in Russian. Dates may appear as DD.MM, DD.MM.YY, DD.MM.YYYY, or as text like "7 марта", "9-го мая".
+"Подал/подавался/подавалась/подали" = submission date.
+"Забрал/забрала/готово/пригласили/выдали/получил визу/получила визу" = ready date. If the message says "сегодня" for ready, use null.
+"Поездка", "с ... по ...", "выезд", "вылет" = travel dates.
+Months in Russian: январь=01, февраль=02, март=03, апрель=04, май=05, июнь=06, июль=07, август=08, сентябрь=09, октябрь=10, ноябрь=11, декабрь=12.
+Convert all dates to YYYY-MM-DD. Use the message timestamp year if the year is missing. If a value is not found, use null.
+
+IMPORTANT RULES:
+- Only extract a date if the exact day is mentioned (DD or "7-го" etc). A month name alone ("в октябре", "в январе") is NOT enough — use null.
+- "получил отказ", "получила отказ", "дали отказ" = rejection notice, NOT a ready_date. Use null for ready_date in that case.
+- Do not invent or guess day=01 when only a month is mentioned.
+- If only a day number is mentioned with no month (e.g. "Подавалась 13"), use null — not enough context.
+- Year boundary: submission and ready dates must be <= the message timestamp. If a DD.MM date would be in the future relative to the message timestamp, use the prior year instead.
+
+Respond ONLY with valid JSON. No explanation.
+
+Example input:
+"#одобрено подавался 3 января, готово было сегодня, 15 января, поездка с 20 января по 27 января. Год 2025."
+
+Example output:
+{"submission_date": "2025-01-03", "ready_date": "2025-01-15", "travel_start": "2025-01-20", "travel_end": "2025-01-27"}
+
+---
+
+Input message (year: {YEAR}):
+{MESSAGE}

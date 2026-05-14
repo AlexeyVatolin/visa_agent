@@ -1,0 +1,31 @@
+Extract the number of prior Schengen visas the applicant had before this one, from a Russian Telegram message about a visa result.
+
+Look for:
+- "первый шенген", "first Schengen", "ни разу не получал" → 0 prior visas
+- "второй шенген", "вторая виза" → 1 prior visa
+- "третий шенген", "третья виза" → 2 prior visas
+- "N-й шенген" → N-1 prior visas
+- "N визы за X лет" → approximately N-1 prior visas
+
+Fields:
+- prior_schengen_count: integer (0 if first time ever) or null if not mentioned
+- is_first_ever: true if explicitly stated this is their first Schengen visa ever
+
+Respond ONLY with valid JSON. No explanation.
+
+Example input:
+"#одобрено Это первый Шенген вообще, в России до этого не получали"
+
+Example output:
+{"prior_schengen_count": 0, "is_first_ever": true}
+
+Example input 2:
+"#одобрено бизнес-виза (3-ий шенген в Сербии за последний год)"
+
+Example output 2:
+{"prior_schengen_count": 2, "is_first_ever": false}
+
+---
+
+Input message:
+{MESSAGE}

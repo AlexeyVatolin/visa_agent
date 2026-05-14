@@ -1,0 +1,27 @@
+Classify the purpose of the trip from a Russian Telegram message about a Schengen visa result.
+
+Choose ONE primary value:
+- "tourism" — туризм, туристическая, осмотр достопримечательностей, отдых
+- "business" — бизнес, командировка, выставка, деловая встреча, конференция
+- "family_visit" — навестить родственников/друзей, по приглашению, к родственникам
+- "education" — учёба, курсы, университет, школа
+- "event" — свадьба, концерт, мероприятие, соревнование
+- "mixed" — clearly multiple purposes (e.g. tourism + family)
+- "unknown" — cannot determine
+
+Fields:
+- trip_purpose: one value from the list above
+- secondary_purpose: second value if mixed, otherwise null
+
+Respond ONLY with valid JSON. No explanation.
+
+Example input:
+"#одобрено виза по приглашению от родственников. Поездка к сестре."
+
+Example output:
+{"trip_purpose": "family_visit", "secondary_purpose": null}
+
+---
+
+Input message:
+{MESSAGE}

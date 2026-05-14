@@ -1,0 +1,33 @@
+Detect if the applicant received a different visa duration or entry type than they requested, from a Russian Telegram message about a Schengen visa result.
+
+Look for explicit comparisons like:
+- "просили на 6 месяцев, дали на 2 месяца"
+- "хотели мультивизу, дали однократную"
+- "запрашивал двукратную, одобрили однократную"
+- "просили на две поездки, дали 1 въезд"
+
+Fields:
+- mismatch_detected: true | false | null (null if no comparison mentioned)
+- requested_duration_days: integer or null
+- granted_duration_days: integer or null
+- requested_multi: true if multi-entry was requested, false if single was requested, null if not mentioned
+- granted_multi: true if multi-entry was granted, false if single was granted, null if not mentioned
+
+Respond ONLY with valid JSON. No explanation.
+
+Example input:
+"#одобрено Подавалась на бизнес. Просили на пол года, одобрили на 2 месяца"
+
+Example output:
+{"mismatch_detected": true, "requested_duration_days": 180, "granted_duration_days": 60, "requested_multi": null, "granted_multi": null}
+
+Example input 2:
+"#одобрено под даты поездки, всё как просили"
+
+Example output 2:
+{"mismatch_detected": false, "requested_duration_days": null, "granted_duration_days": null, "requested_multi": null, "granted_multi": null}
+
+---
+
+Input message:
+{MESSAGE}
