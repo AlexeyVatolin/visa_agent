@@ -9,7 +9,7 @@ from prompts import ANSWER_PROMPT, CLASSIFY_PROMPT
 from graph.state import GraphState
 
 
-def _build_official_context(data: dict, question: str) -> str:
+def _build_official_context(data: dict) -> str:
     """Flatten the official JSON into a readable string."""
     lines = [
         f"Source: {data.get('source', 'Official Source')}",
@@ -82,7 +82,7 @@ def generate_answer(state: GraphState) -> dict:
         if state["chat_docs"]
         else "No relevant chat messages found."
     )
-    official_context = _build_official_context(state["official_data"], state["question"])
+    official_context = _build_official_context(state["official_data"])
 
     official_source = state["official_data"].get("source", "Official Source")
     prompt_text = ANSWER_PROMPT.format(
