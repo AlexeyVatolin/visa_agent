@@ -8,38 +8,7 @@ from langchain_core.messages import HumanMessage, SystemMessage
 from langgraph.graph import END, START, StateGraph
 
 from config import settings
-
-PROMPT_TEMPLATE = """You are a visa information assistant. Answer the user's question using two sources of information provided below.
-
-Clearly distinguish between:
-- [OFFICIAL] — information from the official German Embassy website
-- [COMMUNITY] — information shared in community chats (may be personal experience, not guaranteed accurate)
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-[OFFICIAL] Information from German Embassy Belgrade (belgrad.diplo.de):
-{official_context}
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-[COMMUNITY] Information from chat history:
-{chat_context}
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Question: {question}
-
-Instructions:
-- Start your answer with official information when available, clearly marked as [OFFICIAL].
-- Add community insights marked as [COMMUNITY] where they add useful context.
-- If official data answers the question fully, say so.
-- If the chat has no relevant info, say "No community insights found for this topic."
-- Never mix sources without labeling them.
-
-Answer:"""
-
-
-CLASSIFY_PROMPT = """You are a guardrail for a German visa information assistant.
-Classify the user's question. Reply with exactly one word:
-- relevant  — if the question is about visas, travel documents, embassy processes, appointments, required documents, fees, waiting times, or related immigration topics
-- off_topic — for anything else"""
+from prompts import ANSWER_PROMPT, CLASSIFY_PROMPT
 
 
 class GraphState(TypedDict):
@@ -138,7 +107,7 @@ def generate_answer(state: GraphState) -> GraphState:
     )
     official_context = _build_official_context(state["official_data"], state["question"])
 
-    prompt_text = PROMPT_TEMPLATE.format(
+    prompt_text = ANSWER_PROMPT.format(
         official_context=official_context,
         chat_context=chat_context,
         question=state["question"],
