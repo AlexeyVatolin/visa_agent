@@ -47,7 +47,8 @@ def classify_question(state: GraphState) -> dict:
         SystemMessage(content=CLASSIFY_PROMPT),
         HumanMessage(content=state["question"]),
     ])
-    label = response.content.strip().lower().split()[0]
+    parts = response.content.strip().lower().split()
+    label = parts[0] if parts else ""
     return {"classification": "relevant" if label == "relevant" else "off_topic"}
 
 
