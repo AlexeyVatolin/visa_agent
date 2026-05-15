@@ -1,22 +1,12 @@
 import json
-from typing import TypedDict
 
 from langchain_chroma import Chroma
-from langchain_core.documents import Document
-from langchain_mistralai import ChatMistralAI, MistralAIEmbeddings
 from langchain_core.messages import HumanMessage, SystemMessage
-from langgraph.graph import END, START, StateGraph
+from langchain_mistralai import ChatMistralAI, MistralAIEmbeddings
 
 from config import settings
 from prompts import ANSWER_PROMPT, CLASSIFY_PROMPT
-
-
-class GraphState(TypedDict):
-    question: str
-    classification: str
-    chat_docs: list[Document]
-    official_data: dict
-    answer: str
+from graph.state import GraphState
 
 
 def _build_official_context(data: dict, question: str) -> str:
@@ -69,13 +59,7 @@ def reject(_: GraphState) -> dict:
     return {"answer": "I can only answer questions about visas, travel documents, and embassy processes. Please ask a related question."}
 
 
-def route_after_classify(state: GraphState) -> list[str] | str:
-    if state["classification"] == "relevant":
-        return ["retrieve_from_chat", "load_official_data"]
-    return "reject"
-
-
-def retrieve_from_chat(state: GraphState) -> GraphState:
+def retrieve_from_chat(state: GraphState) -> dict:
     embeddings = MistralAIEmbeddings(
         model="mistral-embed",
         api_key=settings.mistral_api_key,
@@ -93,13 +77,13 @@ def retrieve_from_chat(state: GraphState) -> GraphState:
     return {"chat_docs": docs}
 
 
-def load_official_data(state: GraphState) -> GraphState:
+def load_official_data(_: GraphState) -> dict:
     with open(settings.official_data_path, encoding="utf-8") as f:
         data = json.load(f)
     return {"official_data": data}
 
 
-def generate_answer(state: GraphState) -> GraphState:
+def generate_answer(state: GraphState) -> dict:
     chat_context = (
         "\n\n".join(doc.page_content for doc in state["chat_docs"])
         if state["chat_docs"]
@@ -122,28 +106,3 @@ def generate_answer(state: GraphState) -> GraphState:
     )
     response = llm.invoke([HumanMessage(content=prompt_text)])
     return {"answer": response.content}
-
-
-def build_graph() -> StateGraph:
-    graph = StateGraph(GraphState)
-
-    graph.add_node("classify_question", classify_question)
-    graph.add_node("retrieve_from_chat", retrieve_from_chat)
-    graph.add_node("load_official_data", load_official_data)
-    graph.add_node("generate_answer", generate_answer)
-    graph.add_node("reject", reject)
-
-    graph.add_edge(START, "classify_question")
-    graph.add_conditional_edges("classify_question", route_after_classify)
-
-    # Fan-in: generate waits for both retrieval nodes
-    graph.add_edge("retrieve_from_chat", "generate_answer")
-    graph.add_edge("load_official_data", "generate_answer")
-
-    graph.add_edge("generate_answer", END)
-    graph.add_edge("reject", END)
-
-    return graph.compile()
-
-
-visa_graph = build_graph()
