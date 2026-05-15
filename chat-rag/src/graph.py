@@ -22,7 +22,7 @@ class GraphState(TypedDict):
 def _build_official_context(data: dict, question: str) -> str:
     """Flatten the official JSON into a readable string."""
     lines = [
-        f"Source: {data.get('source', 'German Embassy Belgrade')}",
+        f"Source: {data.get('source', 'Official Source')}",
         f"Title: {data.get('title', '')}",
         f"Last updated: {data.get('last_updated', '')}",
         "",
@@ -107,7 +107,9 @@ def generate_answer(state: GraphState) -> GraphState:
     )
     official_context = _build_official_context(state["official_data"], state["question"])
 
+    official_source = state["official_data"].get("source", "Official Source")
     prompt_text = ANSWER_PROMPT.format(
+        official_source=official_source,
         official_context=official_context,
         chat_context=chat_context,
         question=state["question"],
