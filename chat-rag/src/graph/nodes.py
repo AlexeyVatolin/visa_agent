@@ -2,9 +2,9 @@ import json
 
 from langchain_chroma import Chroma
 from langchain_core.messages import HumanMessage, SystemMessage
-from langchain_mistralai import ChatMistralAI, MistralAIEmbeddings
 
 from config import settings
+from llm import get_embeddings, get_llm
 from prompts import ANSWER_PROMPT, CLASSIFY_PROMPT
 from graph.state import GraphState
 
@@ -42,11 +42,7 @@ def _build_official_context(data: dict, question: str) -> str:
 
 
 def classify_question(state: GraphState) -> dict:
-    llm = ChatMistralAI(
-        model="mistral-small-latest",
-        api_key=settings.mistral_api_key,
-        temperature=0,
-    )
+    llm = get_llm(temperature=0)
     response = llm.invoke([
         SystemMessage(content=CLASSIFY_PROMPT),
         HumanMessage(content=state["question"]),
@@ -60,10 +56,7 @@ def reject(_: GraphState) -> dict:
 
 
 def retrieve_from_chat(state: GraphState) -> dict:
-    embeddings = MistralAIEmbeddings(
-        model="mistral-embed",
-        api_key=settings.mistral_api_key,
-    )
+    embeddings = get_embeddings()
     vectorstore = Chroma(
         collection_name=settings.collection_name,
         embedding_function=embeddings,
@@ -99,10 +92,6 @@ def generate_answer(state: GraphState) -> dict:
         question=state["question"],
     )
 
-    llm = ChatMistralAI(
-        model="mistral-small-latest",
-        api_key=settings.mistral_api_key,
-        temperature=0.1,
-    )
+    llm = get_llm(temperature=0.1)
     response = llm.invoke([HumanMessage(content=prompt_text)])
     return {"answer": response.content}
