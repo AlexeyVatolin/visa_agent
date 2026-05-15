@@ -4,7 +4,7 @@ from typing import TypedDict
 from langchain_chroma import Chroma
 from langchain_core.documents import Document
 from langchain_mistralai import ChatMistralAI, MistralAIEmbeddings
-from langchain_core.messages import HumanMessage
+from langchain_core.messages import HumanMessage, SystemMessage
 from langgraph.graph import END, START, StateGraph
 
 from config import settings
@@ -36,8 +36,15 @@ Instructions:
 Answer:"""
 
 
+CLASSIFY_PROMPT = """You are a guardrail for a German visa information assistant.
+Classify the user's question. Reply with exactly one word:
+- relevant  — if the question is about visas, travel documents, embassy processes, appointments, required documents, fees, waiting times, or related immigration topics
+- off_topic — for anything else"""
+
+
 class GraphState(TypedDict):
     question: str
+    classification: str
     chat_docs: list[Document]
     official_data: dict
     answer: str
@@ -73,6 +80,30 @@ def _build_official_context(data: dict, question: str) -> str:
         flatten(value)
 
     return "\n".join(lines)
+
+
+def classify_question(state: GraphState) -> dict:
+    llm = ChatMistralAI(
+        model="mistral-small-latest",
+        api_key=settings.mistral_api_key,
+        temperature=0,
+    )
+    response = llm.invoke([
+        SystemMessage(content=CLASSIFY_PROMPT),
+        HumanMessage(content=state["question"]),
+    ])
+    label = response.content.strip().lower().split()[0]
+    return {"classification": "relevant" if label == "relevant" else "off_topic"}
+
+
+def reject(_: GraphState) -> dict:
+    return {"answer": "I can only answer questions about visas, travel documents, and embassy processes. Please ask a related question."}
+
+
+def route_after_classify(state: GraphState) -> list[str] | str:
+    if state["classification"] == "relevant":
+        return ["retrieve_from_chat", "load_official_data"]
+    return "reject"
 
 
 def retrieve_from_chat(state: GraphState) -> GraphState:
@@ -125,19 +156,21 @@ def generate_answer(state: GraphState) -> GraphState:
 def build_graph() -> StateGraph:
     graph = StateGraph(GraphState)
 
+    graph.add_node("classify_question", classify_question)
     graph.add_node("retrieve_from_chat", retrieve_from_chat)
     graph.add_node("load_official_data", load_official_data)
     graph.add_node("generate_answer", generate_answer)
+    graph.add_node("reject", reject)
 
-    # Fan-out: both retrieval nodes run in parallel from START
-    graph.add_edge(START, "retrieve_from_chat")
-    graph.add_edge(START, "load_official_data")
+    graph.add_edge(START, "classify_question")
+    graph.add_conditional_edges("classify_question", route_after_classify)
 
-    # Fan-in: generate waits for both to complete
+    # Fan-in: generate waits for both retrieval nodes
     graph.add_edge("retrieve_from_chat", "generate_answer")
     graph.add_edge("load_official_data", "generate_answer")
 
     graph.add_edge("generate_answer", END)
+    graph.add_edge("reject", END)
 
     return graph.compile()
 
