@@ -1,5 +1,5 @@
 from graph import visa_graph
-from models import ChunkMetadata
+from ingest import ChunkMetadata
 
 
 def main():

@@ -2,7 +2,7 @@ import typer
 import gradio as gr
 from dashboard import compute_tourist_stats
 from graph import visa_graph
-from models import ChunkMetadata
+from ingest import ChunkMetadata
 
 
 def chat(question_text, history):
