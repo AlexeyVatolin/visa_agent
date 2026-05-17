@@ -47,8 +47,6 @@ def input_guard(state: GraphState) -> dict:
     updates: dict = {
         "question": result.cleaned_text,
         "injection_flagged": result.injection_flagged,
-        "pii_redactions": result.pii_redactions,
-        "out_of_scope": result.out_of_scope,
     }
     if result.refusal_message:
         updates["refusal_message"] = result.refusal_message
