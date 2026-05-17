@@ -5,7 +5,8 @@ A local RAG (Retrieval-Augmented Generation) system for querying visa-related Te
 ## Tech Stack
 
 - **LangChain** — RAG pipeline
-- **LangGraph** — graph with classification guardrail + parallel retrieval (community + official sources)
+- **LangGraph** — graph with input/output guardrails, classification, and parallel retrieval (community + official sources)
+- **[LangSmith](https://smith.langchain.com)** — optional tracing and observability
 - **ChromaDB** — local vector store
 - **Mistral AI** — embeddings + LLM (`mistral-embed` + `mistral-small-latest`)
 - **Gradio** — web UI
@@ -38,8 +39,16 @@ chat-rag/
 │   ├── query_app.py           # Gradio web UI
 │   ├── graph/
 │   │   ├── graph.py           # LangGraph pipeline definition
-│   │   ├── nodes.py           # node functions (classify, retrieve, generate, reject)
+│   │   ├── nodes.py           # node functions (input_guard, classify, retrieve, generate, output_guard, reject)
 │   │   └── state.py           # GraphState TypedDict
+│   ├── guardrails/
+│   │   ├── __init__.py        # public API re-exports
+│   │   ├── input.py           # run_input_guardrails: PII redaction + injection detection
+│   │   ├── output.py          # run_output_guardrails: PII redaction + internal error scrubbing
+│   │   ├── _injection.py      # prompt-injection heuristics
+│   │   ├── _pii.py            # input PII regex redaction
+│   │   ├── _output_tokens.py  # output PII token redaction
+│   │   └── _internal_errors.py # internal error leak rewriting
 │   ├── ingest/
 │   │   ├── ingest.py          # ingestion script
 │   │   └── models.py          # pydantic data models (Message, ChatExport, ChunkMetadata)
@@ -71,7 +80,16 @@ uv sync
 ```bash
 cp .env.example .env
 ```
-Then fill in your values in `.env`.
+Then fill in your values in `.env`. At minimum, set `MISTRAL_API_KEY`.
+
+To enable LangSmith tracing, also set:
+```
+LANGSMITH_TRACING=true
+LANGSMITH_API_KEY=<your key>
+LANGSMITH_PROJECT=visa-agent
+LANGSMITH_ENDPOINT=https://api.smith.langchain.com
+```
+LangSmith tracing is off by default (`LANGSMITH_TRACING=false`).
 
 **5. Add your chat export to `data/messages.json`**
 
@@ -111,30 +129,34 @@ Your question: Кто подавался на визу с боравком ме�
 
 ## How It Works
 
-The system uses a **LangGraph pipeline** with a classification guardrail followed by two parallel retrieval branches:
+The system uses a **LangGraph pipeline** with input/output guardrails, a classification node, and two parallel retrieval branches:
 
 ```
 START
-  └──▶ classify_question
-        ├──▶ [relevant]  retrieve_from_chat   (ChromaDB MMR search over community messages)
-        │    [relevant]  load_official_data   (German Embassy JSON)
-        │                └──▶ generate_answer (waits for both, answers with labeled sources)
-        │                     └──▶ END
-        └──▶ [off_topic] reject → END
+  └──▶ input_guard
+        ├──▶ [injection_flagged] reject → END
+        └──▶ [clean] classify_question
+              ├──▶ [relevant]  retrieve_from_chat   (ChromaDB MMR search over community messages)
+              │    [relevant]  load_official_data   (German Embassy JSON)
+              │                └──▶ generate_answer (waits for both, answers with labeled sources)
+              │                     └──▶ output_guard → END
+              └──▶ [off_topic] reject → END
 ```
 
-1. `config.py` — loads settings (API key, paths) from `.env` via `pydantic-settings`
+1. `config.py` — loads settings (API key, paths, optional LangSmith config) from `.env` via `pydantic-settings`
 2. `llm.py` — factory functions for `ChatMistralAI` and `MistralAIEmbeddings`
 3. `ingest/models.py` — pydantic models for `Message`, `ChatExport`, and `ChunkMetadata`
 4. `ingest/ingest.py` — loads the JSON export, groups messages by `topic`, splits into sliding windows of 5 messages (step=2), embeds via Mistral in batches of 100 and stores in ChromaDB
 5. `graph/state.py` — `GraphState` TypedDict shared across all nodes
-6. `graph/nodes.py` — node functions: `classify_question`, `reject`, `retrieve_from_chat`, `load_official_data`, `generate_answer`; `_build_official_context` flattens the embassy JSON for the LLM prompt
-7. `graph/graph.py` — assembles and compiles the `StateGraph` with conditional routing after classification
-8. `prompts/classify.py` — prompt for the guardrail classifier (relevant / off_topic)
-9. `prompts/answer.py` — prompt template that structures `[OFFICIAL]` and `[COMMUNITY]` labeled sections
-10. `query.py` — interactive CLI that invokes the graph and prints the answer with sources
-11. `query_app.py` — Gradio web UI with a chatbot panel and a sources sidebar
-12. `dashboard.py` — reads extracted JSONL data under `data/extracted/` to compute per-country tourist visa statistics (wait times, approval rates, validity, multi-entry counts)
+6. `graph/nodes.py` — node functions: `input_guard`, `classify_question`, `reject`, `retrieve_from_chat`, `load_official_data`, `generate_answer`, `output_guard`; `_build_official_context` flattens the embassy JSON for the LLM prompt
+7. `graph/graph.py` — assembles and compiles the `StateGraph` with conditional routing after input guard and classification
+8. `guardrails/input.py` — `run_input_guardrails`: redacts PII from user input and detects prompt-injection attempts
+9. `guardrails/output.py` — `run_output_guardrails`: redacts PII tokens and rewrites internal error leaks from LLM output
+10. `prompts/classify.py` — prompt for the topic classifier (relevant / off_topic)
+11. `prompts/answer.py` — prompt template that structures `[OFFICIAL]` and `[COMMUNITY]` labeled sections
+12. `query.py` — interactive CLI that invokes the graph and prints the answer with sources
+13. `query_app.py` — Gradio web UI with a chatbot panel and a sources sidebar; initialises LangSmith tracing when enabled
+14. `dashboard.py` — reads extracted JSONL data under `data/extracted/` to compute per-country tourist visa statistics (wait times, approval rates, validity, multi-entry counts)
 
 ## Expected JSON Formats
 
