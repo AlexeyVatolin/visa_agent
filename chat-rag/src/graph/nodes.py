@@ -4,6 +4,7 @@ from langchain_chroma import Chroma
 from langchain_core.messages import HumanMessage, SystemMessage
 
 from config import settings
+from guardrails import run_input_guardrails, run_output_guardrails
 from llm import get_embeddings, get_llm
 from prompts import ANSWER_PROMPT, CLASSIFY_PROMPT
 from graph.state import GraphState
@@ -41,6 +42,24 @@ def _build_official_context(data: dict) -> str:
     return "\n".join(lines)
 
 
+def input_guard(state: GraphState) -> dict:
+    result = run_input_guardrails(state["question"])
+    updates: dict = {
+        "question": result.cleaned_text,
+        "injection_flagged": result.injection_flagged,
+        "pii_redactions": result.pii_redactions,
+        "out_of_scope": result.out_of_scope,
+    }
+    if result.refusal_message:
+        updates["refusal_message"] = result.refusal_message
+    return updates
+
+
+def output_guard(state: GraphState) -> dict:
+    result = run_output_guardrails(state["answer"])
+    return {"answer": result.response_text}
+
+
 def classify_question(state: GraphState) -> dict:
     llm = get_llm(temperature=0)
     response = llm.invoke([
@@ -52,8 +71,12 @@ def classify_question(state: GraphState) -> dict:
     return {"classification": "relevant" if label == "relevant" else "off_topic"}
 
 
-def reject(_: GraphState) -> dict:
-    return {"answer": "I can only answer questions about visas, travel documents, and embassy processes. Please ask a related question."}
+def reject(state: GraphState) -> dict:
+    msg = state.get(  # type: ignore[call-overload]
+        "refusal_message",
+        "I can only answer questions about visas, travel documents, and embassy processes. Please ask a related question.",
+    )
+    return {"answer": msg}
 
 
 def retrieve_from_chat(state: GraphState) -> dict:
