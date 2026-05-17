@@ -9,6 +9,9 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    env:
+      MODAL_TOKEN_ID: ${{ secrets.MODAL_TOKEN_ID }}
+      MODAL_TOKEN_SECRET: ${{ secrets.MODAL_TOKEN_SECRET }}
     defaults:
       run:
         working-directory: chat-rag
@@ -17,12 +20,12 @@ jobs:
 
       - uses: astral-sh/setup-uv@v5
 
-      - name: Install dependencies
-        run: uv sync --only-dev
+      - name: Update Modal secret
+        run: |
+          uvx modal secret put visa-rag-secrets MISTRAL_API_KEY=${{ secrets.MISTRAL_API_KEY }}
 
       - name: Deploy to Modal
         env:
           MODAL_TOKEN_ID: ${{ secrets.MODAL_TOKEN_ID }}
           MODAL_TOKEN_SECRET: ${{ secrets.MODAL_TOKEN_SECRET }}
-          MISTRAL_API_KEY: ${{ secrets.MISTRAL_API_KEY }}
-        run: uv run modal deploy deploy_modal.py
+        run: uvx modal deploy deploy_modal.py

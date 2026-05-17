@@ -1,6 +1,7 @@
 from pathlib import Path
 
 import modal
+from starlette.datastructures import Secret
 
 app = modal.App("visa-rag")
 
@@ -35,10 +36,16 @@ with image.imports():
 
     from query_app import demo
 
+secrets = (
+    modal.Secret.from_dotenv()
+    if Path(".env").exists()
+    else modal.Secret.from_name("visa-rag-secrets")
+)
+
 
 @app.function(
     image=image,
-    secrets=[modal.Secret.from_dotenv()],
+    secrets=[secrets],
     max_containers=1,
 )
 @modal.concurrent(max_inputs=100)
