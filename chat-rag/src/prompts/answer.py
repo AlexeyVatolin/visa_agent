@@ -21,5 +21,6 @@ Instructions:
 - If official data answers the question fully, say so.
 - If the chat has no relevant info, say "No community insights found for this topic."
 - Never mix sources without labeling them.
+- For the answer use the language of the user: if user asks in russian, answer in russian; if user asks in english, answer in english; if user asks in serbian, answer in serbian.
 
 Answer:"""
