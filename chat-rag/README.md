@@ -5,7 +5,7 @@ A local RAG (Retrieval-Augmented Generation) system for querying visa-related Te
 ## Tech Stack
 
 - **LangChain** — RAG pipeline
-- **LangGraph** — parallel retrieval graph (community + official sources)
+- **LangGraph** — graph with classification guardrail + parallel retrieval (community + official sources)
 - **ChromaDB** — local vector store
 - **Mistral AI** — embeddings + LLM (`mistral-embed` + `mistral-small-latest`)
 - **Gradio** — web UI
@@ -31,14 +31,22 @@ chat-rag/
 │   └── germany_visa_official.json
 ├── src/
 │   ├── __init__.py
-│   ├── config.py          # settings via pydantic-settings
-│   ├── models.py          # pydantic data models
-│   ├── graph.py           # LangGraph pipeline (parallel retrieval + generation)
-│   ├── ingest.py
-│   ├── rag.py
-│   ├── query.py
-│   └── query_app.py
-└── chroma_db/             # auto-created after ingestion
+│   ├── config.py              # settings via pydantic-settings
+│   ├── llm.py                 # LLM + embeddings factory functions
+│   ├── dashboard.py           # visa statistics from extracted data
+│   ├── query.py               # interactive CLI
+│   ├── query_app.py           # Gradio web UI
+│   ├── graph/
+│   │   ├── graph.py           # LangGraph pipeline definition
+│   │   ├── nodes.py           # node functions (classify, retrieve, generate, reject)
+│   │   └── state.py           # GraphState TypedDict
+│   ├── ingest/
+│   │   ├── ingest.py          # ingestion script
+│   │   └── models.py          # pydantic data models (Message, ChatExport, ChunkMetadata)
+│   └── prompts/
+│       ├── answer.py          # ANSWER_PROMPT template
+│       └── classify.py        # CLASSIFY_PROMPT template
+└── chroma_db/                 # auto-created after ingestion
 ```
 
 ## Setup
@@ -73,7 +81,8 @@ Then fill in your values in `.env`.
 
 **Index your data** (run once, or when `messages.json` changes):
 ```bash
-uv run src/ingest.py
+uv run src/ingest/ingest.py
+uv run src/ingest/ingest.py --limit 100  # ingest only first N messages
 ```
 
 **Start the web UI:**
@@ -102,22 +111,30 @@ Your question: Кто подавался на визу с боравком ме�
 
 ## How It Works
 
-The system uses a **LangGraph pipeline** with two parallel retrieval branches that fan in before generation:
+The system uses a **LangGraph pipeline** with a classification guardrail followed by two parallel retrieval branches:
 
 ```
 START
-  ├──▶ retrieve_from_chat   (ChromaDB MMR search over community messages)
-  ├──▶ load_official_data   (German Embassy JSON)
-  └──▶ generate_answer      (waits for both, then answers with labeled sources)
-       └──▶ END
+  └──▶ classify_question
+        ├──▶ [relevant]  retrieve_from_chat   (ChromaDB MMR search over community messages)
+        │    [relevant]  load_official_data   (German Embassy JSON)
+        │                └──▶ generate_answer (waits for both, answers with labeled sources)
+        │                     └──▶ END
+        └──▶ [off_topic] reject → END
 ```
 
 1. `config.py` — loads settings (API key, paths) from `.env` via `pydantic-settings`
-2. `models.py` — pydantic models for `Message`, `ChatExport`, and `ChunkMetadata`
-3. `ingest.py` — loads the JSON export, groups messages by `topic`, splits into sliding windows of 5 messages (step=2), embeds via Mistral in batches of 100 and stores in ChromaDB
-4. `graph.py` — LangGraph `StateGraph` that retrieves community docs and official data in parallel, then generates a labeled answer distinguishing `[OFFICIAL]` vs `[COMMUNITY]` sources
-5. `query.py` — interactive CLI that invokes the graph and returns an answer with sources
-6. `query_app.py` — Gradio web UI with a chatbot panel and a sources sidebar
+2. `llm.py` — factory functions for `ChatMistralAI` and `MistralAIEmbeddings`
+3. `ingest/models.py` — pydantic models for `Message`, `ChatExport`, and `ChunkMetadata`
+4. `ingest/ingest.py` — loads the JSON export, groups messages by `topic`, splits into sliding windows of 5 messages (step=2), embeds via Mistral in batches of 100 and stores in ChromaDB
+5. `graph/state.py` — `GraphState` TypedDict shared across all nodes
+6. `graph/nodes.py` — node functions: `classify_question`, `reject`, `retrieve_from_chat`, `load_official_data`, `generate_answer`; `_build_official_context` flattens the embassy JSON for the LLM prompt
+7. `graph/graph.py` — assembles and compiles the `StateGraph` with conditional routing after classification
+8. `prompts/classify.py` — prompt for the guardrail classifier (relevant / off_topic)
+9. `prompts/answer.py` — prompt template that structures `[OFFICIAL]` and `[COMMUNITY]` labeled sections
+10. `query.py` — interactive CLI that invokes the graph and prints the answer with sources
+11. `query_app.py` — Gradio web UI with a chatbot panel and a sources sidebar
+12. `dashboard.py` — reads extracted JSONL data under `data/extracted/` to compute per-country tourist visa statistics (wait times, approval rates, validity, multi-entry counts)
 
 ## Expected JSON Formats
 
@@ -165,7 +182,7 @@ Structured JSON scraped or manually assembled from the embassy website:
 }
 ```
 
-The `_build_official_context` function in `graph.py` flattens any nested structure into labeled sections for the LLM prompt.
+The `_build_official_context` function in `graph/nodes.py` flattens any nested structure into labeled sections for the LLM prompt.
 
 ## Code Quality
 
@@ -191,7 +208,8 @@ uv run ruff format --check .
 
 ## Notes
 
-- `chroma_db/` is committed to this repo so the index is shared — re-run `ingest.py` if `messages.json` changes
+- `chroma_db/` is committed to this repo so the index is shared — re-run `ingest/ingest.py` if `messages.json` changes
 - `.env` is gitignored — never commit your API key
 - Messages with empty `text` field are skipped during ingestion
 - Ingestion is batched (100 docs / batch, 3 s delay) to stay within Mistral API rate limits
+- Off-topic questions are rejected before retrieval by the `classify_question` guardrail

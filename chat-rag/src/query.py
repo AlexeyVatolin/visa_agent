@@ -1,5 +1,5 @@
 from graph import visa_graph
-from models import ChunkMetadata
+from ingest import ChunkMetadata
 
 
 def main():
@@ -12,7 +12,7 @@ def main():
         if not question:
             continue
 
-        result = visa_graph.invoke({"question": question, "chat_docs": [], "official_data": {}, "answer": ""})
+        result = visa_graph.invoke({"question": question, "classification": "", "chat_docs": [], "official_data": {}, "answer": ""})
 
         print(f"\nAnswer:\n{result['answer']}\n")
 
