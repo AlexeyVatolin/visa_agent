@@ -1,10 +1,10 @@
 import json
 import time
 from langchain_core.documents import Document
-from langchain_mistralai import MistralAIEmbeddings
 from langchain_chroma import Chroma
 
 from config import settings
+from llm import get_embeddings
 from models import ChatExport, ChunkMetadata, Message
 
 BATCH_SIZE = 100
@@ -69,10 +69,7 @@ def messages_to_documents(messages: list[Message]) -> list[Document]:
 
 
 def build_vectorstore(documents: list[Document]) -> Chroma:
-    embeddings = MistralAIEmbeddings(
-        model="mistral-embed",
-        api_key=settings.mistral_api_key,
-    )
+    embeddings = get_embeddings()
 
     batches = [documents[i : i + BATCH_SIZE] for i in range(0, len(documents), BATCH_SIZE)]
     vectorstore = None

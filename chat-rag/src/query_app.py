@@ -2,14 +2,14 @@ import typer
 import gradio as gr
 from dashboard import compute_tourist_stats
 from graph import visa_graph
-from models import ChunkMetadata
+from ingest import ChunkMetadata
 
 
 def chat(question_text, history):
     if not question_text.strip():
         return history, "", ""
 
-    result = visa_graph.invoke({"question": question_text, "chat_docs": [], "official_data": {}, "answer": ""})
+    result = visa_graph.invoke({"question": question_text, "classification": "", "chat_docs": [], "official_data": {}, "answer": ""})
     answer = result["answer"]
     docs = result["chat_docs"]
 
