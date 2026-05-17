@@ -33,7 +33,8 @@ COUNTRY_FLAGS: dict[str, str] = {
 
 def load_jsonl(path: Path) -> list[dict]:
     records: list[dict] = []
-    with path.open() as f:
+    # with path.open() as f:
+    with path.open(encoding="utf-8") as f:
         for line in f:
             if line.strip():
                 records.append(json.loads(line))

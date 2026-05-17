@@ -21,7 +21,7 @@ def main():
             meta = ChunkMetadata.model_validate(doc.metadata)
             print(
                 f"  • Topic: {meta.topic} | "
-                f"{meta.start_time} → {meta.end_time} | "
+                f"{meta.start_time} -> {meta.end_time} | "
                 f"Senders: {meta.senders}"
             )
         print("-" * 60 + "\n")
