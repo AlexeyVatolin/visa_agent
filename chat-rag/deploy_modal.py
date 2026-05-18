@@ -1,7 +1,6 @@
 from pathlib import Path
 
 import modal
-from starlette.datastructures import Secret
 
 app = modal.App("visa-rag")
 
