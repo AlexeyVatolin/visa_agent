@@ -61,10 +61,12 @@ def output_guard(state: GraphState) -> dict:
 
 def classify_question(state: GraphState) -> dict:
     llm = get_llm(temperature=0)
-    response = llm.invoke([
-        SystemMessage(content=CLASSIFY_PROMPT),
-        HumanMessage(content=state["question"]),
-    ])
+    response = llm.invoke(
+        [
+            SystemMessage(content=CLASSIFY_PROMPT),
+            HumanMessage(content=state["question"]),
+        ]
+    )
     parts = response.content.strip().lower().split()
     label = parts[0] if parts else ""
     return {"classification": "relevant" if label == "relevant" else "off_topic"}

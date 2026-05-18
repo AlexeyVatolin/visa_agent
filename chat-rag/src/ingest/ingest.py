@@ -50,9 +50,7 @@ def messages_to_documents(messages: list[Message]) -> list[Document]:
             if not text_msgs:
                 continue
 
-            text = "\n".join(
-                f"[{m.date.isoformat()}] {m.from_}: {m.text}" for m in text_msgs
-            )
+            text = "\n".join(f"[{m.date.isoformat()}] {m.from_}: {m.text}" for m in text_msgs)
 
             meta = ChunkMetadata(
                 conversation_id=conv_id,
@@ -63,9 +61,7 @@ def messages_to_documents(messages: list[Message]) -> list[Document]:
                 senders=", ".join(sorted({m.from_ for m in chunk})),
             )
 
-            documents.append(
-                Document(page_content=text, metadata=meta.model_dump(mode="json"))
-            )
+            documents.append(Document(page_content=text, metadata=meta.model_dump(mode="json")))
 
     return documents
 
@@ -97,8 +93,11 @@ def build_vectorstore(documents: list[Document]) -> Chroma:
 
 if __name__ == "__main__":
     import argparse
+
     parser = argparse.ArgumentParser()
-    parser.add_argument("--limit", type=int, default=None, help="Limit number of messages to ingest")
+    parser.add_argument(
+        "--limit", type=int, default=None, help="Limit number of messages to ingest"
+    )
     args = parser.parse_args()
 
     messages = load_messages(settings.data_path)

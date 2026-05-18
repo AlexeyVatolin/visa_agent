@@ -15,9 +15,7 @@ def build_chat_tab() -> None:
                     )
                     send_btn = gr.Button("Send", scale=1)
             with gr.Column(scale=1):
-                sources_box = gr.Textbox(
-                    label="Sources", lines=20, interactive=False
-                )
+                sources_box = gr.Textbox(label="Sources", lines=20, interactive=False)
 
     send_btn.click(
         fn=stage_user_message,
