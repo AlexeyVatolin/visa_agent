@@ -21,7 +21,14 @@ jobs:
       - uses: astral-sh/setup-uv@v5
 
       - name: Update Modal secret
-        run: uvx modal secret create visa-rag-secrets MISTRAL_API_KEY=${{ secrets.MISTRAL_API_KEY }} LANGSMITH_API_KEY=${{ secrets.LANGSMITH_API_KEY }} --force
+        run: >
+          uvx modal secret create visa-rag-secrets
+          MISTRAL_API_KEY=${{ secrets.MISTRAL_API_KEY }}
+          LANGSMITH_TRACING=true
+          LANGSMITH_PROJECT=visa-agent
+          LANGSMITH_ENDPOINT=https://api.smith.langchain.com
+          LANGSMITH_API_KEY=${{ secrets.LANGSMITH_API_KEY }}
+          --force
 
       - name: Deploy to Modal
         run: uvx modal deploy deploy_modal.py
