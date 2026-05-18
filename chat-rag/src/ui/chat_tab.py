@@ -6,7 +6,7 @@ from ui.handlers import complete_assistant_message, stage_user_message
 def build_chat_tab() -> None:
     with gr.Tab("Chat"):
         gr.Markdown("# Chat History RAG")
-        sources_state = gr.State([])
+        sources_state = gr.State("")
         with gr.Row():
             with gr.Column(scale=3):
                 chatbot = gr.Chatbot(height=500, label="Chat")
@@ -16,7 +16,8 @@ def build_chat_tab() -> None:
                     )
                     send_btn = gr.Button("Send", scale=1)
             with gr.Column(scale=1, min_width=240):
-                sources_box = gr.JSON(label="Sources", value=[])
+                gr.Markdown("### Sources")
+                sources_box = gr.HTML(value="")
 
     chatbot.change(
         fn=lambda s: s,

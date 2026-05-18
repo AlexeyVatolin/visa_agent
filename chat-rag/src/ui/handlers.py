@@ -1,9 +1,42 @@
+import html
 from typing import Any
 
 import gradio as gr
 
 from graph import visa_graph
 from ingest import ChunkMetadata
+
+
+def _sources_to_html(docs: list) -> str:
+    if not docs:
+        return "<p style='color:#888;font-family:sans-serif;'>No sources found.</p>"
+
+    cards: list[str] = []
+    for doc in docs:
+        meta = ChunkMetadata.model_validate(doc.metadata)
+        topic = html.escape(meta.topic)
+        time_range = html.escape(f"{meta.start_time.strftime('%Y-%m-%d %H:%M')} → {meta.end_time.strftime('%H:%M')}")
+        senders = html.escape(meta.senders)
+        preview = html.escape(doc.page_content[:280])
+        if len(doc.page_content) > 280:
+            preview += "…"
+        preview = preview.replace("\n", "<br>")
+
+        cards.append(
+            f"""<div style="border:1px solid #e0e0e0;border-radius:8px;padding:12px;
+                           margin-bottom:10px;background:#fafafa;font-family:sans-serif;">
+              <div style="font-weight:600;margin-bottom:4px;">📂 {topic}</div>
+              <div style="color:#666;font-size:12px;margin-bottom:2px;">🕐 {time_range}</div>
+              <div style="color:#888;font-size:11px;margin-bottom:8px;">👥 {senders}</div>
+              <div style="color:#333;font-size:13px;line-height:1.5;">{preview}</div>
+            </div>"""
+        )
+
+    return (
+        "<div style='height:500px;overflow-y:auto;padding-right:4px;'>"
+        + "".join(cards)
+        + "</div>"
+    )
 
 
 def content_to_text(content: Any) -> str:
@@ -51,16 +84,4 @@ def complete_assistant_message(history: list) -> tuple[list, str]:
     answer = result["answer"]
     docs = result["chat_docs"]
 
-    sources_list: list[dict] = []
-    for doc in docs:
-        meta = ChunkMetadata.model_validate(doc.metadata)
-        sources_list.append(
-            {
-                "topic": meta.topic,
-                "time": f"{meta.start_time} → {meta.end_time}",
-                "senders": meta.senders,
-                "content": doc.page_content,
-            }
-        )
-
-    return [*history, {"role": "assistant", "content": answer}], sources_list
+    return [*history, {"role": "assistant", "content": answer}], _sources_to_html(docs)
