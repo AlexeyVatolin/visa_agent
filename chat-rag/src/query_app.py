@@ -17,7 +17,8 @@ with gr.Blocks(title="VISA Dashboard") as demo:
 
 
 def main(share: bool = False):
-    demo.launch(share=share)
+    # demo.launch(share=share, theme=gr.Theme.from_hub("hmb/windows95"))
+    demo.launch(share=share, theme=gr.themes.Citrus())
 
 
 if __name__ == "__main__":
