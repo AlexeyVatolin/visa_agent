@@ -10,7 +10,6 @@ import typer
 from ui.chat_tab import build_chat_tab
 from ui.dashboard_tab import build_dashboard_tab
 
-
 with gr.Blocks(title="VISA Dashboard") as demo:
     build_dashboard_tab()
     build_chat_tab()
