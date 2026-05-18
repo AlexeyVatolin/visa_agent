@@ -4,8 +4,9 @@ from dotenv import load_dotenv
 
 load_dotenv(Path(__file__).parent.parent / ".env")
 
-import typer
 import gradio as gr
+import typer
+
 from dashboard import compute_tourist_stats
 from graph import visa_graph
 from ingest import ChunkMetadata

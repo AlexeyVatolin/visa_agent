@@ -1,13 +1,14 @@
 import json
+from pathlib import Path
 
 from langchain_chroma import Chroma
 from langchain_core.messages import HumanMessage, SystemMessage
 
 from config import settings
+from graph.state import GraphState
 from guardrails import run_input_guardrails, run_output_guardrails
 from llm import get_embeddings, get_llm
 from prompts import ANSWER_PROMPT, CLASSIFY_PROMPT
-from graph.state import GraphState
 
 
 def _build_official_context(data: dict) -> str:
@@ -93,7 +94,7 @@ def retrieve_from_chat(state: GraphState) -> dict:
 
 
 def load_official_data(_: GraphState) -> dict:
-    with open(settings.official_data_path, encoding="utf-8") as f:
+    with Path(settings.official_data_path).open(encoding="utf-8") as f:
         data = json.load(f)
     return {"official_data": data}
 

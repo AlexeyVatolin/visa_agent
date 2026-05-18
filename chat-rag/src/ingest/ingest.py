@@ -1,18 +1,20 @@
 import json
 import time
-from langchain_core.documents import Document
+from pathlib import Path
+
 from langchain_chroma import Chroma
+from langchain_core.documents import Document
+from models import ChatExport, ChunkMetadata, Message
 
 from config import settings
 from llm import get_embeddings
-from models import ChatExport, ChunkMetadata, Message
 
 BATCH_SIZE = 100
 BATCH_DELAY = 3  # seconds between batches
 
 
 def load_messages(path: str) -> list[Message]:
-    with open(path, "r", encoding="utf-8") as f:
+    with Path(path).open(encoding="utf-8") as f:
         data = json.load(f)
 
     export = ChatExport.model_validate(data)
