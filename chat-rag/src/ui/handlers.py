@@ -51,15 +51,16 @@ def complete_assistant_message(history: list) -> tuple[list, str]:
     answer = result["answer"]
     docs = result["chat_docs"]
 
-    lines = []
+    sources_list: list[dict] = []
     for doc in docs:
         meta = ChunkMetadata.model_validate(doc.metadata)
-        lines.append(
-            f"• Topic: {meta.topic} | "
-            f"{meta.start_time} → {meta.end_time} | "
-            f"Senders: {meta.senders}\n"
-            f"{doc.page_content}"
+        sources_list.append(
+            {
+                "topic": meta.topic,
+                "time": f"{meta.start_time} → {meta.end_time}",
+                "senders": meta.senders,
+                "content": doc.page_content,
+            }
         )
-    sources_text = "\n\n".join(lines) if lines else "No sources found."
 
-    return [*history, {"role": "assistant", "content": answer}], sources_text
+    return [*history, {"role": "assistant", "content": answer}], sources_list
