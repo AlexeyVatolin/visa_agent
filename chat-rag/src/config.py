@@ -1,11 +1,15 @@
+from pathlib import Path
+
 from pydantic_settings import BaseSettings, SettingsConfigDict
+
+_ROOT = Path(__file__).parent.parent  # chat-rag/
 
 
 class Settings(BaseSettings):
     mistral_api_key: str
-    data_path: str = "data/messages.json"
-    official_data_path: str = "data/germany_visa_official.json"
-    chroma_path: str = "chroma_db"
+    data_path: Path = _ROOT / "data/messages.json"
+    official_data_path: Path = _ROOT / "data/germany_visa_official.json"
+    chroma_path: Path = _ROOT / "chroma_db"
     collection_name: str = "chat_history"
 
     # LangSmith tracing — set LANGSMITH_TRACING=true and LANGSMITH_API_KEY to enable
