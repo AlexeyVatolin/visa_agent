@@ -1,5 +1,7 @@
 from typing import Any
 
+import gradio as gr
+
 from graph import visa_graph
 from ingest import ChunkMetadata
 
@@ -34,7 +36,7 @@ def stage_user_message(question_text: str, history: list) -> tuple[list, str]:
 
 def complete_assistant_message(history: list) -> tuple[list, str]:
     if not history or history[-1]["role"] != "user":
-        return history, ""
+        return gr.update(), gr.update()
 
     question_text = content_to_text(history[-1]["content"])
     result = visa_graph.invoke(
