@@ -1,0 +1,121 @@
+{
+  "source": "https://www.bmeia.gv.at/oeb-belgrad/reisen-nach-oesterreich/einreise-und-aufenthalt/visum/",
+  "title": "Visa – Österreichische Botschaft Belgrad (Austrian Embassy Belgrade)",
+  "last_updated": "2026-05-20",
+  "country": "Austria",
+  "embassy_in_serbia": {
+    "name": "Österreichische Botschaft Belgrad (Austrian Embassy Belgrade)",
+    "address": "Kneza Sime Markovića 2, SRB-11000 Beograd, Serbia",
+    "website": "https://www.bmeia.gv.at/oeb-belgrad",
+    "phone": "+381 (11) 333 6500",
+    "email": null
+  },
+  "visa_eligibility": {
+    "serbian_citizens": "Serbian citizens holding biometric passports are visa-free for stays up to 90 days within any 180-day period in the Schengen area (including Austria) since December 19, 2009. No visa is required for tourism, business visits, or study. A Schengen Visa C is required if the purpose involves employment, paid internships, or receipt of a scholarship. A Visa D is required for stays exceeding 90 days.",
+    "other_nationals": "Third-country nationals holding a valid long-term Serbian residence permit (valid at least 3 months beyond planned stay) may apply for a Schengen Visa C or Visa D at the Austrian Embassy in Belgrade. They must contact the visa office in advance to schedule an appointment, noting that waiting times of several months currently apply. Applicants must have legal residence in Serbia; those residing elsewhere must apply at the Austrian embassy in their country of residence."
+  },
+  "processing_times": {
+    "minimum_calendar_days": 15,
+    "recommended_submission_weeks_before_travel": "4–6",
+    "maximum_calendar_days": 45,
+    "notes": "Standard processing is approximately 3 business days; complex cases or certain nationalities require a minimum of 10 working days and up to 45 calendar days. Applications must be submitted at least 15 calendar days and no more than 6 months before the intended travel date."
+  },
+  "application_location": {
+    "center": "Austrian Embassy Belgrade – Consular Department",
+    "address": "Kneza Sime Markovića 2, SRB-11000 Beograd, Serbia",
+    "booking": "Appointment mandatory; contact the embassy by email attaching a copy of your passport and Serbian residence permit to request a slot. Consular department hours for visa matters: Monday–Friday 08:30–14:00. Emergency line (after hours): +381 60 0239890."
+  },
+  "visa_fees": {
+    "adults_eur": 90,
+    "children_eur": 45,
+    "service_fee": "No external application center; fees paid in cash (EUR) directly at the embassy at time of submission. Visa D: €195 for adults, €97 for children under 6. Residence permit: €186 total (under 6: €97).",
+    "fee_exemptions": [
+      "Citizens covered by a visa facilitation agreement: €35 (Schengen Visa C)",
+      "Children under 6 years: free (Schengen Visa C)",
+      "Children under 6 years: €97 (Visa D)",
+      "Students, researchers, and other categories may qualify for fee waivers under EU agreements"
+    ]
+  },
+  "required_documents_all_applicants": [
+    "Fully completed and personally signed Schengen visa application form (original)",
+    "Passport photo meeting ICAO criteria (colour, 35×45 mm)",
+    "Valid passport: at least 2 blank pages, issued within the last 10 years, valid at least 3 months beyond the intended departure from the Schengen area",
+    "Copy of passport data page (photo page)",
+    "Copies of all previous Schengen visas and passport pages showing entry/exit stamps",
+    "Original and copy of valid Serbian residence permit (valid at least 3 months beyond intended stay) — for third-country nationals",
+    "Biometric fingerprints recording (if not already collected within the last 59 months)",
+    "Travel, health, and accident insurance: minimum €30,000 coverage including repatriation for medical reasons, valid for the entire Schengen area for the planned travel period (Russian-issued insurance policies are NOT accepted)",
+    "Proof of sufficient financial means: bank statements or proof of income for the last 3 months; or 8-digit ID number for an electronic declaration of financial sponsorship (Verpflichtungserklärung) if a sponsor covers costs",
+    "Proof of accommodation (hotel reservation or host's invitation; paid booking not required)",
+    "Proof of transportation (reservation or booking; fully paid ticket not required)",
+    "All documents must be in German or English, or accompanied by a translation (unofficial translation acceptable)"
+  ],
+  "additional_documents_by_nationality": [
+    "For car travel: driving licence, green insurance card, vehicle registration certificate",
+    "Third-country nationals residing in Serbia: advance email contact with embassy required before appointment can be scheduled"
+  ],
+  "documents_for_minors": {
+    "required": [
+      "Copy of birth certificate",
+      "Certified power of attorney from both parents if travelling unaccompanied",
+      "For unaccompanied minors: parental consent letter (English acceptable) including names and birthdates of child and parents, parent contact information, and accommodation details in Austria"
+    ],
+    "note": "Official notarisation of parental consent letter is not required for Serbian citizens. Children under 6 are exempt from the Schengen visa fee."
+  },
+  "purpose_specific_requirements": {
+    "tourism": [
+      "Proof of accommodation (hotel booking or host invitation)",
+      "Proof of sufficient financial means for the duration of stay",
+      "Round-trip travel reservation (paid ticket not required)",
+      "Travel insurance (min. €30,000)"
+    ],
+    "business": [
+      "Invitation letter from Austrian business partner or conference/event organiser",
+      "Proof of employment or business registration in Serbia",
+      "Proof of financial means",
+      "Travel insurance (min. €30,000)"
+    ],
+    "family_or_private_visit": [
+      "Invitation letter from host in Austria",
+      "Proof of host's legal status in Austria (residence permit or citizenship document)",
+      "Electronic declaration of financial sponsorship (if host covers costs)",
+      "Travel insurance (min. €30,000)"
+    ],
+    "medical_treatment": [
+      "Confirmation from Austrian medical institution specifying treatment, duration, and costs",
+      "Proof of financial means sufficient to cover treatment",
+      "Travel insurance (min. €30,000)"
+    ],
+    "transit": [
+      "Proof of onward travel and entry authorisation for the destination country",
+      "Valid passport",
+      "Austrian airport transit visa may be required for certain nationalities — verify with the embassy"
+    ]
+  },
+  "occupational_documentation": {
+    "employees": [
+      "Employment contract or employer confirmation letter stating position, salary, and approved leave",
+      "Last 3 months' payslips or bank statements showing salary deposits"
+    ],
+    "entrepreneurs": [
+      "Business registration certificate",
+      "Bank statements for the business account (last 3 months)",
+      "Tax returns or financial statements"
+    ],
+    "students": [
+      "Confirmation of enrolment from educational institution in Serbia",
+      "Proof of financial means (scholarship letter, parental support, or bank statements)",
+      "May qualify for reduced or waived visa fees under EU student exchange agreements"
+    ],
+    "retirees": [
+      "Pension certificate or proof of regular pension income",
+      "Bank statements showing pension deposits for last 3 months"
+    ]
+  },
+  "special_provisions": "Serbian citizens (biometric passport holders) do not require a visa for short stays up to 90 days in 180 days in the Schengen area. A visa is required only for employment, paid internships, or when a scholarship is received. Third-country nationals with Serbian residence permits face significant waiting times (several months) for appointments and should contact the embassy well in advance. As of September 2023, seasonal worker visa applications must be submitted in person at the embassy. Asylum applications cannot be submitted abroad and must be made within Austria. The EU Entry/Exit System (EES) and ETIAS travel authorisation may affect entry procedures — see https://www.bmeia.gv.at/oeb-belgrad/reisen-nach-oesterreich/einreise-und-aufenthalt/ for updates.",
+  "contact_and_resources": {
+    "embassy_location": "Belgrade, Serbia",
+    "appointment_url": null,
+    "consulate_website": "https://www.bmeia.gv.at/oeb-belgrad"
+  }
+}
