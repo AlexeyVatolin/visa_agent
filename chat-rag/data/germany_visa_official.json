@@ -1,112 +1,151 @@
 {
   "source": "https://belgrad.diplo.de/rs-de/service/05-visaeinreise/2629986-2629986",
-  "title": "Schengen Visa — German Embassy Belgrade",
-  "last_updated": "2026-01-01",
+  "title": "Visa und Einreise - Deutsche Botschaft Belgrad (Visa and Entry - German Embassy Belgrade)",
+  "last_updated": "2026-05-20",
+  "country": "Germany",
+  "embassy_in_serbia": {
+    "name": "German Embassy Belgrade (Deutsche Botschaft Belgrad)",
+    "address": "Neznanog junaka 1A, Belgrade, Serbia (main chancery); Birčaninova 19A, Belgrade (visa section)",
+    "website": "https://belgrad.diplo.de",
+    "phone": "+381 11 3064-300 (main); +381 11 3064-400 (visa section)",
+    "email": "info@belgrad.diplo.de"
+  },
   "visa_eligibility": {
-    "serbian_citizens": "Travel visa-free to Schengen countries for up to 90 days within 180 days for tourism, family visits, business, or medical treatment.",
-    "other_nationals": "May require a Schengen visa for short stays. Eligibility depends on nationality."
+    "serbian_citizens": "Serbian citizens holding a valid biometric passport may travel to Germany and all Schengen Area countries visa-free for up to 90 days within any 180-day period for purposes such as tourism, family visits, business trips, and medical treatment (non-employment purposes). For stays exceeding 90 days, or for any purpose involving employment, self-employment, or long-term study, a national visa (D-Visa) must be obtained prior to travel.",
+    "other_nationals": "Nationals of third countries residing in Serbia who require a Schengen visa must apply at the German Embassy in Belgrade if Germany is their main destination or first point of entry. Eligibility depends on the applicant's nationality. Russian passport holders face extended processing times of approximately 45 days."
   },
   "processing_times": {
     "minimum_calendar_days": 15,
-    "recommended_submission_weeks_before_travel": "4–6",
-    "maximum_calendar_days": 45,
-    "note_russian_passports": "Processing extended to 45 days for Russian passport holders.",
-    "important": "Applications cannot be accepted if planned trip starts within less than 15 calendar days."
+    "recommended_submission_weeks_before_travel": "4-6",
+    "maximum_calendar_days": null,
+    "notes": "Standard Schengen visa processing takes a minimum of 15 calendar days. National visa processing takes a minimum of 3 weeks. Applications cannot be accepted less than 15 calendar days before the intended travel date. Russian passport holders require approximately 45 days. After the minimum processing period, applicants should regularly check the passport collection list. Telephone inquiries about pending cases are not accepted for data protection reasons."
   },
   "application_location": {
-    "center": "Visametric visa application center",
-    "address": "Makedonska 30, Belgrade",
-    "booking": "Appointments booked via Visametric website only. Direct submission to the consulate is not possible."
+    "center": "VisaMetric Visa Application Center (sole authorized external service provider for the German Embassy Belgrade)",
+    "address": "Makedonska 30, EURO CENTAR, 11000 Belgrade, Serbia",
+    "booking": "Appointments must be booked exclusively through the VisaMetric website (https://www.visametric.com/Serbia/Germany/en). The Embassy does not assign appointments directly. Applications are only accepted with a prior appointment. Phone: +381 11 4414 888; Email: info.serbia@visametric.com. Working hours: Monday–Friday 08:00–16:00 (lunch break 12:30–13:30)."
   },
   "visa_fees": {
-    "adults_eur": 90,
-    "children_6_to_12_eur": 45,
-    "children_under_6_eur": 0,
-    "visametric_service_fee_rsd": 3600,
+    "schengen_visa": {
+      "adults_eur": 90,
+      "children_6_to_11_eur": 45,
+      "children_under_6_eur": 0,
+      "visa_facilitation_agreement_adults_eur": 35,
+      "visa_facilitation_agreement_children_under_12_eur": 0
+    },
+    "national_visa": {
+      "family_reunion_marriage_adults_eur": 75,
+      "family_reunion_marriage_children_under_18_eur": 37.50,
+      "family_reunion_to_german_or_eu_citizens_eur": 0,
+      "employment_visa_adults_eur": 75,
+      "education_visa_adults_eur": 75,
+      "education_visa_children_under_18_eur": 37.50
+    },
+    "service_fee": "VisaMetric service fee: 3,600 RSD for Schengen visa; 4,700 RSD for national visa. Payment of visa and service fees does not guarantee visa issuance.",
     "fee_exemptions": [
-      "Spouses and minor children of German/EU citizens",
-      "Parents of minor German citizens"
+      "Children under 6 years of age (Schengen visa: free)",
+      "Family reunification with German or EU/EEA citizens (national visa: free)",
+      "Applicants covered by the EU-Serbia Visa Facilitation Agreement may qualify for reduced Schengen fee of €35 (adults) or free (children under 12)"
     ]
   },
   "required_documents_all_applicants": [
-    "VIDEX form (completed and signed)",
-    "Signed declaration",
-    "Two biometric passport photos (not older than 6 months)",
-    "Passport valid for at least 6 months after the planned travel; not older than 10 years",
-    "Travel health insurance with minimum coverage of 30,000 EUR",
-    "Return travel ticket or reservation",
-    "Bank statements for the last 3 months (stamped)",
-    "Proof of regular income",
-    "Family ties documentation (if applicable)"
+    "Valid passport with at least 2 blank pages and validity extending at least 3 months beyond the intended return date (for national visa: at least 3 months beyond the visa validity period)",
+    "Completed and personally signed VIDEX online application form (Schengen: videx.diplo.de/videx/visum-erfassung/; national: videx.diplo.de)",
+    "Three recent biometric passport photos (not older than 6 months, 35×45 mm, white background)",
+    "Travel health insurance with minimum coverage of €30,000, valid throughout the entire Schengen Area for the full duration of the stay (for Schengen visa)",
+    "Proof of financial means (recent bank statements, salary slips, or equivalent evidence showing at least €45 per day during the stay)",
+    "One complete set of unstapled photocopies of all submitted documents",
+    "Documents not in German or English must be accompanied by a certified translation by a court-recognized interpreter"
   ],
-  "additional_documents_non_serbian_residents": [
-    "Valid residence permit for Serbia (original and copy)",
-    "Property ownership documentation (if applicable)"
+  "additional_documents_by_nationality": [
+    "Non-Serbian nationals residing in Serbia must submit proof of legal residence in Serbia (e.g., valid residence permit)",
+    "Russian passport holders are subject to extended processing times (~45 days)",
+    "Applicants from countries with specific bilateral agreements may qualify for reduced fees under the EU-Serbia Visa Facilitation Agreement"
   ],
   "documents_for_minors": {
     "required": [
+      "Minor's valid passport or travel document",
       "Birth certificate",
-      "Parental consent documentation"
+      "If traveling with only one parent: notarized consent from the other parent (or court order granting sole custody)",
+      "If traveling without parents: notarized consent from both parents or legal guardians, plus identification of the accompanying adult",
+      "School enrollment certificate (if applicable)"
     ],
-    "note": "Individual applications are mandatory for all minors under 18."
+    "note": "Children under 6 are exempt from the Schengen visa fee. Children 6–11 pay a reduced fee of €45. Children 12 and over pay the full adult fee of €90."
   },
   "purpose_specific_requirements": {
+    "tourism": [
+      "Hotel reservations or confirmed accommodation for the entire stay",
+      "Detailed travel itinerary",
+      "Round-trip flight bookings or travel reservations",
+      "Travel health insurance (min. €30,000 coverage, valid across Schengen)",
+      "Proof of sufficient financial means (min. €45/day)"
+    ],
     "business": [
-      "Invitation letter with company details",
-      "Letter from the sending company",
-      "Fair entry cards (if applicable)",
-      "Host sponsorship documentation"
+      "Official invitation letter from the German business partner or company (on company letterhead, including company details, purpose and duration of visit)",
+      "Proof of registration of the inviting company",
+      "Evidence of the applicant's employment or business ownership in Serbia",
+      "Sponsorship declaration (if costs are covered by the inviting company)"
     ],
     "family_or_private_visit": [
-      "Invitation letter from host",
-      "Host identification",
-      "Proof of relationship",
-      "Formal obligation per §§ 66–68 of the German Residence Act (Verpflichtungserklärung) confirmed by the local German Aliens Authority, or invitation letter with proof of sufficient funds"
-    ],
-    "tourism": [
-      "Hotel booking confirmation",
-      "Travel itinerary"
+      "Invitation letter from the host in Germany (signed, with contact details)",
+      "Copy of host's identification document (passport or ID card)",
+      "Proof of relationship to the host (e.g., marriage certificate, birth certificate)",
+      "Host's proof of accommodation (e.g., property ownership or rental contract)",
+      "Financial declaration from host (Verpflichtungserklärung) if host covers costs"
     ],
     "medical_treatment": [
-      "Medical institution documentation confirming illness, treatment duration, and cost pre-payment",
-      "Proof of financial sufficiency"
+      "Official confirmation from a German medical institution confirming appointment/treatment",
+      "Medical report from a Serbian physician explaining the need for treatment abroad",
+      "Proof of pre-payment or financial guarantee issued by the German medical facility",
+      "Proof of accommodation during recovery (if applicable)"
     ],
-    "airport_transit": [
-      "Valid entry permit for the destination country",
-      "Onward travel documentation"
+    "transit": [
+      "Valid visa or residence permit for the destination country (if required)",
+      "Confirmed onward travel ticket",
+      "Proof of the purpose of the final destination journey"
     ]
-  },
-  "special_provisions_russian_passport_holders": {
-    "non_biometric_passports_accepted_until": "2025-12-31",
-    "non_biometric_passports_accepted_from_2026": false,
-    "processing_days": 45,
-    "visa_type": "Single-entry only (family visit exceptions may apply)",
-    "financial_documents": "Russian financial documents are not accepted",
-    "employment_note": "If the applicant left Russia after 2022, employment records from outside Russia are required"
   },
   "occupational_documentation": {
     "employees": [
-      "Employer declaration",
-      "Employment contract",
-      "CROSO printout (Central Register of Compulsory Social Insurance)"
+      "Employment contract or employer confirmation letter (stating position, salary, duration of employment)",
+      "Recent payslips (last 3 months)",
+      "Employer's approval/consent for leave of absence during travel",
+      "Company registration documents (if applicant is a key employee)"
     ],
     "entrepreneurs": [
-      "Business registration certificate",
-      "Proof of tax payments",
-      "Bank statements",
-      "Evidence of business activity"
+      "Detailed business plan including: capital and financing plans, company profile, business concept and marketing strategy, revenue projections, expected job creation details, innovation and research impact",
+      "CV detailing work experience and career progression",
+      "German commercial register extract (Handelsregisterauszug) with power of attorney entry (if applicable)",
+      "Articles of association (Gesellschaftsvertrag) if applicable",
+      "Proof of adequate retirement provisions (required for applicants aged 45 and over)",
+      "Property ownership proof (cadastral excerpts and tax assessments, if applicable)",
+      "Health insurance offering coverage for work in Germany",
+      "Valid passport (min. 3 months validity beyond visa period)",
+      "Three biometric photos (under 6 months old)",
+      "Completed VIDEX form (German or English)"
     ],
     "students": [
-      "School or university enrollment letter"
+      "Letter of admission or enrollment from a German educational institution",
+      "Proof of sufficient financial means for the duration of study (bank statements, scholarship letters, or proof of parental support)",
+      "Health insurance valid in Germany",
+      "Proof of accommodation in Germany",
+      "Previous academic certificates and transcripts",
+      "Language proficiency certificate (if required by the institution)"
     ],
     "retirees": [
-      "Pension documentation"
+      "Proof of pension or retirement income (pension statements, bank statements)",
+      "Travel health insurance (min. €30,000 for Schengen visa)",
+      "Proof of accommodation",
+      "Return ticket or travel itinerary"
     ]
   },
+  "special_provisions": "As of July 1, 2025, the written objection (Remonstration) procedure following visa refusal has been abolished. Applicants who receive a refusal can no longer lodge a formal written objection. The Embassy warns applicants against engaging unseriöse Agenturen (fraudulent agencies) and advises direct contact only through official channels. Luggage restrictions apply at the visa office: only handbags and compact backpacks are permitted. Applicants must provide a mobile phone number and email address for contact during the application process. The visa decision is made exclusively by the German Embassy, not VisaMetric.",
   "contact_and_resources": {
     "embassy_location": "Belgrade, Serbia",
-    "visametric_address": "Makedonska 30, Belgrade",
-    "german_federal_foreign_office": "Check visa requirements by nationality on the official website",
-    "consulate_website": "https://belgrad.diplo.de"
+    "appointment_url": "https://www.visametric.com/Serbia/Germany/en/p/book-an-appointment",
+    "consulate_website": "https://belgrad.diplo.de",
+    "videx_schengen_form_url": "https://videx.diplo.de/videx/visum-erfassung/",
+    "visa_navigator_url": "https://belgrad.diplo.de/rs-de/service/05-visaeinreise",
+    "federal_foreign_office": "https://www.auswaertiges-amt.de/en/aussenpolitik/laenderinformationen/serbien-node/serbia/228104"
   }
 }
