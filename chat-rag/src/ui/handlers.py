@@ -5,6 +5,9 @@ import gradio as gr
 
 from graph import visa_graph
 from ingest import ChunkMetadata
+from logging_ import get_logger
+
+logger = get_logger(__name__)
 
 
 def _sources_to_html(docs: list) -> str:
@@ -72,16 +75,21 @@ def complete_assistant_message(history: list) -> tuple[list, str]:
         return gr.update(), gr.update()
 
     question_text = content_to_text(history[-1]["content"])
-    result = visa_graph.invoke(
-        {
-            "question": question_text,
-            "classification": "",
-            "chat_docs": [],
-            "official_data": {},
-            "answer": "",
-        }
-    )
-    answer = result["answer"]
-    docs = result["chat_docs"]
+    try:
+        result = visa_graph.invoke(
+            {
+                "question": question_text,
+                "classification": "",
+                "chat_docs": [],
+                "official_data": {},
+                "answer": "",
+            }
+        )
+        answer = result.get("answer") or "I couldn't generate a response. Please try again."
+        docs = result.get("chat_docs", [])
+    except Exception as e:
+        logger.error("graph invocation failed: %s", e)
+        answer = "Something went wrong. Please try your question again."
+        docs = []
 
     return [*history, {"role": "assistant", "content": answer}], _sources_to_html(docs)

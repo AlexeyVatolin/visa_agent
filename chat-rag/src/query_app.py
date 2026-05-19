@@ -4,6 +4,13 @@ from dotenv import load_dotenv
 
 load_dotenv(Path(__file__).parent.parent / ".env")
 
+import logging
+
+from config import settings
+from logging_ import configure_logging
+
+configure_logging(level=logging.DEBUG if settings.chat_rag_debug else logging.INFO)
+
 import gradio as gr
 import typer
 

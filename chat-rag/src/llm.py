@@ -20,6 +20,8 @@ def get_llm(temperature: float = 0):
         temperature=temperature,
         max_retries=6,
     )
+    if not settings.gemini_api_key:
+        return primary
     fallback = ChatGoogleGenerativeAI(
         model="gemma-4-26b-a4b-it",
         api_key=settings.gemini_api_key,
@@ -27,5 +29,11 @@ def get_llm(temperature: float = 0):
     )
     return primary.with_fallbacks(
         [fallback],
-        exceptions_to_handle=(httpx.HTTPStatusError, ChatGoogleGenerativeAIError),
+        exceptions_to_handle=(
+            httpx.HTTPStatusError,
+            httpx.ConnectError,
+            httpx.TimeoutException,
+            httpx.RequestError,
+            ChatGoogleGenerativeAIError,
+        ),
     )
