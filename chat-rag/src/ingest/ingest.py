@@ -2,6 +2,7 @@ import json
 import time
 from pathlib import Path
 
+import typer
 from langchain_chroma import Chroma
 from langchain_core.documents import Document
 from models import ChatExport, ChunkMetadata, Message
@@ -12,14 +13,15 @@ from llm import get_embeddings
 BATCH_SIZE = 100
 BATCH_DELAY = 3  # seconds between batches
 
+app = typer.Typer()
 
-def load_messages(path: str) -> list[Message]:
-    with Path(path).open(encoding="utf-8") as f:
+
+def load_messages(path: Path) -> list[Message]:
+    with path.open(encoding="utf-8") as f:
         data = json.load(f)
 
     export = ChatExport.model_validate(data)
 
-    # Adding metadata for each message
     for msg in export.messages:
         msg.chat_name = export.name
         msg.topic = export.topic
@@ -28,7 +30,6 @@ def load_messages(path: str) -> list[Message]:
 
 
 def messages_to_documents(messages: list[Message]) -> list[Document]:
-    # All message from one chat — one conversation_id
     convos: dict[str, list[Message]] = {}
     for msg in messages:
         convos.setdefault(msg.topic or "default", []).append(msg)
@@ -91,19 +92,48 @@ def build_vectorstore(documents: list[Document]) -> Chroma:
     return vectorstore
 
 
-if __name__ == "__main__":
-    import argparse
+@app.command()
+def ingest(
+    data_dir: Path | None = typer.Option(
+        None,
+        help="Directory with per-country subfolders containing messages.json. "
+        "Defaults to settings.data_path parent's parsed/ dir.",
+    ),
+    limit: int = typer.Option(None, help="Limit number of messages per country"),
+    countries: list[str] = typer.Option(None, help="Specific country folders to ingest (repeatable)"),
+) -> None:
+    if data_dir is None:
+        data_dir = settings.data_path.parent.parent / "parsed"
 
-    parser = argparse.ArgumentParser()
-    parser.add_argument(
-        "--limit", type=int, default=None, help="Limit number of messages to ingest"
-    )
-    args = parser.parse_args()
+    if not data_dir.is_dir():
+        typer.echo(f"Data directory not found: {data_dir}", err=True)
+        raise typer.Exit(1)
 
-    messages = load_messages(settings.data_path)
-    if args.limit:
-        messages = messages[: args.limit]
-    print(f"Loaded {len(messages)} messages.")
-    docs = messages_to_documents(messages)
-    print(f"Created {len(docs)} document chunks.")
+    # Discover per-country message files
+    if countries:
+        dirs = [data_dir / c for c in countries]
+    else:
+        dirs = sorted(d for d in data_dir.iterdir() if d.is_dir() and (d / "messages.json").exists())
+
+    if not dirs:
+        typer.echo("No country folders with messages.json found.", err=True)
+        raise typer.Exit(1)
+
+    all_messages: list[Message] = []
+    for d in dirs:
+        messages = load_messages(d / "messages.json")
+        if limit:
+            messages = messages[:limit]
+        all_messages.extend(messages)
+        typer.echo(f"  {d.name}: {len(messages)} messages (topic: {messages[0].topic if messages else 'n/a'})")
+
+    typer.echo(f"\nLoaded {len(all_messages)} messages from {len(dirs)} countries.")
+
+    docs = messages_to_documents(all_messages)
+    typer.echo(f"Created {len(docs)} document chunks.")
+
     build_vectorstore(docs)
+
+
+if __name__ == "__main__":
+    app()

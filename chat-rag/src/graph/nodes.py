@@ -1,8 +1,12 @@
 import json
+import logging
 from pathlib import Path
+
+logger = logging.getLogger(__name__)
 
 from langchain_chroma import Chroma
 from langchain_core.messages import HumanMessage, SystemMessage
+from langchain_core.output_parsers import StrOutputParser
 
 from config import settings
 from graph.state import GraphState
@@ -60,15 +64,13 @@ def output_guard(state: GraphState) -> dict:
 
 
 def classify_question(state: GraphState) -> dict:
-    llm = get_llm(temperature=0)
-    response = llm.invoke(
+    llm = get_llm(temperature=0) | StrOutputParser()
+    label = llm.invoke(
         [
             SystemMessage(content=CLASSIFY_PROMPT),
             HumanMessage(content=state["question"]),
         ]
     )
-    parts = response.content.strip().lower().split()
-    label = parts[0] if parts else ""
     return {"classification": "relevant" if label == "relevant" else "off_topic"}
 
 
@@ -117,6 +119,6 @@ def generate_answer(state: GraphState) -> dict:
         question=state["question"],
     )
 
-    llm = get_llm(temperature=0.1)
+    llm = get_llm(temperature=0.1) | StrOutputParser()
     response = llm.invoke([HumanMessage(content=prompt_text)])
-    return {"answer": response.content}
+    return {"answer": response}

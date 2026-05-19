@@ -1,6 +1,6 @@
 # Chat History RAG
 
-A local RAG (Retrieval-Augmented Generation) system for querying visa-related Telegram chat history, enriched with official embassy data, using LangChain, LangGraph, ChromaDB, and Mistral AI.
+A local RAG (Retrieval-Augmented Generation) system for querying visa-related Telegram chat history, enriched with official embassy data, using LangChain, LangGraph, ChromaDB, and Mistral AI. Embeddings are generated locally with Octen/Octen-Embedding-0.6B (CPU, 4 threads).
 
 ## Tech Stack
 
@@ -8,7 +8,8 @@ A local RAG (Retrieval-Augmented Generation) system for querying visa-related Te
 - **LangGraph** — graph with input/output guardrails, classification, and parallel retrieval (community + official sources)
 - **[LangSmith](https://smith.langchain.com)** — optional tracing and observability
 - **ChromaDB** — local vector store
-- **Mistral AI** — embeddings + LLM (`mistral-embed` + `mistral-small-latest`)
+- **Octen/Octen-Embedding-0.6B** — local embeddings via `sentence-transformers` (CPU, 4 threads, preloaded in background)
+- **Mistral AI** — LLM (`mistral-small-latest` with `gemma-4-26b-a4b-it` fallback)
 - **Gradio** — web UI
 - **Pydantic / pydantic-settings** — data models and settings validation
 - **Python 3.14**
@@ -29,11 +30,12 @@ chat-rag/
 ├── main.py
 ├── data/
 │   ├── messages.json
-│   └── germany_visa_official.json
+│   ├── germany_visa_official.json
+│   └── evaluations/           # embedding model comparison reports
 ├── src/
 │   ├── __init__.py
 │   ├── config.py              # settings via pydantic-settings
-│   ├── llm.py                 # LLM + embeddings factory functions (max_retries=6)
+│   ├── llm.py                 # LLM + embeddings (Octen model preloaded in background thread, singleton)
 │   ├── dashboard.py           # visa statistics from extracted data
 │   ├── query.py               # interactive CLI
 │   ├── query_app.py           # Gradio app entry point (assembles tabs, launches with Citrus theme)
@@ -149,9 +151,9 @@ START
 ```
 
 1. `config.py` — loads settings (API key, paths, optional LangSmith config) from `.env` via `pydantic-settings`
-2. `llm.py` — factory functions for `ChatMistralAI` and `MistralAIEmbeddings`; LLM is configured with `max_retries=6` to handle transient API errors
+2. `llm.py` — embeddings via local `Octen/Octen-Embedding-0.6B` (CPU, 4 threads), preloaded at module import in a background daemon thread; LLM uses `ChatMistralAI` with `ChatGoogleGenerativeAI` as fallback; both are singletons returned by `get_embeddings()` / `get_llm()`
 3. `ingest/models.py` — pydantic models for `Message`, `ChatExport`, and `ChunkMetadata`
-4. `ingest/ingest.py` — loads the JSON export, groups messages by `topic`, splits into sliding windows of 5 messages (step=2), embeds via Mistral in batches of 100 and stores in ChromaDB
+4. `ingest/ingest.py` — loads the JSON export, groups messages by `topic`, splits into sliding windows of 5 messages (step=2), embeds via Octen/Octen-Embedding-0.6B in batches of 100 and stores in ChromaDB
 5. `graph/state.py` — `GraphState` TypedDict shared across all nodes
 6. `graph/nodes.py` — node functions: `input_guard`, `classify_question`, `reject`, `retrieve_from_chat`, `load_official_data`, `generate_answer`, `output_guard`; `_build_official_context` flattens the embassy JSON for the LLM prompt
 7. `graph/graph.py` — assembles and compiles the `StateGraph` with conditional routing after input guard and classification
@@ -239,7 +241,8 @@ uv run ruff format --check .
 ## Notes
 
 - `chroma_db/` is committed to this repo so the index is shared — re-run `ingest/ingest.py` if `messages.json` changes
+- The ChromaDB index was built with `Octen/Octen-Embedding-0.6B` embeddings (1024-dim); do not mix with `mistral-embed` (same dim but different vector space)
 - `.env` is gitignored — never commit your API key
 - Messages with empty `text` field are skipped during ingestion
-- Ingestion is batched (100 docs / batch, 3 s delay) to stay within Mistral API rate limits
+- The embedding model loads in a background thread at import time — app startup is not blocked; first query waits for the model to be ready
 - Off-topic questions are rejected before retrieval by the `classify_question` guardrail
