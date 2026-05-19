@@ -1,8 +1,5 @@
 import json
-import logging
 from pathlib import Path
-
-logger = logging.getLogger(__name__)
 
 from langchain_chroma import Chroma
 from langchain_core.messages import HumanMessage, SystemMessage

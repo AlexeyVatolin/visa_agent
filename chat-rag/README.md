@@ -9,7 +9,7 @@ A local RAG (Retrieval-Augmented Generation) system for querying visa-related Te
 - **[LangSmith](https://smith.langchain.com)** — optional tracing and observability
 - **ChromaDB** — local vector store
 - **Octen/Octen-Embedding-0.6B** — local embeddings via `sentence-transformers` (CPU, 4 threads, preloaded in background)
-- **Mistral AI** — LLM (`mistral-small-latest` with `gemma-4-26b-a4b-it` fallback)
+- **Mistral AI** — LLM (`mistral-small-latest` with `gemini-3.1-flash-lite` fallback)
 - **Gradio** — web UI
 - **Pydantic / pydantic-settings** — data models and settings validation
 - **Python 3.14**

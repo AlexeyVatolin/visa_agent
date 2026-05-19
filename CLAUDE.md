@@ -15,9 +15,9 @@ All commands run from `chat-rag/`:
 uv sync
 
 # Ingest data into ChromaDB (run once, or when parsed data changes)
-PYTHONPATH=src uv run src/ingest/ingest.py
-PYTHONPATH=src uv run src/ingest/ingest.py --limit 100  # ingest only first N messages per country
-PYTHONPATH=src uv run src/ingest/ingest.py --countries Германия --countries Франция  # specific countries
+uv run src/ingest/ingest.py
+uv run src/ingest/ingest.py --limit 100  # ingest only first N messages per country
+uv run src/ingest/ingest.py --countries Германия --countries Франция  # specific countries
 
 # Start the Gradio web UI
 uv run src/query_app.py
@@ -48,7 +48,7 @@ START
 
 - `src/config.py` — `pydantic-settings` loads all config from `.env` (requires `MISTRAL_API_KEY`)
 - `src/ingest/models.py` — Pydantic models: `Message`, `ChatExport` (input), `ChunkMetadata` (stored in ChromaDB metadata)
-- `src/ingest/ingest.py` — Typer CLI that reads all per-country `messages.json` files from `data/parsed/*/`, groups by `topic` (country name), creates sliding-window chunks (size=5, step=2), embeds via HuggingFace, stores in ChromaDB. Batched at 100 docs with 3s delay.
+- `src/ingest/ingest.py` — Reads all per-country `messages.json` files from `data/parsed/*/`, groups by `topic` (country name), creates sliding-window chunks (size=5, step=2), embeds via HuggingFace, stores in ChromaDB. Batched at 100 docs with 3s delay.
 - `src/graph.py` — Defines `GraphState` TypedDict and the compiled `visa_graph`. The `_build_official_context` helper recursively flattens the official JSON into a labeled string for the prompt.
 - `src/query_app.py` — Gradio UI: two-column layout (chat + sources sidebar), invokes `visa_graph` directly.
 - `src/query.py` — CLI wrapper around `visa_graph`.

@@ -1,6 +1,3 @@
-<<<<<<< Updated upstream
-from langchain_mistralai import ChatMistralAI, MistralAIEmbeddings
-=======
 import os
 import threading
 
@@ -10,7 +7,6 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_google_genai.chat_models import ChatGoogleGenerativeAIError
 from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_mistralai import ChatMistralAI
->>>>>>> Stashed changes
 
 from config import settings
 
