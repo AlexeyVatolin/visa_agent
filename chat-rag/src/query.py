@@ -1,5 +1,8 @@
 from graph import visa_graph
 from ingest import ChunkMetadata
+from logging_ import configure_logging
+
+configure_logging()
 
 
 def main():

@@ -1,13 +1,13 @@
 import html
-import logging
 from typing import Any
 
 import gradio as gr
 
 from graph import visa_graph
 from ingest import ChunkMetadata
+from logging_ import get_logger
 
-logger = logging.getLogger(__name__)
+logger = get_logger(__name__)
 
 
 def _sources_to_html(docs: list) -> str:

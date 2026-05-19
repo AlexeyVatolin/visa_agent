@@ -4,6 +4,10 @@ from dotenv import load_dotenv
 
 load_dotenv(Path(__file__).parent.parent / ".env")
 
+from logging_ import configure_logging
+
+configure_logging()
+
 import gradio as gr
 import typer
 

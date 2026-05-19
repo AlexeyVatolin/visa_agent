@@ -8,6 +8,9 @@ from models import ChatExport, ChunkMetadata, Message
 
 from config import settings
 from llm import get_embeddings
+from logging_ import configure_logging, get_logger
+
+logger = get_logger(__name__)
 
 BATCH_SIZE = 100
 BATCH_DELAY = 3  # seconds between batches
@@ -73,7 +76,7 @@ def build_vectorstore(documents: list[Document]) -> Chroma:
     vectorstore = None
 
     for idx, batch in enumerate(batches):
-        print(f"Indexing batch {idx + 1}/{len(batches)} ({len(batch)} chunks)...")
+        logger.info("indexing batch %d/%d (%d chunks)", idx + 1, len(batches), len(batch))
         if vectorstore is None:
             vectorstore = Chroma.from_documents(
                 documents=batch,
@@ -87,7 +90,7 @@ def build_vectorstore(documents: list[Document]) -> Chroma:
         if idx < len(batches) - 1:
             time.sleep(BATCH_DELAY)
 
-    print(f"✅ Indexed {len(documents)} chunks into ChromaDB.")
+    logger.info("indexed %d chunks into ChromaDB", len(documents))
     return vectorstore
 
 
@@ -100,10 +103,11 @@ if __name__ == "__main__":
     )
     args = parser.parse_args()
 
+    configure_logging()
     messages = load_messages(settings.data_path)
     if args.limit:
         messages = messages[: args.limit]
-    print(f"Loaded {len(messages)} messages.")
+    logger.info("loaded %d messages", len(messages))
     docs = messages_to_documents(messages)
-    print(f"Created {len(docs)} document chunks.")
+    logger.info("created %d document chunks", len(docs))
     build_vectorstore(docs)

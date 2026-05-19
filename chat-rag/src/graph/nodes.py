@@ -1,5 +1,4 @@
 import json
-import logging
 from pathlib import Path
 
 from langchain_chroma import Chroma
@@ -9,9 +8,10 @@ from config import settings
 from graph.state import GraphState
 from guardrails import run_input_guardrails, run_output_guardrails
 from llm import get_embeddings, get_llm
+from logging_ import get_logger, trace
 from prompts import ANSWER_PROMPT, CLASSIFY_PROMPT
 
-logger = logging.getLogger(__name__)
+logger = get_logger(__name__)
 
 
 def _build_official_context(data: dict) -> str:
@@ -47,34 +47,39 @@ def _build_official_context(data: dict) -> str:
 
 
 def input_guard(state: GraphState) -> dict:
-    result = run_input_guardrails(state["question"])
-    updates: dict = {
-        "question": result.cleaned_text,
-        "injection_flagged": result.injection_flagged,
-    }
-    if result.refusal_message:
-        updates["refusal_message"] = result.refusal_message
-    return updates
+    with trace("input_guard", question=state["question"][:60]):
+        result = run_input_guardrails(state["question"])
+        updates: dict = {
+            "question": result.cleaned_text,
+            "injection_flagged": result.injection_flagged,
+        }
+        if result.refusal_message:
+            updates["refusal_message"] = result.refusal_message
+        return updates
 
 
 def output_guard(state: GraphState) -> dict:
-    result = run_output_guardrails(state["answer"])
-    return {"answer": result.response_text}
+    with trace("output_guard"):
+        result = run_output_guardrails(state["answer"])
+        return {"answer": result.response_text}
 
 
 def classify_question(state: GraphState) -> dict:
-    llm = get_llm(temperature=0)
-    response = llm.invoke(
-        [
-            SystemMessage(content=CLASSIFY_PROMPT),
-            HumanMessage(content=state["question"]),
-        ]
-    )
-    parts = response.content.strip().lower().split()
-    label = parts[0] if parts else ""
-    if label not in ("relevant", "off_topic"):
-        logger.warning("unexpected classification label %r; treating as off_topic", label)
-    return {"classification": "relevant" if label == "relevant" else "off_topic"}
+    with trace("classify_question", question=state["question"][:60]):
+        llm = get_llm(temperature=0)
+        response = llm.invoke(
+            [
+                SystemMessage(content=CLASSIFY_PROMPT),
+                HumanMessage(content=state["question"]),
+            ]
+        )
+        parts = response.content.strip().lower().split()
+        label = parts[0] if parts else ""
+        if label not in ("relevant", "off_topic"):
+            logger.warning("unexpected classification label %r; treating as off_topic", label)
+        classification = "relevant" if label == "relevant" else "off_topic"
+        logger.debug("classification=%s", classification)
+        return {"classification": classification}
 
 
 def reject(state: GraphState) -> dict:
@@ -86,52 +91,57 @@ def reject(state: GraphState) -> dict:
 
 
 def retrieve_from_chat(state: GraphState) -> dict:
-    try:
-        embeddings = get_embeddings()
-        vectorstore = Chroma(
-            collection_name=settings.collection_name,
-            embedding_function=embeddings,
-            persist_directory=settings.chroma_path,
-        )
-        retriever = vectorstore.as_retriever(
-            search_type="mmr",
-            search_kwargs={"k": 6, "fetch_k": 20},
-        )
-        docs = retriever.invoke(state["question"])
-        return {"chat_docs": docs}
-    except Exception as e:
-        logger.warning("chroma retrieval failed: %s", e)
-        return {"chat_docs": [], "error": "Community knowledge base temporarily unavailable."}
+    with trace("retrieve_from_chat"):
+        try:
+            embeddings = get_embeddings()
+            vectorstore = Chroma(
+                collection_name=settings.collection_name,
+                embedding_function=embeddings,
+                persist_directory=settings.chroma_path,
+            )
+            retriever = vectorstore.as_retriever(
+                search_type="mmr",
+                search_kwargs={"k": 6, "fetch_k": 20},
+            )
+            docs = retriever.invoke(state["question"])
+            logger.debug("retrieved %d docs", len(docs))
+            return {"chat_docs": docs}
+        except Exception as e:
+            logger.warning("chroma retrieval failed: %s", e)
+            return {"chat_docs": [], "error": "Community knowledge base temporarily unavailable."}
 
 
 def load_official_data(_: GraphState) -> dict:
-    try:
-        with Path(settings.official_data_path).open(encoding="utf-8") as f:
-            data = json.load(f)
-        return {"official_data": data}
-    except (FileNotFoundError, json.JSONDecodeError) as e:
-        logger.warning("official data load failed: %s", e)
-        return {"official_data": {}, "error": "Official visa data temporarily unavailable."}
+    with trace("load_official_data"):
+        try:
+            with Path(settings.official_data_path).open(encoding="utf-8") as f:
+                data = json.load(f)
+            logger.debug("loaded official data keys=%s", list(data.keys())[:5])
+            return {"official_data": data}
+        except (FileNotFoundError, json.JSONDecodeError) as e:
+            logger.warning("official data load failed: %s", e)
+            return {"official_data": {}, "error": "Official visa data temporarily unavailable."}
 
 
 def generate_answer(state: GraphState) -> dict:
-    if state.get("error"):
-        return {"answer": "I'm having trouble accessing my knowledge sources right now. Please try again shortly."}
-    chat_context = (
-        "\n\n".join(doc.page_content for doc in state["chat_docs"])
-        if state["chat_docs"]
-        else "No relevant chat messages found."
-    )
-    official_context = _build_official_context(state["official_data"])
+    with trace("generate_answer", docs=len(state.get("chat_docs") or [])):
+        if state.get("error"):
+            return {"answer": "I'm having trouble accessing my knowledge sources right now. Please try again shortly."}
+        chat_context = (
+            "\n\n".join(doc.page_content for doc in state["chat_docs"])
+            if state["chat_docs"]
+            else "No relevant chat messages found."
+        )
+        official_context = _build_official_context(state["official_data"])
 
-    official_source = state["official_data"].get("source", "Official Source")
-    prompt_text = ANSWER_PROMPT.format(
-        official_source=official_source,
-        official_context=official_context,
-        chat_context=chat_context,
-        question=state["question"],
-    )
+        official_source = state["official_data"].get("source", "Official Source")
+        prompt_text = ANSWER_PROMPT.format(
+            official_source=official_source,
+            official_context=official_context,
+            chat_context=chat_context,
+            question=state["question"],
+        )
 
-    llm = get_llm(temperature=0.1)
-    response = llm.invoke([HumanMessage(content=prompt_text)])
-    return {"answer": response.content}
+        llm = get_llm(temperature=0.1)
+        response = llm.invoke([HumanMessage(content=prompt_text)])
+        return {"answer": response.content}
