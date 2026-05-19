@@ -13,6 +13,9 @@ class Settings(BaseSettings):
     chroma_path: Path = _ROOT / "chroma_db"
     collection_name: str = "chat_history"
 
+    # Logging: CHAT_RAG_DEBUG=0 for INFO-only output
+    chat_rag_debug: bool = True
+
     # LangSmith tracing — set LANGSMITH_TRACING=true and LANGSMITH_API_KEY to enable
     langsmith_tracing: bool = False
     langsmith_api_key: str

@@ -6,14 +6,12 @@ deeper, producing a console tree alongside LangSmith traces.
 """
 
 import logging
-import os
 import sys
 from collections.abc import Iterator
 from contextlib import contextmanager
 from contextvars import ContextVar
 
 _DEFAULT_LOGGER_NAME = "chat_rag"
-_DEBUG_ENV_VAR = "CHAT_RAG_DEBUG"
 
 _INDENT = "   "
 _BRANCH = "|- "
@@ -39,18 +37,11 @@ def get_logger(name: str | None = None) -> logging.Logger:
     return logging.getLogger(name or _DEFAULT_LOGGER_NAME)
 
 
-def _debug_enabled_from_env() -> bool:
-    value = os.getenv(_DEBUG_ENV_VAR, "1").strip().lower()
-    return value not in {"0", "false", "no", "off"}
-
-
-def configure_logging(level: int | None = None) -> None:
+def configure_logging(level: int = logging.INFO) -> None:
     """Wire the hierarchical formatter to the root logger once. Idempotent."""
     root = logging.getLogger()
     if root.handlers:
         return
-    if level is None:
-        level = logging.DEBUG if _debug_enabled_from_env() else logging.INFO
     handler = logging.StreamHandler(sys.stdout)
     handler.setFormatter(HierarchicalFormatter())
     root.addHandler(handler)

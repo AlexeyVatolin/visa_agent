@@ -1,4 +1,5 @@
 import json
+import logging
 import time
 from pathlib import Path
 
@@ -103,7 +104,7 @@ if __name__ == "__main__":
     )
     args = parser.parse_args()
 
-    configure_logging()
+    configure_logging(level=logging.DEBUG if settings.chat_rag_debug else logging.INFO)
     messages = load_messages(settings.data_path)
     if args.limit:
         messages = messages[: args.limit]
