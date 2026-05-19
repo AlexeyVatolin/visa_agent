@@ -1,0 +1,131 @@
+{
+  "source": "https://www.exteriores.gob.es/Embajadas/belgrado/es/ServiciosConsulares/Paginas/index.aspx?scca=Visados&scco=Serbia&scd=25&scs=Visado+de+estancia+(visado+Schengen)",
+  "title": "Visado de estancia (visado Schengen) — Embassy of Spain in Belgrade",
+  "last_updated": "2026-05-20",
+  "country": "Spain",
+  "embassy_in_serbia": {
+    "name": "Embassy of Spain in Belgrade (Embajada de España en Belgrado)",
+    "address": "Prote Mateje 45, 11000 Belgrade, Serbia",
+    "website": "https://www.exteriores.gob.es/Embajadas/belgrado",
+    "phone": "+381 (0) 11 344 02 31",
+    "email": "emb.belgrado@maec.es"
+  },
+  "visa_eligibility": {
+    "serbian_citizens": "Serbian citizens holding a valid biometric passport do NOT need a Schengen visa for stays up to 90 days within any 180-day period. EXCEPTION: Serbian citizens whose passport was issued by the Coordination Center (Koordinaciona Uprava) DO require a Schengen visa.",
+    "other_nationals": "Third-country nationals residing in Serbia (with valid Serbian residence permit) may apply at this embassy. Proof of residence in the consular jurisdiction is required."
+  },
+  "processing_times": {
+    "minimum_calendar_days": 1,
+    "recommended_submission_weeks_before_travel": "16–24 (appointment should be booked at least 4 months in advance due to high demand)",
+    "maximum_calendar_days": 45,
+    "notes": "Standard decision: 15 calendar days from application submission. Extended to up to 45 calendar days when additional documents are requested or an interview is conducted. Applications accepted 6 months to 15 days before planned travel (up to 9 months for maritime workers)."
+  },
+  "application_location": {
+    "center": "Consular Section — Embassy of Spain in Belgrade",
+    "address": "Prote Mateje 45, 11000 Belgrade, Serbia",
+    "booking": "Appointment mandatory; request by email to emb.belgrado.citas@maec.es. Recommended to book at least 4 months before planned travel. Public service hours: Monday–Friday 9:30–13:00 (appointments and procedures), 13:00–13:30 (document collection and file corrections). Note: consular matters handled EXCLUSIVELY by email."
+  },
+  "visa_fees": {
+    "adults_eur": null,
+    "children_eur": null,
+    "service_fee": "Fees collected in Serbian dinars (RSD) cash only — euros and credit/debit cards NOT accepted. Adults (12+): 10,520 RSD. Children (6–11): 5,260 RSD. Children under 6: free. Fee is non-refundable and must be paid at submission.",
+    "fee_exemptions": [
+      "Children under 6 years of age",
+      "Holders of diplomatic/service passports (subject to bilateral agreements)",
+      "Participants in school excursions and scientific trips (conditions apply)"
+    ]
+  },
+  "required_documents_all_applicants": [
+    "Completed Schengen visa application form with signed checklist",
+    "Recent color passport photo: 4×3 cm, plain light background, front-facing, no glasses, taken within last 6 months",
+    "Valid passport: must remain valid for at least 3 months after planned departure; minimum 2 blank pages; issued within last 10 years; original + photocopy of biometric data pages",
+    "Travel medical insurance: minimum €30,000 coverage for emergency medical care, hospitalization, and repatriation; valid for entire Schengen area and full duration of stay",
+    "Visa fee payment in RSD cash (see visa_fees)",
+    "Confirmed round-trip flight reservations (paid and confirmed, not just quotes)",
+    "Proof of accommodation: hotel booking or official invitation letter from host",
+    "Proof of sufficient financial means: bank statements for last 3 months showing actual transaction history (not just balance certificate)",
+    "Proof of employment or economic ties to home country",
+    "Proof of residence in consular jurisdiction (for non-Serbian/Montenegrin nationals: valid Serbian residence permit)"
+  ],
+  "additional_documents_by_nationality": [
+    "Russian citizens: subject to deferral procedure — application is sent to Spanish central authorities before decision; additional processing time applies",
+    "Holders of passports issued by the Serbian Coordination Center (Koordinaciona Uprava): visa required regardless of biometric status"
+  ],
+  "documents_for_minors": {
+    "required": [
+      "Completed visa application form signed by legal guardian",
+      "Birth certificate",
+      "Parental/guardian consent if traveling without both parents",
+      "Copy of parents'/guardians' identification documents",
+      "Custody documents if applicable"
+    ],
+    "note": "Minor applicants must appear in person accompanied by a parent or legal guardian. After visa approval, the passport is collected by the legal guardian during document collection hours (13:00–13:30, Monday–Friday). Biometric data collection exempted for children under 12."
+  },
+  "purpose_specific_requirements": {
+    "tourism": [
+      "Hotel reservation or equivalent accommodation proof for entire stay",
+      "Detailed travel itinerary",
+      "Proof of sufficient funds for the trip"
+    ],
+    "business": [
+      "Documentation evidencing commercial relationships with Spanish companies",
+      "Invitation letter from Spanish business partner on company letterhead",
+      "Proof of economic activity in Spain (contracts, correspondence, etc.)",
+      "Business registration documents (if self-employed)"
+    ],
+    "family_or_private_visit": [
+      "Original letter of invitation from host in Spain (signed, with host's full name, address, and contact details)",
+      "Copy of host's identity document or residence permit in Spain",
+      "Proof of family relationship if applicable (birth/marriage certificate)"
+    ],
+    "medical_treatment": [
+      "Medical appointment confirmation or treatment documentation from Spanish medical facility",
+      "Proof of financial means to cover medical expenses",
+      "Medical referral or diagnosis from home country doctor"
+    ],
+    "transit": [
+      "Proof of onward travel with confirmed international connection",
+      "Valid entry permission for final destination country",
+      "Evidence of intent to remain in transit zone only (for airport transit visa)",
+      "Airport transit visa required for nationals of 41 listed countries (Afghanistan, Bangladesh, Iran, Nigeria, Pakistan, Syria, Cuba, Egypt, Russia, Turkey, Yemen, and others)"
+    ]
+  },
+  "occupational_documentation": {
+    "employees": [
+      "Current employment contract",
+      "3 most recent payslips",
+      "Employer certification letter confirming position, salary, and approved leave"
+    ],
+    "entrepreneurs": [
+      "Business registration documents",
+      "Recent contracts or invoices showing active business",
+      "Sales records or financial statements",
+      "Tax registration documents"
+    ],
+    "students": [
+      "Enrollment confirmation from educational institution",
+      "Proof of scholarship or financial support",
+      "General financial means documentation"
+    ],
+    "retirees": [
+      "Pension documentation confirming regular income",
+      "Bank statements showing pension deposits",
+      "General financial means documentation"
+    ]
+  },
+  "special_provisions": "1) Visa approval does not guarantee entry into Spain; border authorities retain the right to deny entry. 2) All supporting documents in languages other than Spanish must include an official sworn translation — automated (machine) translations are rejected. 3) The visa fee is non-refundable regardless of outcome. 4) After submission, the passport is retained throughout processing and may only be retrieved during document collection hours (13:00–13:30, Monday–Friday). 5) In case of visa denial, the applicant is entitled to a written decision stating reasons. Appeal may be lodged within 1 month to the consulate or within 2 months to the competent court in Madrid. 6) Biometric data (facial image and fingerprints) collected for all applicants aged 12 and over, unless already collected within the previous 59 months with acceptable quality. 7) A motivation letter explaining travel purpose is optional but recommended for complex cases.",
+  "contact_and_resources": {
+    "embassy_location": "Belgrade, Serbia",
+    "appointment_url": null,
+    "consulate_website": "https://www.exteriores.gob.es/Embajadas/belgrado",
+    "additional_emails": {
+      "general": "emb.belgrado@maec.es",
+      "consular_info": "emb.belgrado.info@maec.es",
+      "appointments": "emb.belgrado.citas@maec.es",
+      "notarial": "emb.belgrado.notaria@maec.es",
+      "emergency_24h": "+381 (0) 632 850 82"
+    },
+    "visa_application_tracking": "https://sutramiteconsular.maec.es",
+    "document_checklist_pdf": "https://www.exteriores.gob.es/DocumentosAuxiliaresSC/Serbia/BELGRADO%20(E)/ListaSchengen.pdf"
+  }
+}
