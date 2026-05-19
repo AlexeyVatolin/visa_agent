@@ -12,3 +12,4 @@ class GraphState(TypedDict):
     # Set by input_guard node; present from that node onward.
     injection_flagged: NotRequired[bool]
     refusal_message: NotRequired[str]
+    error: NotRequired[str]

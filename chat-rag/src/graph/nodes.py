@@ -1,4 +1,5 @@
 import json
+import logging
 from pathlib import Path
 
 from langchain_chroma import Chroma
@@ -9,6 +10,8 @@ from graph.state import GraphState
 from guardrails import run_input_guardrails, run_output_guardrails
 from llm import get_embeddings, get_llm
 from prompts import ANSWER_PROMPT, CLASSIFY_PROMPT
+
+logger = logging.getLogger(__name__)
 
 
 def _build_official_context(data: dict) -> str:
@@ -69,6 +72,8 @@ def classify_question(state: GraphState) -> dict:
     )
     parts = response.content.strip().lower().split()
     label = parts[0] if parts else ""
+    if label not in ("relevant", "off_topic"):
+        logger.warning("unexpected classification label %r; treating as off_topic", label)
     return {"classification": "relevant" if label == "relevant" else "off_topic"}
 
 
@@ -81,27 +86,37 @@ def reject(state: GraphState) -> dict:
 
 
 def retrieve_from_chat(state: GraphState) -> dict:
-    embeddings = get_embeddings()
-    vectorstore = Chroma(
-        collection_name=settings.collection_name,
-        embedding_function=embeddings,
-        persist_directory=settings.chroma_path,
-    )
-    retriever = vectorstore.as_retriever(
-        search_type="mmr",
-        search_kwargs={"k": 6, "fetch_k": 20},
-    )
-    docs = retriever.invoke(state["question"])
-    return {"chat_docs": docs}
+    try:
+        embeddings = get_embeddings()
+        vectorstore = Chroma(
+            collection_name=settings.collection_name,
+            embedding_function=embeddings,
+            persist_directory=settings.chroma_path,
+        )
+        retriever = vectorstore.as_retriever(
+            search_type="mmr",
+            search_kwargs={"k": 6, "fetch_k": 20},
+        )
+        docs = retriever.invoke(state["question"])
+        return {"chat_docs": docs}
+    except Exception as e:
+        logger.warning("chroma retrieval failed: %s", e)
+        return {"chat_docs": [], "error": "Community knowledge base temporarily unavailable."}
 
 
 def load_official_data(_: GraphState) -> dict:
-    with Path(settings.official_data_path).open(encoding="utf-8") as f:
-        data = json.load(f)
-    return {"official_data": data}
+    try:
+        with Path(settings.official_data_path).open(encoding="utf-8") as f:
+            data = json.load(f)
+        return {"official_data": data}
+    except (FileNotFoundError, json.JSONDecodeError) as e:
+        logger.warning("official data load failed: %s", e)
+        return {"official_data": {}, "error": "Official visa data temporarily unavailable."}
 
 
 def generate_answer(state: GraphState) -> dict:
+    if state.get("error"):
+        return {"answer": "I'm having trouble accessing my knowledge sources right now. Please try again shortly."}
     chat_context = (
         "\n\n".join(doc.page_content for doc in state["chat_docs"])
         if state["chat_docs"]
