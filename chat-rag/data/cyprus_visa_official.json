@@ -1,0 +1,104 @@
+{
+  "source": "https://cyprusinuk.com/visa-information/ | https://www.cyprusvisa.eu/cyprus-short-stay-visa-requirements.html | https://www.mfa.gov.rs/en/citizens/travel-abroad/visas-and-states-travel-advisory/cyprus | https://www.visahq.com/cyprus/embassy/serbia/",
+  "title": "Cyprus Visa Information for Applicants in Serbia",
+  "last_updated": "2026-05-20",
+  "country": "Cyprus",
+  "embassy_in_serbia": {
+    "name": "Embassy of the Republic of Cyprus in Belgrade",
+    "address": "Generala Save Grujica 18, 11000 Belgrade, Serbia",
+    "website": "https://www.mfa.gov.cy/embassyBelgrade",
+    "phone": "+381-11-3620002",
+    "email": "belgrade@mfa.gov.cy"
+  },
+  "visa_eligibility": {
+    "serbian_citizens": "Serbian citizens holding a biometric passport do NOT require a visa to enter Cyprus. They may stay up to 90 days within any 180-day period. The passport must be valid for at least 3 months after the planned date of return. It is not possible to obtain a visa or tourist pass at the border crossing.",
+    "other_nationals": "Third-country nationals residing in Serbia must apply for a Cyprus national visa at the Embassy. Holders of a valid double- or multiple-entry Schengen visa, or a residence permit issued by a Schengen state, Bulgaria, Croatia, or Romania are exempt and may enter Cyprus without an additional visa (up to 90 days in 180 days). Turkish and Azerbaijani citizens must follow the regular visa procedure unless they are family members of EU nationals. Note: Cyprus is not a Schengen member state as of 2026, so a Cyprus national visa is required for those not covered by the above exemptions."
+  },
+  "processing_times": {
+    "minimum_calendar_days": 15,
+    "recommended_submission_weeks_before_travel": "4–6",
+    "maximum_calendar_days": 45,
+    "notes": "Normal processing time is 15 calendar days. May be extended up to 45 days if additional examination or documents are required. Applications may be submitted no earlier than 6 months before the intended travel date and no later than 15 days before arrival."
+  },
+  "application_location": {
+    "center": "Embassy of the Republic of Cyprus in Belgrade",
+    "address": "Generala Save Grujica 18, 11000 Belgrade, Serbia",
+    "booking": "Contact the embassy directly by phone (+381-11-3620002) or email (belgrade@mfa.gov.cy) to schedule an appointment. No VFS Global center identified for Cyprus visas in Serbia — applications are submitted directly at the embassy."
+  },
+  "visa_fees": {
+    "adults_eur": 80,
+    "children_eur": null,
+    "service_fee": "Fees are non-refundable regardless of the outcome. Single-entry: €20; Double/multiple-entry: €60. The €80 Schengen-harmonised fee may apply in some missions — confirm current fee with the embassy in Belgrade.",
+    "fee_exemptions": [
+      "Spouses and children under 18 of EU/EEA/Swiss nationals (with proof of relationship)",
+      "Holders of valid double/multiple-entry Schengen visas (no Cyprus visa required)"
+    ]
+  },
+  "required_documents_all_applicants": [
+    "Completed and signed Cyprus visa application form",
+    "2 recent passport-size photographs (biometric standard)",
+    "Valid passport issued within the last 10 years, with at least 2 blank pages, valid for at least 3 months beyond the intended stay",
+    "Return country visa or residence permit valid for at least 3 months beyond the stay (if applicable)",
+    "Confirmed round-trip travel itinerary with fixed dates (flight bookings)",
+    "Hotel reservation or proof of accommodation for the entire stay",
+    "Medical travel insurance covering the full period of stay in Cyprus, minimum coverage €30,000",
+    "Proof of sufficient financial means: bank statements for the last 3 months",
+    "All documents must be in English, Greek, or Turkish; documents in other languages require a certified translation"
+  ],
+  "additional_documents_by_nationality": [
+    "Bank guarantee may be required (€200–€500 depending on country of origin) — requested at the consulate's discretion",
+    "Third-country nationals must demonstrate legal residence in Serbia (e.g. residence permit)"
+  ],
+  "documents_for_minors": {
+    "required": [
+      "Certified written consent from both parents or legal guardians",
+      "Copy of each parent's/guardian's passport",
+      "Original birth certificate including parents' details, or court documentation (e.g. custody order)"
+    ],
+    "note": "Parents or guardians should be present during submission if possible. All standard documents listed under required_documents_all_applicants also apply."
+  },
+  "purpose_specific_requirements": {
+    "tourism": [
+      "Confirmed accommodation booking (hotel reservation or proof of property ownership in Cyprus)",
+      "Travel itinerary for the full stay"
+    ],
+    "business": [
+      "Official invitation letter from a company registered in Cyprus specifying purpose, duration, and host details"
+    ],
+    "family_or_private_visit": [
+      "Assumption of Responsibility form completed by the Cypriot host (available from the embassy)",
+      "Copy of host's Cypriot ID card or passport",
+      "Host's proof of address and contact details"
+    ],
+    "medical_treatment": [
+      "Letter from the medical institution in Cyprus confirming the appointment, treatment details, and expected duration",
+      "Proof of financial means to cover medical costs"
+    ],
+    "transit": [
+      "Onward travel documents (confirmed ticket to final destination)",
+      "Visa or entry permit for the final destination country (if required)"
+    ]
+  },
+  "occupational_documentation": {
+    "employees": [
+      "Recent employer letter on company letterhead confirming: employment status, position, start date, salary, and approved leave for travel dates",
+      "Most recent payslip"
+    ],
+    "entrepreneurs": [
+      "Letter from a solicitor, accountant, or bank manager confirming self-employment or business ownership",
+      "Business registration documents"
+    ],
+    "students": [
+      "Original letter from school, college, or university confirming enrolment and attendance"
+    ],
+    "retirees": [
+      "Pension book or official pension statement confirming monthly income"
+    ]
+  },
+  "special_provisions": "Cyprus is NOT a member of the Schengen Area as of 2026, though accession procedures are ongoing. Entry is only permitted through legal entry points: Larnaca International Airport, Paphos International Airport, Larnaca Port, Limassol Port, Latsi Port, and Paphos Port. Entry through ports or airports in the Turkish-occupied northern part of Cyprus is in violation of Cypriot law. ETIAS (European Travel Information and Authorisation System) is expected to apply to Cyprus from late 2026, including for Serbian citizens currently travelling visa-free — it will cost €7 per application (originally announced as €7, some sources cite €20) and will be valid for up to 3 years or until passport expiry.",
+  "contact_and_resources": {
+    "embassy_location": "Belgrade, Serbia",
+    "appointment_url": null,
+    "consulate_website": "https://www.mfa.gov.cy/embassyBelgrade"
+  }
+}
