@@ -6,14 +6,17 @@ A local RAG (Retrieval-Augmented Generation) system for querying visa-related Te
 
 - **LangChain** — RAG pipeline
 - **LangGraph** — graph with input/output guardrails, classification, and parallel retrieval (community + official sources)
-- **[LangSmith](https://smith.langchain.com)** — optional tracing and observability
+- **[LangSmith](https://smith.langchain.com)** — optional tracing, observability, dataset management, and LLM-as-judge evaluation
 - **ChromaDB** — local vector store
 - **Mistral AI** — embeddings + LLM (`mistral-embed` + `mistral-small-latest`)
+- **Google Generative AI** — alternative LLM backend (`langchain-google-genai`)
+- **OpenAI Agents SDK + LiteLLM** — used for LangSmith dataset population and demo agents
 - **Gradio** — web UI
 - **Pydantic / pydantic-settings** — data models and settings validation
 - **Python 3.14**
 - **uv** — package manager
 - **Ruff** — linting and formatting
+- **pre-commit** — git hooks for Ruff and common file checks
 
 ## Project Structure
 
@@ -23,10 +26,12 @@ chat-rag/
 ├── .env.example
 ├── .python-version
 ├── .gitignore
+├── .pre-commit-config.yaml
 ├── README.md
 ├── pyproject.toml
 ├── uv.lock
 ├── main.py
+├── deploy_modal.py
 ├── data/
 │   ├── messages.json
 │   └── germany_visa_official.json
@@ -37,6 +42,9 @@ chat-rag/
 │   ├── dashboard.py           # visa statistics from extracted data
 │   ├── query.py               # interactive CLI
 │   ├── query_app.py           # Gradio app entry point (assembles tabs, launches with Citrus theme)
+│   ├── langsmith_eval.py      # LLM-as-judge evaluation runner against a LangSmith dataset
+│   ├── langsmith_launch.py    # populates a LangSmith dataset from test_cases_germany.json
+│   ├── langsmith_demo.py      # demo agent (OpenAI Agents SDK + LiteLLM) with LangSmith tracing
 │   ├── graph/
 │   │   ├── graph.py           # LangGraph pipeline definition
 │   │   ├── nodes.py           # node functions (input_guard, classify, retrieve, generate, output_guard, reject)
@@ -52,6 +60,10 @@ chat-rag/
 │   ├── ingest/
 │   │   ├── ingest.py          # ingestion script
 │   │   └── models.py          # pydantic data models (Message, ChatExport, ChunkMetadata)
+│   ├── logging_/
+│   │   ├── __init__.py        # public API re-exports
+│   │   ├── hierarchical.py    # HierarchicalFormatter + trace() context manager; indents nested node logs
+│   │   └── debug.py           # debug_enter / debug_exit helpers (payload-aware structured debug logs)
 │   ├── prompts/
 │   │   ├── answer.py          # ANSWER_PROMPT template
 │   │   └── classify.py        # CLASSIFY_PROMPT template
@@ -85,16 +97,17 @@ uv sync
 ```bash
 cp .env.example .env
 ```
-Then fill in your values in `.env`. At minimum, set `MISTRAL_API_KEY`.
+Then fill in your values in `.env`. Required keys:
 
-To enable LangSmith tracing, also set:
-```
-LANGSMITH_TRACING=true
-LANGSMITH_API_KEY=<your key>
-LANGSMITH_PROJECT=visa-agent
-LANGSMITH_ENDPOINT=https://api.smith.langchain.com
-```
-LangSmith tracing is off by default (`LANGSMITH_TRACING=false`).
+| Variable | Required | Description |
+|---|---|---|
+| `MISTRAL_API_KEY` | Yes | Mistral AI API key (embeddings + LLM) |
+| `GEMINI_API_KEY` | No | Google Gemini API key (alternative LLM backend) |
+| `CHAT_RAG_DEBUG` | No | Set to `0` for INFO-only logs; `1` (default) enables DEBUG output |
+| `LANGSMITH_TRACING` | No | Set to `true` to enable LangSmith tracing (default: `false`) |
+| `LANGSMITH_API_KEY` | No | LangSmith API key |
+| `LANGSMITH_PROJECT` | No | LangSmith project name (e.g. `visa-agent`) |
+| `LANGSMITH_ENDPOINT` | No | LangSmith API endpoint |
 
 **5. Add your chat export to `data/messages.json`**
 
@@ -116,6 +129,18 @@ uv run src/query_app.py
 **Or use the interactive CLI:**
 ```bash
 uv run src/query.py
+```
+
+**LangSmith evaluation** (requires `LANGSMITH_API_KEY` and a populated dataset):
+```bash
+# Create / populate a LangSmith dataset from data/test_cases_germany.json
+uv run src/langsmith_launch.py
+
+# Run LLM-as-judge evaluation against the dataset
+uv run src/langsmith_eval.py
+
+# Re-score an existing experiment without re-running the RAG
+uv run src/langsmith_eval.py --existing <experiment-name>
 ```
 
 Example session:
@@ -150,21 +175,25 @@ START
 
 1. `config.py` — loads settings (API key, paths, optional LangSmith config) from `.env` via `pydantic-settings`
 2. `llm.py` — factory functions for `ChatMistralAI` and `MistralAIEmbeddings`; LLM is configured with `max_retries=6` to handle transient API errors
-3. `ingest/models.py` — pydantic models for `Message`, `ChatExport`, and `ChunkMetadata`
-4. `ingest/ingest.py` — loads the JSON export, groups messages by `topic`, splits into sliding windows of 5 messages (step=2), embeds via Mistral in batches of 100 and stores in ChromaDB
-5. `graph/state.py` — `GraphState` TypedDict shared across all nodes
-6. `graph/nodes.py` — node functions: `input_guard`, `classify_question`, `reject`, `retrieve_from_chat`, `load_official_data`, `generate_answer`, `output_guard`; `_build_official_context` flattens the embassy JSON for the LLM prompt
-7. `graph/graph.py` — assembles and compiles the `StateGraph` with conditional routing after input guard and classification
-8. `guardrails/input.py` — `run_input_guardrails`: redacts PII from user input and detects prompt-injection attempts
-9. `guardrails/output.py` — `run_output_guardrails`: redacts PII tokens and rewrites internal error leaks from LLM output
-10. `prompts/classify.py` — prompt for the topic classifier (relevant / off_topic)
-11. `prompts/answer.py` — prompt template that structures `[OFFICIAL]` and `[COMMUNITY]` labeled sections
-12. `query.py` — interactive CLI that invokes the graph and prints the answer with sources
-13. `query_app.py` — Gradio entry point: assembles a `gr.Blocks` app with two tabs (Dashboard + Chat) and launches with the Citrus theme; initialises LangSmith tracing when enabled
-14. `ui/chat_tab.py` — Chat tab layout: chatbot panel (scale=3) + sources sidebar (scale=1, min_width=240); uses a two-step event chain so the user message appears immediately before the LLM answer loads; sources are stored in a `gr.State` and rendered into a `gr.HTML` component via a `chatbot.change` listener
-15. `ui/dashboard_tab.py` — Dashboard tab: renders a `gr.Dataframe` with per-country tourist visa statistics
-16. `ui/handlers.py` — Gradio event handlers: `stage_user_message` appends the user turn instantly; `complete_assistant_message` invokes `visa_graph` and appends the assistant reply with sources; `_sources_to_html` renders retrieved `Document` objects as styled HTML cards showing topic, time range, senders, and a 280-character content preview
-17. `dashboard.py` — reads extracted JSONL data under `data/extracted/` to compute per-country tourist visa statistics (wait times, approval rates, validity, multi-entry counts)
+3. `logging_/hierarchical.py` — `HierarchicalFormatter` and `trace()` context manager; wrapping a node in `trace("name")` emits an indented console tree that mirrors the LangSmith trace; `configure_logging()` wires the formatter to the root logger (idempotent). Verbosity is controlled by `CHAT_RAG_DEBUG` in `.env`.
+4. `logging_/debug.py` — `debug_enter` / `debug_exit` helpers that emit structured JSON payloads at DEBUG level, summarizing large strings and collections to keep logs readable.
+5. `ingest/models.py` — pydantic models for `Message`, `ChatExport`, and `ChunkMetadata`
+6. `ingest/ingest.py` — loads the JSON export, groups messages by `topic`, splits into sliding windows of 5 messages (step=2), embeds via Mistral in batches of 100 and stores in ChromaDB
+7. `graph/state.py` — `GraphState` TypedDict shared across all nodes
+8. `graph/nodes.py` — node functions: `input_guard`, `classify_question`, `reject`, `retrieve_from_chat`, `load_official_data`, `generate_answer`, `output_guard`; `_build_official_context` flattens the embassy JSON for the LLM prompt
+9. `graph/graph.py` — assembles and compiles the `StateGraph` with conditional routing after input guard and classification
+10. `guardrails/input.py` — `run_input_guardrails`: redacts PII from user input and detects prompt-injection attempts
+11. `guardrails/output.py` — `run_output_guardrails`: redacts PII tokens and rewrites internal error leaks from LLM output
+12. `prompts/classify.py` — prompt for the topic classifier (relevant / off_topic)
+13. `prompts/answer.py` — prompt template that structures `[OFFICIAL]` and `[COMMUNITY]` labeled sections
+14. `query.py` — interactive CLI that invokes the graph and prints the answer with sources
+15. `query_app.py` — Gradio entry point: assembles a `gr.Blocks` app with two tabs (Dashboard + Chat) and launches with the Citrus theme; initializes LangSmith tracing when enabled
+16. `ui/chat_tab.py` — Chat tab layout: chatbot panel (scale=3) + sources sidebar (scale=1, min_width=240); uses a two-step event chain so the user message appears immediately before the LLM answer loads; sources are stored in a `gr.State` and rendered into a `gr.HTML` component via a `chatbot.change` listener
+17. `ui/dashboard_tab.py` — Dashboard tab: renders a `gr.Dataframe` with per-country tourist visa statistics
+18. `ui/handlers.py` — Gradio event handlers: `stage_user_message` appends the user turn instantly; `complete_assistant_message` invokes `visa_graph` and appends the assistant reply with sources; `_sources_to_html` renders retrieved `Document` objects as styled HTML cards showing topic, time range, senders, and a 280-character content preview
+19. `dashboard.py` — reads extracted JSONL data under `data/extracted/` to compute per-country tourist visa statistics (wait times, approval rates, validity, multi-entry counts)
+20. `langsmith_launch.py` — creates a LangSmith dataset (`visa_qa_germany_3_v1`) from `data/test_cases_germany.json` using the OpenAI Agents SDK with LiteLLM; skips creation if the dataset already exists
+21. `langsmith_eval.py` — runs LLM-as-judge evaluation over the dataset: `main()` invokes `visa_graph` on each example and scores the answer with a structured Mistral judge; `main_existing(experiment_name)` re-scores a previous experiment without re-running the RAG
 
 ## Expected JSON Formats
 
@@ -234,6 +263,12 @@ uv run ruff format .
 **Check formatting without applying changes:**
 ```bash
 uv run ruff format --check .
+```
+
+**Install pre-commit hooks** (runs Ruff + common checks on every commit):
+```bash
+uv tool install pre-commit
+pre-commit install
 ```
 
 ## Deploy to Modal
