@@ -1,0 +1,141 @@
+{
+  "source": "https://mvep.gov.hr/embassies-and-consulates/embassies-of-the-republic-of-croatia-in-the-world/244601?country=121",
+  "title": "Embassy of the Republic of Croatia in the Republic of Serbia – Visa & Consular Information",
+  "last_updated": "2026-05-20",
+  "country": "Croatia",
+  "embassy_in_serbia": {
+    "name": "Embassy of the Republic of Croatia in Belgrade",
+    "address": "Kneza Miloša 62, 11000 Beograd, Serbia",
+    "website": "https://mvep.gov.hr/rs",
+    "phone": "+381 11 3679 150 / +381 11 3679 151",
+    "email": "croebg@mvep.hr",
+    "consular_department": {
+      "address": "Kneza Miloša 82/I kat, 11000 Beograd, Serbia",
+      "phone": "+381 11 3679 140",
+      "fax": "+381 11 3613 566",
+      "email": "crocons.beograd@mvep.hr",
+      "hours": "Monday–Friday 08:30–16:30; client hours 09:00–13:00",
+      "emergency_hotline": "+381 63 485-757"
+    },
+    "consulate_subotica": {
+      "address": "Maksima Gorkog 6, Subotica, Serbia",
+      "phone": "+381 24 656 906",
+      "email": "gkrh.subotica@mvep.hr",
+      "hours": "Monday–Friday 08:30–16:30; client hours 09:00–13:00",
+      "emergency": "+381 63 556 160"
+    }
+  },
+  "visa_eligibility": {
+    "serbian_citizens": "Serbian citizens holding biometric passports do not need a visa for stays of up to 90 days within any 180-day period in Croatia (and the entire Schengen Area). Passport must be valid for at least 3 months beyond the planned return date. Registration with local police is required for stays exceeding 24 hours in private accommodation. As of October 12, 2025, Croatia implements the EU Entry/Exit System (EES): biometric data (fingerprints + facial photo) is collected at the border instead of passport stamping.",
+    "other_nationals": "Third-country nationals legally residing in Serbia (with temporary or permanent residence permit) who require a Schengen visa must apply through VFS Global in Belgrade. If Croatia is the main or sole destination, the application is submitted to the Croatian diplomatic mission (via VFS). A valid Schengen visa issued by another Schengen member state also allows entry into Croatia without a separate Croatian visa."
+  },
+  "processing_times": {
+    "minimum_calendar_days": 15,
+    "recommended_submission_weeks_before_travel": "3–6",
+    "maximum_calendar_days": 45,
+    "notes": "The standard decision period is 15 calendar days from submission. This may be extended up to 45 days in individual cases. Applications may be submitted no more than 6 months before travel (9 months for seafarers) and no later than 15 days before departure."
+  },
+  "application_location": {
+    "center": "VFS Global Visa Application Centre Belgrade (for Croatia)",
+    "address": "See https://visa.vfsglobal.com/srb/en/hrv/attend-centre/Belgrade for current address and hours",
+    "booking": "Appointments must be booked online via https://visa.vfsglobal.com/srb/en/hrv/. Applications must be submitted in person. The visa application form must be completed online at https://crovisa.mvep.hr/?lang=en before the appointment; the printed form and serial number are brought to the centre."
+  },
+  "visa_fees": {
+    "adults_eur": 80,
+    "children_eur": 0,
+    "service_fee": "Additional VFS Global service fee applies; paid at the application centre. Exact amount available on the VFS Serbia–Croatia page.",
+    "fee_exemptions": [
+      "Children under 12 years of age (no visa fee)",
+      "Students, postgraduate researchers, and their accompanying spouses/children when traveling for study or research purposes",
+      "Representatives of non-profit organizations up to 25 years old attending seminars, conferences, or sports events",
+      "Family members (spouse, children under 21, dependent parents) of EU/EEA/Swiss citizens",
+      "Nationals of countries with an EU Visa Facilitation Agreement may pay a reduced fee of EUR 35"
+    ]
+  },
+  "required_documents_all_applicants": [
+    "Visa application form – completed and signed (fill online at crovisa.mvep.hr, print, and sign)",
+    "Valid passport – issued within the last 10 years, containing at least 2 blank pages, valid for at least 3 months beyond the intended departure from the Schengen area",
+    "Biometric passport photograph – ICAO standards (35×45 mm, recent, white background)",
+    "Fingerprints – collected in person at the VFS centre (certain categories exempt)",
+    "Travel medical insurance – minimum €30,000 coverage for emergency medical assistance, hospitalisation, and repatriation; valid for the entire Schengen area and the full duration of stay",
+    "Proof of visa fee payment",
+    "VFS Global service fee receipt",
+    "Proof of legal residence in Serbia (if not a Serbian citizen) – residence permit or equivalent",
+    "Return or onward travel ticket (flight, bus, train reservation)",
+    "Proof of accommodation – hotel bookings, rental confirmation, or invitation/guarantee letter from host in Croatia",
+    "Proof of financial means – recent bank statements; applicants must demonstrate at least €70 per day of planned stay"
+  ],
+  "additional_documents_by_nationality": [
+    "Documents in languages other than Croatian or English must be submitted with a certified translation",
+    "Documents in Cyrillic script must be accompanied by a certified Latin-script translation"
+  ],
+  "documents_for_minors": {
+    "required": [
+      "Copy of accompanying parent's/guardian's passport (identity page)",
+      "Notarised parental/guardian consent letter for travel if minor travels with only one parent or with a third party",
+      "Birth certificate (original or certified copy)",
+      "If applicable: adoption decree or legal guardianship documentation"
+    ],
+    "note": "Children under 12 years of age are exempt from the visa fee. Minors not accompanied by a parent/guardian must have a notarised power of attorney."
+  },
+  "purpose_specific_requirements": {
+    "tourism": [
+      "Confirmed hotel reservation or accommodation booking for the entire stay",
+      "Round-trip flight or travel itinerary",
+      "Proof of sufficient financial means (bank statements)",
+      "Travel insurance (min. €30,000)"
+    ],
+    "business": [
+      "Invitation letter from the Croatian business partner on company letterhead (stating purpose, duration, and that host covers expenses, or confirming the applicant's business)",
+      "Letter from applicant's employer confirming position, salary, approved leave of absence, and that the employer covers travel costs (if employed)",
+      "Company registration documents (if self-employed)",
+      "Business registration number and VAT documents where applicable"
+    ],
+    "family_or_private_visit": [
+      "Invitation/guarantee letter from the host in Croatia (notarised or officially confirmed)",
+      "Proof of relationship (birth certificate, marriage certificate, etc.)",
+      "Proof that the host is legally present in Croatia (e.g., Croatian ID, residence permit)",
+      "Proof of financial means of the host or applicant"
+    ],
+    "medical_treatment": [
+      "Medical report or referral letter from treating physician in Serbia",
+      "Confirmation of appointment or admission from Croatian medical institution",
+      "Proof that the patient can cover treatment costs (or proof of insurance covering treatment abroad)",
+      "Proof of accommodation near treatment facility"
+    ],
+    "transit": [
+      "Valid visa or entry permission for the final destination country",
+      "Confirmed onward travel ticket",
+      "Proof that stay in Croatia does not exceed 72 hours (for airport transit: Schengen airport transit visa may be required for certain nationalities)"
+    ]
+  },
+  "occupational_documentation": {
+    "employees": [
+      "Letter from employer on company letterhead confirming: job title, length of employment, salary, approved leave of absence, and that the employee will return to work"
+    ],
+    "entrepreneurs": [
+      "Company registration certificate",
+      "Visa request letter on company letterhead",
+      "Recent bank statements of the company"
+    ],
+    "students": [
+      "Current enrolment certificate from school or university",
+      "Student ID card",
+      "Proof of financial means or scholarship confirmation"
+    ],
+    "retirees": [
+      "Pension statement or proof of retirement income",
+      "Bank statements showing sufficient funds",
+      "If expenses are covered by a sponsor: notarised sponsorship/guarantee letter"
+    ]
+  },
+  "special_provisions": "Croatia joined the Schengen Area on 1 January 2023; Schengen visas issued by any member state are valid for Croatia. Multiple-entry visa holders may reapply before expiry of their current visa. Visa extensions are possible for force majeure, humanitarian reasons, or serious personal circumstances. Serbian citizens are advised that Croatian border authorities may request documentation of purpose and financial means even though no visa is required. Serbian citizens must declare cash or payment instruments totalling €10,000 or more at the border.",
+  "contact_and_resources": {
+    "embassy_location": "Belgrade, Serbia",
+    "appointment_url": "https://visa.vfsglobal.com/srb/en/hrv/",
+    "consulate_website": "https://mvep.gov.hr/rs",
+    "online_application": "https://crovisa.mvep.hr/?lang=en",
+    "mfa_visa_info": "https://mvep.gov.hr/services-for-citizens/consular-information-22802/visas-22807/issuance-procedure/enclosed-documents/22821",
+    "visa_email": "vize@mvep.hr"
+  }
+}
