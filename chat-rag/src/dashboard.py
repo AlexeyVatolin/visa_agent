@@ -46,9 +46,7 @@ def load_tourist_ids_by_country() -> dict[str, set[int]]:
     for path in sorted((DATA_DIR / "02_visa_type").glob("*.jsonl")):
         records = load_jsonl(path)
         result[path.stem] = {
-            r["message_id"]
-            for r in records
-            if r["extracted"]["visa_type"] == "tourist"
+            r["message_id"] for r in records if r["extracted"]["visa_type"] == "tourist"
         }
     return result
 
@@ -72,9 +70,7 @@ def load_entries_by_country() -> dict[str, dict[int, str]]:
     result: dict[str, dict[int, str]] = {}
     for path in sorted((DATA_DIR / "03_entries").glob("*.jsonl")):
         records = load_jsonl(path)
-        result[path.stem] = {
-            r["message_id"]: r["extracted"]["entry_type"] for r in records
-        }
+        result[path.stem] = {r["message_id"]: r["extracted"]["entry_type"] for r in records}
     return result
 
 
@@ -89,10 +85,7 @@ def compute_tourist_stats() -> list[list]:
     for path in sorted(dates_dir.glob("*.jsonl")):
         country = path.stem
         records = load_jsonl(path)
-        records = [
-            r for r in records
-            if datetime.fromisoformat(r["message_date"]) >= cutoff
-        ]
+        records = [r for r in records if datetime.fromisoformat(r["message_date"]) >= cutoff]
 
         tourist_ids = tourist_ids_by_country.get(country)
         if tourist_ids is not None:
@@ -110,34 +103,26 @@ def compute_tourist_stats() -> list[list]:
                 ready = date.fromisoformat(ext["ready_date"])
                 wait_times.append((ready - sub).days)
 
-        approved = sum(
-            1 for r in records if r["tag"] in ("#одобрено", "#одобрение")
-        )
+        approved = sum(1 for r in records if r["tag"] in ("#одобрено", "#одобрение"))
         approval_rate = approved / total * 100
 
         validity = validity_by_country.get(country, {})
-        durations = [
-            validity[r["message_id"]]
-            for r in records
-            if r["message_id"] in validity
-        ]
+        durations = [validity[r["message_id"]] for r in records if r["message_id"] in validity]
 
         entries = entries_by_country.get(country, {})
-        multi_count = sum(
-            1
-            for r in records
-            if entries.get(r["message_id"]) == "multi"
-        )
+        multi_count = sum(1 for r in records if entries.get(r["message_id"]) == "multi")
 
         flag = COUNTRY_FLAGS.get(country, "")
-        rows.append([
-            f"{flag} {country}".strip(),
-            round(sum(wait_times) / len(wait_times)) if wait_times else None,
-            total,
-            round(approval_rate),
-            round(sum(durations) / len(durations)) if durations else None,
-            multi_count if multi_count > 0 else None,
-        ])
+        rows.append(
+            [
+                f"{flag} {country}".strip(),
+                round(sum(wait_times) / len(wait_times)) if wait_times else None,
+                total,
+                round(approval_rate),
+                round(sum(durations) / len(durations)) if durations else None,
+                multi_count if multi_count > 0 else None,
+            ]
+        )
 
     rows.sort(key=lambda r: r[2], reverse=True)
     return rows

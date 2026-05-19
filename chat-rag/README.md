@@ -33,10 +33,10 @@ chat-rag/
 ├── src/
 │   ├── __init__.py
 │   ├── config.py              # settings via pydantic-settings
-│   ├── llm.py                 # LLM + embeddings factory functions
+│   ├── llm.py                 # LLM + embeddings factory functions (max_retries=6)
 │   ├── dashboard.py           # visa statistics from extracted data
 │   ├── query.py               # interactive CLI
-│   ├── query_app.py           # Gradio web UI
+│   ├── query_app.py           # Gradio app entry point (assembles tabs, launches with Citrus theme)
 │   ├── graph/
 │   │   ├── graph.py           # LangGraph pipeline definition
 │   │   ├── nodes.py           # node functions (input_guard, classify, retrieve, generate, output_guard, reject)
@@ -52,9 +52,14 @@ chat-rag/
 │   ├── ingest/
 │   │   ├── ingest.py          # ingestion script
 │   │   └── models.py          # pydantic data models (Message, ChatExport, ChunkMetadata)
-│   └── prompts/
-│       ├── answer.py          # ANSWER_PROMPT template
-│       └── classify.py        # CLASSIFY_PROMPT template
+│   ├── prompts/
+│   │   ├── answer.py          # ANSWER_PROMPT template
+│   │   └── classify.py        # CLASSIFY_PROMPT template
+│   └── ui/
+│       ├── __init__.py
+│       ├── chat_tab.py        # Chat tab layout and wiring (two-step: user message → LLM answer); sources rendered via gr.HTML + gr.State
+│       ├── dashboard_tab.py   # Dashboard tab with tourist visa stats table
+│       └── handlers.py        # Gradio event handlers (stage_user_message, complete_assistant_message, _sources_to_html)
 └── chroma_db/                 # auto-created after ingestion
 ```
 
@@ -144,7 +149,7 @@ START
 ```
 
 1. `config.py` — loads settings (API key, paths, optional LangSmith config) from `.env` via `pydantic-settings`
-2. `llm.py` — factory functions for `ChatMistralAI` and `MistralAIEmbeddings`
+2. `llm.py` — factory functions for `ChatMistralAI` and `MistralAIEmbeddings`; LLM is configured with `max_retries=6` to handle transient API errors
 3. `ingest/models.py` — pydantic models for `Message`, `ChatExport`, and `ChunkMetadata`
 4. `ingest/ingest.py` — loads the JSON export, groups messages by `topic`, splits into sliding windows of 5 messages (step=2), embeds via Mistral in batches of 100 and stores in ChromaDB
 5. `graph/state.py` — `GraphState` TypedDict shared across all nodes
@@ -155,8 +160,11 @@ START
 10. `prompts/classify.py` — prompt for the topic classifier (relevant / off_topic)
 11. `prompts/answer.py` — prompt template that structures `[OFFICIAL]` and `[COMMUNITY]` labeled sections
 12. `query.py` — interactive CLI that invokes the graph and prints the answer with sources
-13. `query_app.py` — Gradio web UI with a chatbot panel and a sources sidebar; initialises LangSmith tracing when enabled
-14. `dashboard.py` — reads extracted JSONL data under `data/extracted/` to compute per-country tourist visa statistics (wait times, approval rates, validity, multi-entry counts)
+13. `query_app.py` — Gradio entry point: assembles a `gr.Blocks` app with two tabs (Dashboard + Chat) and launches with the Citrus theme; initialises LangSmith tracing when enabled
+14. `ui/chat_tab.py` — Chat tab layout: chatbot panel (scale=3) + sources sidebar (scale=1, min_width=240); uses a two-step event chain so the user message appears immediately before the LLM answer loads; sources are stored in a `gr.State` and rendered into a `gr.HTML` component via a `chatbot.change` listener
+15. `ui/dashboard_tab.py` — Dashboard tab: renders a `gr.Dataframe` with per-country tourist visa statistics
+16. `ui/handlers.py` — Gradio event handlers: `stage_user_message` appends the user turn instantly; `complete_assistant_message` invokes `visa_graph` and appends the assistant reply with sources; `_sources_to_html` renders retrieved `Document` objects as styled HTML cards showing topic, time range, senders, and a 280-character content preview
+17. `dashboard.py` — reads extracted JSONL data under `data/extracted/` to compute per-country tourist visa statistics (wait times, approval rates, validity, multi-entry counts)
 
 ## Expected JSON Formats
 

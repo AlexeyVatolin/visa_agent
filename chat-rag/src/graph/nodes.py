@@ -1,13 +1,14 @@
 import json
+from pathlib import Path
 
 from langchain_chroma import Chroma
 from langchain_core.messages import HumanMessage, SystemMessage
 
 from config import settings
+from graph.state import GraphState
 from guardrails import run_input_guardrails, run_output_guardrails
 from llm import get_embeddings, get_llm
 from prompts import ANSWER_PROMPT, CLASSIFY_PROMPT
-from graph.state import GraphState
 
 
 def _build_official_context(data: dict) -> str:
@@ -60,10 +61,12 @@ def output_guard(state: GraphState) -> dict:
 
 def classify_question(state: GraphState) -> dict:
     llm = get_llm(temperature=0)
-    response = llm.invoke([
-        SystemMessage(content=CLASSIFY_PROMPT),
-        HumanMessage(content=state["question"]),
-    ])
+    response = llm.invoke(
+        [
+            SystemMessage(content=CLASSIFY_PROMPT),
+            HumanMessage(content=state["question"]),
+        ]
+    )
     parts = response.content.strip().lower().split()
     label = parts[0] if parts else ""
     return {"classification": "relevant" if label == "relevant" else "off_topic"}
@@ -93,7 +96,7 @@ def retrieve_from_chat(state: GraphState) -> dict:
 
 
 def load_official_data(_: GraphState) -> dict:
-    with open(settings.official_data_path, encoding="utf-8") as f:
+    with Path(settings.official_data_path).open(encoding="utf-8") as f:
         data = json.load(f)
     return {"official_data": data}
 

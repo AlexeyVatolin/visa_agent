@@ -1,15 +1,15 @@
 from langgraph.graph import END, START, StateGraph
 
-from graph.state import GraphState
 from graph.nodes import (
     classify_question,
+    generate_answer,
     input_guard,
+    load_official_data,
     output_guard,
     reject,
     retrieve_from_chat,
-    load_official_data,
-    generate_answer,
 )
+from graph.state import GraphState
 
 
 def route_after_input_guard(state: GraphState) -> str:

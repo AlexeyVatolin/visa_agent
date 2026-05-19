@@ -4,9 +4,7 @@ import re
 
 EMAIL_RE = re.compile(r"\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\b")
 
-PHONE_RE = re.compile(
-    r"(?<!\d)(?!\d{4}-\d{2}-\d{2}\b)\+?(?:\d[\s\-()]?){7,14}\d(?!\d)"
-)
+PHONE_RE = re.compile(r"(?<!\d)(?!\d{4}-\d{2}-\d{2}\b)\+?(?:\d[\s\-()]?){7,14}\d(?!\d)")
 
 CARD_RE = re.compile(r"\b\d{4}[\s-]?\d{4}[\s-]?\d{4}[\s-]?\d{4}\b")
 

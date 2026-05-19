@@ -15,4 +15,5 @@ def get_llm(temperature: float = 0) -> ChatMistralAI:
         model="mistral-small-latest",
         api_key=settings.mistral_api_key,
         temperature=temperature,
+        max_retries=6,
     )
