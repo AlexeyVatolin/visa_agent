@@ -236,6 +236,18 @@ uv run ruff format .
 uv run ruff format --check .
 ```
 
+## Deploy to Modal
+
+The app is deployed on [Modal](https://modal.com). A GitHub Actions workflow (`.github/workflows/deploy-modal.yml`) automatically deploys on every push to `master` that changes files under `chat-rag/`.
+
+To deploy manually, make sure secrets are in your `.env` file, then run:
+
+```bash
+uv run modal deploy deploy_modal.py
+```
+
+Required GitHub secrets: `MODAL_TOKEN_ID`, `MODAL_TOKEN_SECRET`, `MISTRAL_API_KEY`, `GEMINI_API_KEY`, `LANGSMITH_API_KEY`.
+
 ## Notes
 
 - `chroma_db/` is committed to this repo so the index is shared — re-run `ingest/ingest.py` if `messages.json` changes
