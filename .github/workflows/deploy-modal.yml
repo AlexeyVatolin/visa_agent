@@ -24,6 +24,7 @@ jobs:
         run: >
           uvx modal secret create visa-rag-secrets
           MISTRAL_API_KEY=${{ secrets.MISTRAL_API_KEY }}
+          GEMINI_API_KEY=${{ secrets.GEMINI_API_KEY }}
           LANGSMITH_TRACING=true
           LANGSMITH_PROJECT=visa-agent
           LANGSMITH_ENDPOINT=https://api.smith.langchain.com
