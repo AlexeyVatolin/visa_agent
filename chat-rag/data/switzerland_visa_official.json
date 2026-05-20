@@ -1,0 +1,136 @@
+{
+  "source": "https://www.eda.admin.ch/countries/serbia/en/home/visa.html",
+  "title": "Visa & entry to Switzerland – Embassy of Switzerland in Serbia",
+  "last_updated": "2026-05-20",
+  "country": "Switzerland",
+  "embassy_in_serbia": {
+    "name": "Embassy of Switzerland in Serbia",
+    "address": "Bulevar Oslobodjenja 4, 11000 Belgrade, Serbia (P.O. Box 817, 11001 Belgrade)",
+    "website": "https://www.eda.admin.ch/belgrade",
+    "phone": "+381 11 3065 820 / +381 11 3065 825 (main); +381 11 3065 815 (visa line, Mon–Thu 14:00–15:00)",
+    "email": "belgrade.visa@eda.admin.ch"
+  },
+  "visa_eligibility": {
+    "serbian_citizens": "Serbian citizens holding a valid biometric passport do not require a visa for stays of up to 90 days within any 180-day period for tourism, family visits, business trips, and similar non-employment purposes. The passport must be valid for at least 3 months after the departure date from Switzerland and must have been issued within the last 10 years. For stays exceeding 90 days or for purposes involving employment or long-term study, a national (D) visa must be obtained in advance from the Embassy.",
+    "other_nationals": "Nationals of third countries residing in Serbia who are not visa-exempt must apply for a Schengen visa at the Embassy of Switzerland in Belgrade. The Embassy also issues visas for Liechtenstein. Eligibility depends on the applicant's nationality. Visas cannot be obtained at border crossings."
+  },
+  "processing_times": {
+    "minimum_calendar_days": 10,
+    "recommended_submission_weeks_before_travel": "4–6",
+    "maximum_calendar_days": 30,
+    "notes": "Standard processing takes 10–15 calendar days. During peak travel seasons processing may extend up to 30 days. Applications should be submitted 4–6 weeks before the intended travel date. Biometric data (fingerprints and photo) must be provided in person at the Embassy unless already submitted within the past 59 months."
+  },
+  "application_location": {
+    "center": "Embassy of Switzerland in Belgrade (visa applications are handled directly by the Embassy; there is no external visa application center for Switzerland in Serbia)",
+    "address": "Bulevar Oslobodjenja 4, 11000 Belgrade, Serbia",
+    "booking": "Appointments are booked by email: send your Online-ID and a copy of your passport to belgrade.visa@eda.admin.ch. Visa section reception hours: Tuesday–Thursday 10:00–12:00."
+  },
+  "visa_fees": {
+    "adults_eur": 90,
+    "children_eur": 45,
+    "service_fee": null,
+    "fee_exemptions": [
+      "Children under 6 years of age: free",
+      "Children 6–11 years: reduced fee of €45",
+      "EU/EEA nationals and their family members: free",
+      "Holders of diplomatic or service passports of certain countries: free",
+      "Students, researchers, and representatives of non-profit organisations participating in seminars, conferences, or sports/cultural events organised by non-profit organisations: free",
+      "Fees are non-refundable in case of refusal"
+    ]
+  },
+  "required_documents_all_applicants": [
+    "Valid biometric passport with at least 2 blank pages, issued within the last 10 years, valid for at least 3 months beyond the intended date of departure from Switzerland",
+    "Completed and signed Schengen visa application form",
+    "Two recent biometric passport photos (35×45 mm, white background, not older than 6 months)",
+    "Travel medical insurance with minimum coverage of €30,000 for the entire Schengen Area and the full duration of the stay, including repatriation",
+    "Proof of accommodation for the entire stay (hotel bookings, rental confirmation, or invitation letter from host)",
+    "Round-trip flight reservation or confirmed travel itinerary",
+    "Cover letter explaining the purpose and itinerary of the visit",
+    "Proof of sufficient financial means (minimum CHF 100 / approx. €92 per day; via bank statements or employer letter)",
+    "Civil status documents (marriage certificate, birth certificates of children, etc., if applicable)",
+    "Copies of previous Schengen visas (if applicable)",
+    "Proof of legal residence in Serbia (if applicant is not a Serbian national)"
+  ],
+  "additional_documents_by_nationality": [
+    "Non-Serbian nationals residing in Serbia must submit a valid Serbian residence permit",
+    "Applicants who have been issued a Schengen residence permit or valid D-visa have different passport validity requirements — check with the Embassy",
+    "Documents not in German, French, Italian, or English must be accompanied by a certified translation"
+  ],
+  "documents_for_minors": {
+    "required": [
+      "Minor's valid passport or travel document",
+      "Birth certificate",
+      "If traveling with only one parent: notarized consent from the other parent (or court order granting sole custody)",
+      "If traveling without parents: notarized consent from both parents or legal guardians, plus identification of the accompanying adult",
+      "Parental or guardian authorization must be provided in German, French, Italian, or English"
+    ],
+    "note": "Children under 6 are exempt from the visa fee. Children 6–11 pay a reduced fee of €45. Children 12 and over pay the full adult fee of €90."
+  },
+  "purpose_specific_requirements": {
+    "tourism": [
+      "Hotel reservations or confirmed accommodation for the entire stay",
+      "Detailed travel itinerary",
+      "Round-trip flight bookings",
+      "Travel health insurance (min. €30,000, valid across Schengen Area)",
+      "Proof of financial means (min. CHF 100/day)"
+    ],
+    "business": [
+      "Official invitation letter from the Swiss business partner or company (on company letterhead, including company details, purpose and duration of visit)",
+      "Proof of registration of the inviting Swiss company",
+      "Employment contract or proof of business ownership in Serbia",
+      "Employer permission/approval letter",
+      "Bank statements (last 6 months)",
+      "Income tax return (if self-employed)"
+    ],
+    "family_or_private_visit": [
+      "Invitation letter from the host in Switzerland (signed, including contact details)",
+      "Copy of host's identification document (Swiss passport, ID card, or residence permit)",
+      "Proof of relationship to the host (e.g., marriage certificate, birth certificate)",
+      "Host's proof of accommodation (property ownership or rental contract)",
+      "Financial declaration from host if host is covering applicant's costs"
+    ],
+    "medical_treatment": [
+      "Doctor's letter from a Serbian physician with diagnosis and explanation of the need for treatment abroad",
+      "Acceptance or appointment confirmation letter from a Swiss medical institution",
+      "Proof of pre-payment or 50% advance payment receipt from the Swiss medical facility",
+      "Proof of accommodation during recovery (if applicable)"
+    ],
+    "transit": [
+      "Valid visa or residence permit for the destination country (if required by that country)",
+      "Confirmed onward flight ticket",
+      "Proof of the purpose of the final destination journey"
+    ]
+  },
+  "occupational_documentation": {
+    "employees": [
+      "Employment letter from employer stating position, salary, duration of employment, and approval for leave",
+      "Recent payslips (last 3 months)",
+      "Bank statements showing regular income"
+    ],
+    "entrepreneurs": [
+      "Business registration certificate (APR extract or equivalent)",
+      "Income tax return (last year)",
+      "Bank statements (last 6 months, business and/or personal)",
+      "Company stamp and letterhead documentation"
+    ],
+    "students": [
+      "Enrollment or study confirmation letter from educational institution",
+      "University or school no-objection certificate for travel",
+      "Proof of sufficient financial means (bank statements, scholarship letter, or proof of parental support)"
+    ],
+    "retirees": [
+      "Pension documentation or retirement income statement",
+      "Bank statements demonstrating regular pension deposits",
+      "Travel health insurance (min. €30,000 for Schengen area)"
+    ]
+  },
+  "special_provisions": "Swiss embassies issue Schengen visas valid for Switzerland, Liechtenstein, and all other Schengen member states. The Embassy of Switzerland in Belgrade also processes Liechtenstein visa applications. Multiple-entry visas are available for frequent travelers. ETIAS (European Travel Information and Authorization System), an online pre-travel authorization for visa-exempt nationals, is scheduled to be implemented in late 2026 and will affect Serbian citizens traveling to Switzerland. The 90/180-day rule applies across the entire Schengen zone. Extensions of short-stay visas are rarely granted; applicants typically must return home to apply for a new visa. As of 2026, the standard adult Schengen visa fee is €90 (increased from €80 in June 2024).",
+  "contact_and_resources": {
+    "embassy_location": "Belgrade, Serbia",
+    "appointment_url": null,
+    "consulate_website": "https://www.eda.admin.ch/belgrade",
+    "visa_page_url": "https://www.eda.admin.ch/countries/serbia/en/home/visa.html",
+    "schengen_fees_url": "https://www.eda.admin.ch/countries/serbia/en/home/visa/entry-ch/up-90-days/fees-schengen.html",
+    "where_to_apply_url": "https://www.eda.admin.ch/countries/serbia/en/home/visa/entry-ch/up-90-days/where-to-apply-schengen.html"
+  }
+}
