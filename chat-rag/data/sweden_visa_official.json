@@ -1,0 +1,128 @@
+{
+  "source": "https://www.swedenabroad.se/en/about-sweden-non-swedish-citizens/serbia/going-to-sweden/visiting-sweden/",
+  "title": "Visiting Sweden – Embassy of Sweden in Belgrade, Serbia",
+  "last_updated": "2026-05-20",
+  "country": "Sweden",
+  "embassy_in_serbia": {
+    "name": "Embassy of Sweden in Belgrade",
+    "address": "Ledi Pedzet 2, 11040 Belgrade, Serbia",
+    "website": "https://www.swedenabroad.se/en/embassies/serbia-belgrade/",
+    "phone": "+381 11 20 69 200",
+    "email": "ambassaden.belgrad-konsulart@gov.se"
+  },
+  "visa_eligibility": {
+    "serbian_citizens": "Serbian citizens holding a biometric passport are visa-free for stays up to 90 days within any 180-day period for tourism, business, study, or cultural/sporting events. Exception: Serbian citizens with biometric passports issued by 'Koordinaciona Uprava' in Belgrade (for Kosovo residents) must apply for a Schengen visa.",
+    "other_nationals": "Third-country nationals residing in Serbia who require a Schengen visa must submit applications at the VFS Global office in Belgrade. As of January 9, 2025, applications are processed by the Embassy of Sweden in Skopje, North Macedonia (no longer by the Belgrade embassy)."
+  },
+  "processing_times": {
+    "minimum_calendar_days": 15,
+    "recommended_submission_weeks_before_travel": "4–6",
+    "maximum_calendar_days": 45,
+    "notes": "Standard processing is 15 calendar days from the date the Embassy of Sweden in Skopje receives the application. Allow an additional 2–3 working days each way for VFS Global courier transport to/from Skopje. Processing may extend up to 45 days if additional scrutiny, interviews, or consultation with other EU member states is required. Applications can be submitted up to 6 months before travel. International shipping employees may apply up to 9 months in advance. Application must arrive at the embassy at least 15 days before planned travel."
+  },
+  "application_location": {
+    "center": "VFS Global Visa Application Centre – Belgrade (applications forwarded to Embassy of Sweden in Skopje, North Macedonia for processing)",
+    "address": "Belgrade, Serbia (exact street address available on the VFS Global website: https://visa.vfsglobal.com/srb/en/swe/attend-centre/belgrade)",
+    "booking": "Appointments must be booked through the VFS Global online portal at https://visa.vfsglobal.com/srb/en/swe/book-an-appointment. The Embassy of Sweden in Belgrade does not accept or process Schengen visa applications directly since January 9, 2025."
+  },
+  "visa_fees": {
+    "adults_eur": 90,
+    "children_eur": 45,
+    "service_fee": "VFS Global service fee: €80 (inclusive of VAT, non-refundable). Covers courier transport of application and passport to/from Skopje. Payable by credit card or cash in RSD at the mid-rate of the National Bank of Serbia (updated every two weeks). Children under 6 are free.",
+    "fee_exemptions": [
+      "Children under 6 years of age",
+      "Holders of official/diplomatic passports accompanied by a diplomatic note",
+      "Students and pupils on study or training trips accompanied by teachers",
+      "Researchers pursuing scientific research",
+      "Representatives of non-profit organisations aged 25 or under attending seminars or cultural/sporting events",
+      "Family members of EU/EEA citizens exercising free movement rights (travelling together)"
+    ]
+  },
+  "required_documents_all_applicants": [
+    "Valid passport: issued within the past 10 years, valid for at least 3 months after intended departure from the Schengen area, with at least 2 blank pages",
+    "Completed and signed Schengen visa application form",
+    "2 recent passport-sized photos (35mm × 45mm, ICAO-compliant, taken within the past 6 months, light background, neutral expression)",
+    "Medical travel insurance: minimum €30,000 coverage valid across all Schengen states, covering emergency medical aid, hospitalisation, and repatriation; dates must match exact trip dates",
+    "Proof of financial means: bank statements or salary records from the last 3 months; minimum SEK 450 per person per day (may be lower if accommodation or costs are prepaid, or if staying with family/friends)",
+    "Return/round-trip flight reservation with a return journey within 90 days",
+    "Proof of accommodation for the entire stay (hotel booking, rental agreement, or invitation)"
+  ],
+  "additional_documents_by_nationality": [
+    "Third-country nationals residing in Serbia must demonstrate legal residence in Serbia (e.g., valid residence permit)",
+    "Serbian citizens with passports issued by Koordinaciona Uprava must apply as regular Schengen visa applicants regardless of biometric status"
+  ],
+  "documents_for_minors": {
+    "required": [
+      "Both parents or legal guardians must be present at the VFS Global application centre at time of submission",
+      "Both parents/guardians must sign the visa application form",
+      "Written parental consent signed by both parents/guardians, with copies of their passports",
+      "School absence letter for the requested travel period",
+      "If travelling with a non-guardian adult: copies of that adult's passport and visa",
+      "Single parent with sole custody: birth certificate AND either death certificate of other parent or court custody agreement"
+    ],
+    "note": "If only one parent has sole custody, documentation proving this must be provided. Financial requirements for minors may be lower than the adult daily minimum."
+  },
+  "purpose_specific_requirements": {
+    "tourism": [
+      "Proof of accommodation for all nights (hotel reservation, rental agreement, or host invitation)",
+      "Round-trip flight reservation",
+      "Medical travel insurance (min €30,000)",
+      "Proof of financial means (SEK 450/day)"
+    ],
+    "business": [
+      "Invitation letter from the Swedish company or conference/event organiser",
+      "Proof of professional engagement (e.g., conference programme, meeting agenda)",
+      "Employer's letter confirming travel purpose and that costs are covered",
+      "Medical travel insurance",
+      "Proof of financial means"
+    ],
+    "family_or_private_visit": [
+      "Written invitation letter signed by the host in Sweden",
+      "Civic registration or family certificate from the Swedish Population Register (not older than 3 months)",
+      "Copy of the host's passport (first page)",
+      "Host's financial documentation if they are covering costs",
+      "Proof of relationship (if applicable)"
+    ],
+    "medical_treatment": [
+      "Medical certificate from a doctor in the applicant's home country specifying the diagnosis and the need for treatment in Sweden",
+      "Medical certificate from the Swedish healthcare institution confirming the appointment/treatment",
+      "Proof of deposited funds or pre-paid medical costs",
+      "Completed medical treatment questionnaire (if required by the embassy)"
+    ],
+    "transit": [
+      "Proof of onward destination and valid visa/entry permit for the destination country (if applicable)",
+      "Valid passport",
+      "Flight itinerary showing transit routing through Sweden"
+    ]
+  },
+  "occupational_documentation": {
+    "employees": [
+      "Pay slips for the last 3 months",
+      "Employment contract",
+      "Employer's written statement confirming the leave of absence and that the applicant will return to work"
+    ],
+    "entrepreneurs": [
+      "Business registration documents",
+      "Ongoing contracts with clients or evidence of a business relationship in Sweden",
+      "Letters from Swedish business partners",
+      "Bank statements showing business financial activity",
+      "Business plan (if applicable)"
+    ],
+    "students": [
+      "Proof of enrolment at an educational institution in Serbia",
+      "Acceptance letter or admission certificate from a Swedish university or institution (for study-related visits)",
+      "Financial documentation covering the full stay",
+      "School absence letter (for minor students)"
+    ],
+    "retirees": [
+      "Proof of pension income (pension statement or bank statements for the last 3 months)",
+      "Proof of sufficient financial means for the stay (SEK 450/day)"
+    ]
+  },
+  "special_provisions": "Visas are issued for 1–90 days within a 180-day validity period. Multi-entry visas valid up to 5 years are available for frequent travellers. A Schengen visa does not guarantee entry; border officers conduct final checks. Applicants should carry copies of all submitted documents when travelling. For stays exceeding 90 days, a residence permit must be applied for through the Swedish Migration Agency (Migrationsverket). Family members of EU/EEA nationals travelling together are exempt from fees and receive accelerated processing. Sport or cultural event group travellers must attach invitation, insurance, and membership documentation to each individual application. International shipping employees may apply up to 9 months before travel.",
+  "contact_and_resources": {
+    "embassy_location": "Belgrade, Serbia",
+    "appointment_url": "https://visa.vfsglobal.com/srb/en/swe/book-an-appointment",
+    "consulate_website": "https://www.swedenabroad.se/en/embassies/serbia-belgrade/"
+  }
+}

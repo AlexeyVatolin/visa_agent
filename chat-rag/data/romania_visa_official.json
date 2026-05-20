@@ -1,0 +1,125 @@
+{
+  "source": "https://belgrad.mae.ro/en/node/427 (503 at scrape time); supplemented by https://igi.mai.gov.ro/en/how-to-obtain-a-short-stay-visa-for-the-purpose-of-visit/, https://www.mfa.gov.rs/en/citizens/travel-abroad/visas-and-states-travel-advisory/romania, https://immigrationromania.lawyer/documents-for-obtaining-type-D-visa/",
+  "title": "Romania Visa Information — Embassy of Romania in the Republic of Serbia",
+  "last_updated": "2026-05-20",
+  "country": "Romania",
+  "embassy_in_serbia": {
+    "name": "Embassy of Romania in the Republic of Serbia — Consular Section",
+    "address": "Mihaila Avramovica 12, 11040 Belgrade, Serbia (Entry B for Consular Section)",
+    "website": "https://belgrad.mae.ro/en",
+    "phone": "+381 11 36 70 362 (consular); +381 11 3675 772 (main)",
+    "email": "belgrad.consul@mae.ro"
+  },
+  "visa_eligibility": {
+    "serbian_citizens": "Serbian citizens do NOT require a visa for stays in Romania up to 90 days within any 180-day period. For stays exceeding 90 days (long-stay, D-type visas), Serbian citizens must apply online at eviza.mae.ro and then attend an in-person appointment at the Consular Section. Short-stay C visas are only needed by Serbian citizens in exceptional circumstances beyond the 90-day limit.",
+    "other_nationals": "Third-country nationals holding a valid permit for temporary or permanent residence in Serbia may also submit visa applications at the Consular Section of the Romanian Embassy in Belgrade."
+  },
+  "processing_times": {
+    "minimum_calendar_days": 10,
+    "recommended_submission_weeks_before_travel": "4–6",
+    "maximum_calendar_days": 60,
+    "notes": "Short-stay C visa: standard approval within 10–15 business days; invitation approval (if required) up to 60 days. Long-stay D visa (employment with permit): 10 days. Long-stay D visa (other categories, no permit): 30–45 days. Online appointment waiting time is typically 2–3 weeks, sometimes longer; this period does not count toward processing time. Apply within 30 days of invitation approval (if applicable)."
+  },
+  "application_location": {
+    "center": "Consular Section of the Embassy of Romania in Belgrade",
+    "address": "Mihaila Avramovica 12, 11040 Belgrade (Entry B)",
+    "booking": "Applications must first be pre-registered electronically at https://eviza.mae.ro/ for pre-validation and to obtain an appointment. In-person attendance at the Consular Section is then mandatory."
+  },
+  "visa_fees": {
+    "adults_eur": 35,
+    "children_eur": 0,
+    "service_fee": "Standard C-visa fee is €60; however, Serbian nationals benefit from the EU–Serbia Visa Facilitation Agreement, which reduces the fee to €35. Certain categories are fully exempt (see fee_exemptions). Long-stay D-visa fee not separately published; confirm with embassy.",
+    "fee_exemptions": [
+      "Children under 6 years of age",
+      "School pupils, students, postgraduate students, and accompanying teachers travelling for study or educational purposes",
+      "Researchers travelling for scientific research",
+      "Disabled persons and, where necessary, their accompanying persons",
+      "Close relatives of Serbian citizens legally residing in Romania (spouses, children under 21, dependent ascendants)",
+      "Holders of diplomatic and service passports",
+      "Members of official delegations",
+      "Participants in official exchange programmes of twin towns"
+    ]
+  },
+  "required_documents_all_applicants": [
+    "Completed and signed harmonised visa application form",
+    "Recent passport-style photograph (3.5 × 4.5 cm, white background, taken within last 6 months)",
+    "Valid travel document (passport issued within the last 10 years, valid at least 3 months after intended exit from Romania, with at least 2 blank pages)",
+    "Travel/health insurance covering at least €30,000 for medical expenses, emergency repatriation, and urgent care, valid for the entire stay",
+    "Proof of financial means: minimum €50 per day, with at least €500 for the total stay (bank statements, credit card with statement not older than 2 days, or sponsorship declaration)",
+    "Proof of accommodation (hotel reservation, notarised invitation letter from host, or property ownership documents)",
+    "Proof of return/onward transportation (air, rail, or bus ticket; or vehicle registration, driver's licence, and Romanian vignette if travelling by car)"
+  ],
+  "additional_documents_by_nationality": [
+    "Third-country nationals resident in Serbia must present a valid Serbian residence permit (temporary or permanent) when applying at the Belgrade Consular Section"
+  ],
+  "documents_for_minors": {
+    "required": [
+      "Visa application form signed by both parents (or the person exercising permanent or temporary parental authority/guardianship)",
+      "Certified birth certificate",
+      "Copy of both parents' passports or identity documents",
+      "Notarised parental consent letter from the non-accompanying parent (or both, if the minor travels alone)",
+      "Court decision or sole-custody documentation if only one parent has parental authority",
+      "For unaccompanied minors: notarised authorisation identifying the accompanying person"
+    ],
+    "note": "For minors applying for long-stay D visas, additional purpose-specific documents are required (e.g., school enrolment letter for study visas)."
+  },
+  "purpose_specific_requirements": {
+    "tourism": [
+      "Confirmed hotel reservation or accommodation voucher for entire stay",
+      "Round-trip travel itinerary or travel agency booking confirmation",
+      "Proof of financial means covering the stay (€50/day minimum)"
+    ],
+    "business": [
+      "Invitation letter from the Romanian company or business partner specifying purpose, duration, and financial responsibility",
+      "Company registration extract or official letterhead of the inviting Romanian entity",
+      "Applicant's employment contract or business registration document",
+      "Proof of financial means"
+    ],
+    "family_or_private_visit": [
+      "Notarised invitation letter from the host in Romania (Romanian national or legal resident) specifying relationship, duration, and accommodation",
+      "Host's proof of residence in Romania (ID, utility bill, or residence certificate)",
+      "Proof of relationship between applicant and host (e.g., birth certificate, marriage certificate)",
+      "Proof of host's financial means if sponsoring the applicant"
+    ],
+    "medical_treatment": [
+      "Letter from a Romanian medical institution confirming appointment, treatment type, and estimated duration",
+      "Proof of payment or financial guarantee for medical treatment",
+      "Referral letter from treating physician in Serbia (if applicable)",
+      "Proof of financial means covering medical and living costs"
+    ],
+    "transit": [
+      "Valid visa or residence permit for the destination country (if required)",
+      "Confirmed onward travel booking (flight, rail, or bus ticket)",
+      "Proof of sufficient financial means for transit stay"
+    ]
+  },
+  "occupational_documentation": {
+    "employees": [
+      "Employment certificate from employer (stating position, salary, leave approval, and confirmation of return)",
+      "Recent pay slips (last 3 months)",
+      "Employer's company registration extract"
+    ],
+    "entrepreneurs": [
+      "Business registration certificate",
+      "Tax returns or financial statements for the last year",
+      "Bank statements showing business activity"
+    ],
+    "students": [
+      "Enrolment certificate from educational institution in Serbia",
+      "Proof of scholarship or financial support",
+      "Letter from institution confirming leave of absence (if applicable)",
+      "For long-stay study D visa: acceptance/enrolment letter from Romanian university or educational institution"
+    ],
+    "retirees": [
+      "Pension certificate or proof of pension income",
+      "Bank statements showing regular pension payments",
+      "Proof of sufficient financial means for stay"
+    ]
+  },
+  "special_provisions": "As of 1 September 2020, the Embassy in Belgrade processes Type D (long-stay) visa applications in addition to short-stay C visas. All applications must be pre-submitted electronically at https://eviza.mae.ro/ before an in-person appointment can be scheduled. Romania is a full EU member state but as of 2026 still operates its own national visa system (it joined Schengen for air and sea borders in March 2024; land border Schengen entry expected separately). Serbian citizens enjoy visa-free access for up to 90 days and are covered by the EU–Serbia Visa Facilitation Agreement for any C-visa applications required. ETIAS (European Travel Information and Authorisation System) is expected to apply to non-EU nationals by late 2026; holders of a valid Romanian visa would be exempt from ETIAS.",
+  "contact_and_resources": {
+    "embassy_location": "Belgrade, Serbia",
+    "appointment_url": "https://eviza.mae.ro/",
+    "consulate_website": "https://belgrad.mae.ro/en"
+  }
+}

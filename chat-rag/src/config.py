@@ -7,10 +7,14 @@ _ROOT = Path(__file__).parent.parent  # chat-rag/
 
 class Settings(BaseSettings):
     mistral_api_key: str
+    gemini_api_key: str | None = None
     data_path: Path = _ROOT / "data/messages.json"
-    official_data_path: Path = _ROOT / "data/germany_visa_official.json"
+    official_data_dir: Path = _ROOT / "data"
     chroma_path: Path = _ROOT / "chroma_db"
     collection_name: str = "chat_history"
+
+    # Logging: CHAT_RAG_DEBUG=0 for INFO-only output
+    chat_rag_debug: bool = True
 
     # LangSmith tracing — set LANGSMITH_TRACING=true and LANGSMITH_API_KEY to enable
     langsmith_tracing: bool = False

@@ -1,12 +1,12 @@
 """Output guardrails: deterministic PII redaction and internal error scrubbing."""
 
-import logging
 from dataclasses import dataclass, field
 
 from guardrails._internal_errors import rewrite_internal_error_leaks
 from guardrails._output_tokens import redact_output_pii
+from logging_ import get_logger
 
-logger = logging.getLogger(__name__)
+logger = get_logger(__name__)
 
 
 @dataclass

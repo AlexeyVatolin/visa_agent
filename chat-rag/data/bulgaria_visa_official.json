@@ -1,0 +1,132 @@
+{
+  "source": "https://mfa.rs/en/citizens/travel-abroad/visas-and-states-travel-advisory/bulgaria",
+  "title": "Bulgaria – Visa and Travel Information for Serbian Citizens",
+  "last_updated": "2026-05-20",
+  "country": "Bulgaria",
+  "embassy_in_serbia": {
+    "name": "Embassy of the Republic of Bulgaria in Belgrade",
+    "address": "Birchaninova 26, 11000 Belgrade, Serbia",
+    "website": "https://www.mfa.bg/en/embassies/serbia",
+    "phone": "+381 11 36 13 980; +381 11 36 13 990",
+    "email": "Embassy.Belgrade@mfa.bg",
+    "consular_office": {
+      "address": "Svetogorska Street No. 36, Belgrade, Serbia",
+      "phone": "+381 11 324 7675",
+      "email": "Consulate.Belgrade@mfa.bg",
+      "hours": "Monday–Friday, 08:30–16:30; citizen consultations 10:00–12:00"
+    },
+    "consulate_general_nis": {
+      "address": "18 Lole Ribara Street, Niš 18000, Serbia",
+      "phone": "+381 18 516 800; +381 18 516 700",
+      "email": "Consulate.Nish@mfa.bg",
+      "hours": "Monday–Friday, 09:00–17:00; intake 09:00–12:00"
+    }
+  },
+  "visa_eligibility": {
+    "serbian_citizens": "Serbian citizens holding a valid biometric passport do NOT need a visa to enter Bulgaria for stays up to 90 days within any 180-day period. Travel documents must have been issued within the last 10 years and remain valid for at least 3 months after the planned departure date. Non-biometric passport holders and holders of emergency travel documents in transit require a standard Bulgarian visa.",
+    "other_nationals": "Third-country nationals residing in Serbia who are not Serbian citizens must apply for a Bulgarian visa at the Embassy/Consular Office in Belgrade. Citizens of EU/EEA/Schengen states are exempt. Citizens of countries covered by visa-free agreements with Bulgaria are also exempt."
+  },
+  "processing_times": {
+    "minimum_calendar_days": 15,
+    "recommended_submission_weeks_before_travel": "4–6",
+    "maximum_calendar_days": 35,
+    "notes": "Short-stay Visa C: approximately 15 calendar days. Long-stay Visa D: approximately 35 business days, up to 6 months in complex cases. Applications may be submitted no earlier than 3 months (6 months for Visa D) before the intended travel date."
+  },
+  "application_location": {
+    "center": "Consular Office of the Embassy of the Republic of Bulgaria",
+    "address": "Svetogorska Street No. 36, Belgrade, Serbia",
+    "booking": "Contact the consular office directly by phone (+381 11 324 7675) or email (Consulate.Belgrade@mfa.bg) to schedule an appointment. No third-party visa application center (VFS Global) identified for Serbia."
+  },
+  "visa_fees": {
+    "adults_eur": 90,
+    "children_eur": null,
+    "service_fee": null,
+    "fee_exemptions": [
+      "Children under 12 years of age",
+      "Holders of diplomatic and official passports",
+      "EU/EEA/Schengen citizen family members",
+      "Participants in official exchange programs",
+      "Researchers traveling for scientific purposes"
+    ]
+  },
+  "required_documents_all_applicants": [
+    "Completed and signed visa application form",
+    "Valid travel document (passport) – issued within the last 10 years, valid at least 3 months beyond intended stay",
+    "Photocopy of the bio-data page of the travel document",
+    "Photocopy of all previous Bulgarian, Schengen, UK, and US visas (if any)",
+    "One recent color photograph (3.5 cm × 4.5 cm, light-colored background)",
+    "Travel medical insurance with minimum coverage of €30,000, valid for the entire stay and all Schengen states",
+    "Proof of accommodation (hotel booking, invitation letter, or rental agreement)",
+    "Proof of sufficient financial means (min. €50/day; overall not less than €500) – bank statements or similar",
+    "Proof of round-trip or onward travel (flight/bus/train reservation or itinerary)",
+    "Vehicle registration/technical passport (if traveling by car)"
+  ],
+  "additional_documents_by_nationality": [
+    "Applicants with previous refusals must disclose this on the application form",
+    "Non-Serbian residents in Serbia must provide proof of legal residence permit"
+  ],
+  "documents_for_minors": {
+    "required": [
+      "Birth certificate of the minor",
+      "Notarized parental consent from the non-accompanying parent(s) if traveling with one parent",
+      "Court order or legal document if applicable (e.g., sole custody)",
+      "Authorization documents for minors traveling unaccompanied"
+    ],
+    "note": "Minors must appear in person for biometric data collection where required."
+  },
+  "purpose_specific_requirements": {
+    "tourism": [
+      "Confirmed hotel/accommodation booking or invitation from host",
+      "Round-trip travel reservation",
+      "Sufficient financial means (€50/day, minimum €500)"
+    ],
+    "business": [
+      "Invitation letter from Bulgarian business partner on company letterhead",
+      "Proof of business registration of inviting company",
+      "Letter from employer confirming purpose and duration of trip"
+    ],
+    "family_or_private_visit": [
+      "Invitation letter from host in Bulgaria (notarized if required)",
+      "Proof of host's legal residence or citizenship in Bulgaria",
+      "Proof of relationship (if applicable)"
+    ],
+    "medical_treatment": [
+      "Medical referral or appointment confirmation from Bulgarian medical institution",
+      "Proof of payment or financial guarantee for treatment",
+      "Medical insurance covering the stay"
+    ],
+    "transit": [
+      "Valid visa or residence permit for the destination country",
+      "Confirmed onward travel documentation",
+      "Note: Serbian citizens with biometric passports do not need a transit visa for airport transit through Bulgaria"
+    ]
+  },
+  "occupational_documentation": {
+    "employees": [
+      "Employment contract or letter from employer",
+      "Employer confirmation of leave/business trip approval",
+      "Recent payslips or bank statements showing regular income"
+    ],
+    "entrepreneurs": [
+      "Business registration certificate",
+      "Bank statements showing business activity and sufficient funds"
+    ],
+    "students": [
+      "Enrollment certificate from educational institution",
+      "Proof of scholarship or financial support",
+      "Parental consent if under 18"
+    ],
+    "retirees": [
+      "Pension certificate or proof of pension payments",
+      "Bank statements confirming sufficient funds"
+    ]
+  },
+  "special_provisions": "Since March 31, 2024, Bulgaria is a full Schengen member. Bulgarian short-stay visas (Type C) are now valid throughout the entire Schengen Area. Serbian citizens holding biometric passports are visa-exempt for up to 90 days in any 180-day period. ETIAS authorization will be required for Serbian citizens once the European Travel Information and Authorisation System launches (expected late 2026) – this is not a visa but an online pre-screening requirement. Travelers entering Bulgaria by car must have a valid electronic road vignette. Currency amounts exceeding €10,000 must be declared at customs upon entry.",
+  "contact_and_resources": {
+    "embassy_location": "Belgrade, Serbia",
+    "appointment_url": null,
+    "consulate_website": "https://www.mfa.bg/en/embassies/serbia",
+    "mfa_visa_page": "https://www.mfa.bg/en/services-travel/consular-services/travel-bulgaria/visa-bulgaria",
+    "serbian_mfa_advisory": "https://mfa.rs/en/citizens/travel-abroad/visas-and-states-travel-advisory/bulgaria"
+  }
+}

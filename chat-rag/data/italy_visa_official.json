@@ -1,0 +1,119 @@
+{
+  "source": "https://ambbelgrado.esteri.it/it/servizi-consolari-e-visti/servizi-per-il-cittadino-straniero/visti/visas-english-version/",
+  "title": "Visas – Italian Embassy Belgrade",
+  "last_updated": "2026-05-20",
+  "country": "Italy",
+  "embassy_in_serbia": {
+    "name": "Ambasciata d'Italia a Belgrado (Italian Embassy in Belgrade)",
+    "address": "Bircaninova ulica 11, 11000 Belgrade, Serbia",
+    "website": "https://ambbelgrado.esteri.it/",
+    "phone": "+381 (0)11 3066100",
+    "email": "visti.belgrado@esteri.it"
+  },
+  "visa_eligibility": {
+    "serbian_citizens": "Serbian passport holders require a Schengen visa (Type C) for short stays up to 90 days within any 180-day period in Italy and other Schengen Area countries. Applicants must be resident in Serbia; those residing outside Serbia or holding a current Schengen C-visa cannot apply at this embassy.",
+    "other_nationals": "Third-country nationals legally residing in Serbia may apply at this embassy, but must demonstrate their socioeconomic status through activities conducted within Serbia. Eligibility and required documents may vary by nationality — consult vistoperitalia.esteri.it for nationality-specific requirements."
+  },
+  "processing_times": {
+    "minimum_calendar_days": null,
+    "recommended_submission_weeks_before_travel": "4–6",
+    "maximum_calendar_days": null,
+    "notes": "Processing usually takes 2–4 working days after the interview. Applications may be submitted up to 6 months before departure (9 months for seafarers). Applications are accepted no less than 15 calendar days before planned travel. The embassy reserves the right to extend processing time depending on applicant nationality and case complexity."
+  },
+  "application_location": {
+    "center": "Visa Office – Italian Embassy in Belgrade (Ufficio Visti)",
+    "address": "Bircaninova ulica 9–11, 11000 Belgrade, Serbia",
+    "booking": "Appointments are mandatory for all applicants. Book online via the Prenot@mi portal at prenotami.esteri.it. The visa office receives visitors by appointment only, prioritising urgent requests. For appointment enquiries call +381 (0)11 3066153 Monday–Friday 12:00–13:00."
+  },
+  "visa_fees": {
+    "adults_eur": 90,
+    "children_eur": 45,
+    "service_fee": null,
+    "fee_exemptions": [
+      "Children under 6 years of age (€0 for Schengen Type C visa)",
+      "Study visas for stays up to 90 days (all ages: €0)",
+      "Other specific categories as defined by Schengen legislation"
+    ]
+  },
+  "required_documents_all_applicants": [
+    "Completed and signed visa application form (Schengen Type C: online via e-applicationvisa.esteri.it and printed with barcode; National Type D: downloaded from embassy Modulistica page)",
+    "Valid passport issued within the last 10 years, with at least 2 blank adjacent pages, valid for at least 3 months beyond the intended return date",
+    "Copy of all passport pages with entries/stamps",
+    "Recent colour passport photo (3.5 × 4 cm, white background)",
+    "Travel/health insurance with minimum coverage of €30,000 for medical emergencies and repatriation, valid for entire Schengen area and duration of stay",
+    "Proof of accommodation (hotel bookings, rental agreement, or hospitality declaration from host)",
+    "Round-trip flight reservation or travel itinerary",
+    "Proof of sufficient financial means for the duration of the stay",
+    "All documents in original plus one photocopy; documents must be dated within three months; foreign-language documents require legalization and certified Italian translation"
+  ],
+  "additional_documents_by_nationality": [
+    "Specific additional documents vary by nationality — consult the official Italian visa portal at vistoperitalia.esteri.it for nationality-specific document lists",
+    "Non-Serbian residents must demonstrate socioeconomic ties to Serbia",
+    "Group or couple applicants benefit from providing copies of accompanying travellers' visas"
+  ],
+  "documents_for_minors": {
+    "required": [
+      "Application form signed by parent or legal guardian",
+      "Birth certificate with apostille",
+      "Copy of identity documents of both parents or legal guardians",
+      "Parental consent declaration (if travelling with only one parent or alone)",
+      "Custody or guardianship documents where applicable"
+    ],
+    "note": "Children under 12 are exempt from biometric fingerprint collection. Applications for minors under 12 must be submitted in person by a parent or legal guardian."
+  },
+  "purpose_specific_requirements": {
+    "tourism": [
+      "Confirmed hotel/accommodation bookings or hospitality declaration",
+      "Round-trip travel reservation",
+      "Proof of sufficient financial means",
+      "Travel insurance (min €30,000)"
+    ],
+    "business": [
+      "Business invitation letter from the Italian company (Modello Invito Business, available from embassy website in PDF or DOC format)",
+      "Proof of employment or business ownership in Serbia",
+      "Evidence of business activity (company registration, tax records)"
+    ],
+    "family_or_private_visit": [
+      "Hospitality declaration (Dichiarazione di ospitalità) completed by host in Italy, available in PDF or DOC from embassy website",
+      "Copy of host's identity document or residence permit",
+      "Proof of relationship to host (if applicable)"
+    ],
+    "medical_treatment": [
+      "Medical documentation confirming treatment in Italy",
+      "Proof of appointment or admission at Italian medical institution",
+      "EU family members of Italian citizens presenting for medical visas may attend the consular office without appointment"
+    ],
+    "transit": [
+      "Valid visa or entry document for final destination country",
+      "Onward travel ticket",
+      "Transit visa required if passing through an Italian international port; consult vistoperitalia.esteri.it for specific requirements"
+    ]
+  },
+  "occupational_documentation": {
+    "employees": [
+      "Employment contract or employer's letter confirming leave of absence",
+      "Recent payslips (last 3 months)",
+      "Bank statements (last 3–6 months)"
+    ],
+    "entrepreneurs": [
+      "Business registration documents",
+      "Tax returns or financial statements",
+      "Bank statements (last 3–6 months)"
+    ],
+    "students": [
+      "Enrollment certificate from educational institution in Serbia",
+      "For national study visas (Type D, >90 days): proof of enrollment at Italian institution, financial means of at least €467.65/month (approx. €6,079.45/year for academic year 2022–2023), confirmed scholarship letter (if applicable)",
+      "Upon arrival in Italy with a study visa: apply for residence permit at local police headquarters within 8 working days"
+    ],
+    "retirees": [
+      "Pension payment documents or bank statements demonstrating sufficient income",
+      "Bank statements (last 3–6 months)"
+    ]
+  },
+  "special_provisions": "Biometric data (fingerprints) are collected for all Schengen visa applicants aged 12 and over, in compliance with the Visa Information System (VIS) adopted since 25 September 2014. Visa possession does not guarantee entry into Italy; border authorities may re-verify eligibility at the point of entry. All fees are paid in cash in EUR at the counter during application submission; no credit cards or cheques are accepted and payment at collection is not possible. Visa denial reasons are provided in writing; applicants may reapply with additional documents or appeal to the Lazio Administrative Court within 60 days. Unauthorised intermediaries offering visa assistance constitute fraud and should be reported immediately — all official forms are free of charge.",
+  "contact_and_resources": {
+    "embassy_location": "Belgrade, Serbia",
+    "appointment_url": "https://prenotami.esteri.it/",
+    "consulate_website": "https://ambbelgrado.esteri.it/"
+  }
+}

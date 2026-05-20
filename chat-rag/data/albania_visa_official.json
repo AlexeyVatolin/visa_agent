@@ -1,0 +1,124 @@
+{
+  "source": "https://ambasadat.gov.al/serbia/en/embassy-services/",
+  "title": "Embassy of the Republic of Albania in Serbia — Consular Services",
+  "last_updated": "2026-05-20",
+  "country": "Albania",
+  "embassy_in_serbia": {
+    "name": "Embassy of the Republic of Albania in Serbia",
+    "address": "Kneza Aleksandra Karadjordjevica 25a, Belgrade 11040, Serbia",
+    "website": "https://ambasadat.gov.al/serbia/en/",
+    "phone": "+381 11 3066642",
+    "email": "embassy.belgrade@mfa.gov.al"
+  },
+  "visa_eligibility": {
+    "serbian_citizens": "No visa required. Citizens of the Republic of Serbia holding a valid passport or biometric ID card may enter, transit, and stay in Albania without a visa for up to 90 days within a 180-day period from the date of first entry. Children over age 10 with valid ID cards may also use their ID to enter. Minors traveling via Kosovo/Metohija administrative boundary must carry a passport; those under 10 need a birth certificate with photograph plus a passport to enter Albania.",
+    "other_nationals": "EU citizens: 90 days/180 days visa-free using national ID or passport. US citizens: up to 365 days visa-free (stays beyond 90 days require police registration within 8 days). Canada, Australia, New Zealand, Japan, South Korea, Israel: 90 days visa-free. GCC citizens (Saudi Arabia, UAE, Qatar, Bahrain, Kuwait, Oman): visa-free April 15 – December 31, 2026. Holders of valid, previously-used multiple-entry Schengen visas or residence permits from EU/USA/UK may enter visa-free (must depart within 3 days of permit expiration). All other nationalities must obtain a visa via e-visa.al or the nearest Albanian embassy before arrival."
+  },
+  "processing_times": {
+    "minimum_calendar_days": 9,
+    "recommended_submission_weeks_before_travel": "12",
+    "maximum_calendar_days": 30,
+    "notes": "Standard processing: 9–15 business days (working days). Exceptional cases may take up to 30 working days. Expedited service available in 24–48 hours for an additional fee. Timelines may extend during national holidays or peak seasonal demand. Albanian Ministry advice: initiate the process at least 3 months before travel."
+  },
+  "application_location": {
+    "center": "Embassy of the Republic of Albania in Serbia (for in-person) or online via e-visa.al",
+    "address": "Kneza Aleksandra Karadjordjevica 25a, Belgrade 11040, Serbia",
+    "booking": "Online consular services are available through the SHKO platform at punetejashtme.gov.al/sherbimet-konsullore-online/ and e-albania.al. For in-person services, contact the consular office at consulate.belgrade@mfa.gov.al. Office hours: Monday–Thursday 09:00–14:30, Friday 09:00–14:00."
+  },
+  "visa_fees": {
+    "adults_eur": 60,
+    "children_eur": null,
+    "service_fee": "Type A (Airport Transit): €35. Type C (Short Stay, up to 90 days within 180 days): €60. Type D (Long Stay, over 90 days): €100. Enhanced-verification categories (Business, Medical, Family/Friends visit): €120. Expedited processing available at additional cost.",
+    "fee_exemptions": [
+      "Serbian citizens (visa-free entry)",
+      "EU citizens (visa-free entry)",
+      "US citizens (visa-free entry)",
+      "Citizens of Canada, Australia, New Zealand, Japan, South Korea, Israel (visa-free entry)",
+      "GCC citizens during seasonal visa-free window (April 15 – December 31, 2026)",
+      "Holders of valid multiple-entry Schengen/EU/US/UK visas or residence permits"
+    ]
+  },
+  "required_documents_all_applicants": [
+    "Completed visa application form",
+    "Valid passport (valid at least 3 months beyond intended departure date, issued within last 10 years, with at least 2 blank pages for stamps)",
+    "Passport-size photos: 35×45 mm, recent, white background",
+    "Bank statements for last 3 months on official letterhead (showing sufficient funds: minimum €50/day of stay)",
+    "Employment letter or proof of income/occupation",
+    "Proof of accommodation (hotel booking, rental agreement, or host invitation)",
+    "Return/onward travel ticket or itinerary",
+    "Travel insurance (strongly recommended; covering the full duration of stay)"
+  ],
+  "additional_documents_by_nationality": [
+    "Non-EU, non-Schengen nationals: proof of legal residence in Serbia (if applying from Serbia)",
+    "Schengen visa or residence permit holders: copy of valid multiple-entry permit (single-entry not accepted)",
+    "Emergency travel document holders: visa required even for transit"
+  ],
+  "documents_for_minors": {
+    "required": [
+      "Valid passport (ID card accepted for Serbian minors over age 10)",
+      "Birth certificate",
+      "Notarized parental authorization (for unaccompanied minors)",
+      "Consent letter from absent parent (when traveling with only one parent)",
+      "For entry via Kosovo/Metohija: passport required regardless of age; under-10s need birth certificate with photo attached plus passport"
+    ],
+    "note": "Children over 10 with valid Serbian biometric ID cards may use that ID for standard entry to Albania. Unaccompanied minors must have notarized parental consent."
+  },
+  "purpose_specific_requirements": {
+    "tourism": [
+      "Confirmed hotel/accommodation booking for entire stay",
+      "Return flight or onward travel ticket",
+      "Proof of sufficient funds (min. €50/day)",
+      "Travel insurance"
+    ],
+    "business": [
+      "Formal business invitation letter from Albanian company (on company letterhead, signed)",
+      "Proof of business registration of the inviting company",
+      "Employment letter from applicant's employer",
+      "Standard financial and travel documents"
+    ],
+    "family_or_private_visit": [
+      "Invitation letter from Albanian host (notarized or officially certified)",
+      "Proof of relationship to host",
+      "Host's proof of residence or citizenship in Albania",
+      "Standard financial and travel documents"
+    ],
+    "medical_treatment": [
+      "Official confirmation/invitation letter from Albanian medical institution",
+      "Medical documents justifying treatment abroad",
+      "Proof of financial means to cover treatment and stay",
+      "Standard travel documents"
+    ],
+    "transit": [
+      "Type A airport transit visa (€35) for airside transit",
+      "Onward ticket confirming departure from Albania",
+      "Valid visa/entry permit for the next destination (if required)"
+    ]
+  },
+  "occupational_documentation": {
+    "employees": [
+      "Employment contract or letter from employer (on company letterhead, with contact details)",
+      "Approved leave/vacation confirmation",
+      "Recent pay slips or proof of salary"
+    ],
+    "entrepreneurs": [
+      "Business registration certificate",
+      "Tax registration document",
+      "Bank statements demonstrating business income"
+    ],
+    "students": [
+      "Enrollment certificate from educational institution",
+      "Proof of financial support (scholarship letter, parental support, or bank statements)",
+      "Letter of permission from institution if during academic term"
+    ],
+    "retirees": [
+      "Proof of pension income (pension statement or bank statements)",
+      "Proof of sufficient funds for the stay"
+    ]
+  },
+  "special_provisions": "Serbian citizens enjoy visa-free access bilaterally — no visa needed for stays up to 90 days within any 180-day period. Payments for consular services must be made by bank transfer only (cash not accepted at embassy). US citizens may stay up to 365 days visa-free but must register with local police within 8 days for stays exceeding 90 days (fee ~5,000 Albanian lekë). Albania does not issue entry stamps for EU/visa-free travelers; travelers must self-track their 90-day limit. Vehicles entering Albania require a 'green card' (international motor insurance certificate). Pets require valid vaccination records and a veterinary health certificate. Digital nomads have no dedicated visa category — Type D (long-stay) visa is recommended for stays over 90 days; tax residency applies after 183 days per calendar year.",
+  "contact_and_resources": {
+    "embassy_location": "Belgrade, Serbia",
+    "appointment_url": "https://ambasadat.gov.al/serbia/en/contact-the-consular-office/",
+    "consulate_website": "https://ambasadat.gov.al/serbia/en/"
+  }
+}

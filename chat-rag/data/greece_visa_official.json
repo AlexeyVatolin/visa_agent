@@ -1,0 +1,128 @@
+{
+  "source": "https://www.mfa.gov.rs/en/citizens/travel-abroad/visas-and-states-travel-advisory/greece",
+  "title": "Visa Information - Embassy of Greece in Belgrade, Serbia",
+  "last_updated": "2026-05-20",
+  "country": "Greece",
+  "embassy_in_serbia": {
+    "name": "Embassy of Greece in Belgrade",
+    "address": "Francuska 33, 11000 Belgrade, Serbia",
+    "website": "https://www.mfa.gr/serbia/en/",
+    "phone": "+381 11 3226523",
+    "email": "[email protected]"
+  },
+  "visa_eligibility": {
+    "serbian_citizens": "Holders of valid biometric Serbian passports do NOT require a Schengen visa for stays up to 90 days within any 180-day period. Passport must be valid for at least 3 months beyond the planned exit date from Greece. For stays exceeding 90 days (e.g. study, work, family reunification), a national long-stay visa (Type D) must be obtained before travel. Holders of non-biometric Serbian passports require a Schengen visa.",
+    "other_nationals": "Third-country nationals residing in Serbia whose home country appears on the EU visa-required list must apply for a Schengen visa at the Embassy of Greece in Belgrade."
+  },
+  "processing_times": {
+    "minimum_calendar_days": 15,
+    "recommended_submission_weeks_before_travel": "4–6",
+    "maximum_calendar_days": 60,
+    "notes": "Applications must be submitted no earlier than 6 months before intended travel and at least 15 days before departure. Standard processing is 15 calendar days. Can be extended to 30 days, or up to 60 days in exceptional or complex cases."
+  },
+  "application_location": {
+    "center": "Embassy of Greece in Belgrade, Consular Section",
+    "address": "Francuska 33, 11000 Belgrade, Serbia",
+    "booking": "Applications are submitted directly at the Embassy of Greece in Belgrade by appointment. Contact the embassy by phone (+381 11 3226523) or email ([email protected]) to schedule an appointment. Working hours: Monday–Friday 9:00–16:00, except Greek and Serbian public holidays. A consulate is also located in Niš at Kej Mike Paligorica 18/A, 18000 Niš (+381 18 520407)."
+  },
+  "visa_fees": {
+    "adults_eur": 90,
+    "children_eur": 45,
+    "service_fee": null,
+    "fee_exemptions": [
+      "Children under 6 years old — free",
+      "School pupils and accompanying teachers on educational trips — free",
+      "Researchers traveling for scientific research purposes — free",
+      "Persons under 25 years old participating in seminars, conferences, or non-profit cultural/sports/educational events — free",
+      "Close family members of EU/EEA/Swiss citizens exercising right of free movement — free",
+      "Other categories exempt under the EU Visa Code"
+    ]
+  },
+  "required_documents_all_applicants": [
+    "Valid passport issued within the last 10 years, with at least 2 consecutive blank pages, valid for at least 3 months beyond the intended departure date from the Schengen Area",
+    "Photocopies of passport biographical page and all pages bearing stamps or visas",
+    "Two recent passport-size photographs (35×45 mm, white background, taken within the last 6 months)",
+    "Completed and signed Schengen visa application form (in English or Greek)",
+    "Biometric fingerprints (collected at the embassy at time of submission; valid for 59 months once enrolled)",
+    "Travel medical insurance with minimum €30,000 coverage valid across the entire Schengen Area for the full duration of stay",
+    "Round-trip flight reservation or confirmed tickets (including return/onward journey)",
+    "Proof of accommodation for the entire stay (hotel booking confirmations or certified invitation letter from host)",
+    "Bank statements for the last 3–6 months showing sufficient financial means (approx. €50–100 per day of stay; internet printouts without official bank stamp are not accepted)",
+    "Cover letter explaining the purpose of travel, planned itinerary, and ties to home country",
+    "Visa fee payment"
+  ],
+  "additional_documents_by_nationality": [
+    "Holders of non-biometric Serbian passports: Schengen visa required regardless of stay duration",
+    "Third-country nationals residing in Serbia: must demonstrate legal residence in Serbia (valid residence permit)"
+  ],
+  "documents_for_minors": {
+    "required": [
+      "Birth certificate",
+      "Notarized parental consent signed by both parents (if travelling alone or with only one parent)",
+      "Copies of both parents' passports or national ID documents",
+      "Court order or legal guardian documentation (if applicable)",
+      "School enrollment certificate"
+    ],
+    "note": "Children under 6 are exempt from visa fees. Children aged 6–11 pay a reduced fee of €45. Minors under 18 travelling without both parents require notarized parental consent."
+  },
+  "purpose_specific_requirements": {
+    "tourism": [
+      "Round-trip flight reservation or confirmed tickets",
+      "Hotel booking confirmations or proof of accommodation for the entire stay",
+      "Detailed travel itinerary",
+      "Bank statements for the last 3–6 months showing sufficient funds"
+    ],
+    "business": [
+      "Invitation letter from the Greek company or business partner (on company letterhead, signed, with company details)",
+      "Letter from applicant's employer in Serbia confirming the business trip purpose, dates, and financial sponsorship",
+      "Company registration documents (if self-employed or business owner)",
+      "Bank statements for the last 3–6 months"
+    ],
+    "family_or_private_visit": [
+      "Original invitation letter from the host in Greece",
+      "Proof of host's legal residence or citizenship in Greece (copy of ID card, passport, or residence permit)",
+      "Proof of relationship with the host (birth certificate, marriage certificate, or other documentation)",
+      "Host's bank statement or income proof if host is covering applicant's costs"
+    ],
+    "medical_treatment": [
+      "Confirmation letter from the Greek medical institution stating appointment dates, nature of treatment, and expected duration",
+      "Medical records, diagnosis letter, or referral from home country physician",
+      "Proof of financial means to cover all medical and living expenses",
+      "Proof of accommodation near the medical facility"
+    ],
+    "transit": [
+      "Valid visa or entry permit for the final destination country (if required)",
+      "Confirmed onward travel tickets showing transit route and final destination",
+      "Proof of the full transit itinerary"
+    ]
+  },
+  "occupational_documentation": {
+    "employees": [
+      "Employment contract or letter from employer on company letterhead confirming position, salary, and approved leave dates",
+      "Recent payslips (last 3 months)",
+      "Bank statements (last 3–6 months)"
+    ],
+    "entrepreneurs": [
+      "Business registration certificate",
+      "Tax returns from the last 1–2 years",
+      "Business bank account statements (last 3–6 months)",
+      "Proof of ongoing business operations"
+    ],
+    "students": [
+      "Enrollment certificate from educational institution in Serbia",
+      "Proof of financial support (parental sponsor letter, scholarship documentation, or own bank statements)",
+      "Bank statements of student or sponsor (last 3–6 months)"
+    ],
+    "retirees": [
+      "Pension certificate or official proof of pension status",
+      "Recent pension payment records (last 3 months)",
+      "Bank statements showing sufficient funds (last 3–6 months)"
+    ]
+  },
+  "special_provisions": "Long-stay visas (Type D) for stays of 91 days to 1 year are required for employment, study, or family reunification purposes and must be obtained before travel to initiate the residence permit procedure upon arrival in Greece. The EU Entry/Exit System (EES) is planned for future implementation, which will require biometric data (fingerprints and facial image) to be collected at all Schengen external borders. Cash amounts exceeding €10,000 must be declared at the border with proof of origin. Greece also has a consulate in Niš at Kej Mike Paligorica 18/A, 18000 Niš, Serbia.",
+  "contact_and_resources": {
+    "embassy_location": "Belgrade, Serbia",
+    "appointment_url": null,
+    "consulate_website": "https://www.mfa.gr/serbia/en/"
+  }
+}

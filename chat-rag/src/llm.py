@@ -3,6 +3,7 @@ import threading
 
 import httpx
 from langchain_core.embeddings import Embeddings
+from langchain_core.runnables import RunnableSerializable
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_google_genai.chat_models import ChatGoogleGenerativeAIError
 from langchain_huggingface import HuggingFaceEmbeddings
@@ -35,13 +36,15 @@ def get_embeddings() -> Embeddings:
     return _embeddings  # type: ignore[return-value]
 
 
-def get_llm(temperature: float = 0) -> ChatMistralAI:
+def get_llm(temperature: float = 0) -> RunnableSerializable:
     primary = ChatMistralAI(
         model="mistral-small-latest",
         api_key=settings.mistral_api_key,
         temperature=temperature,
         max_retries=6,
     )
+    if not settings.gemini_api_key:
+        return primary
     fallback = ChatGoogleGenerativeAI(
         model="gemini-3.1-flash-lite",
         api_key=settings.gemini_api_key,
@@ -49,5 +52,11 @@ def get_llm(temperature: float = 0) -> ChatMistralAI:
     )
     return primary.with_fallbacks(
         [fallback],
-        exceptions_to_handle=(httpx.HTTPStatusError, ChatGoogleGenerativeAIError),
+        exceptions_to_handle=(
+            httpx.HTTPStatusError,
+            httpx.ConnectError,
+            httpx.TimeoutException,
+            httpx.RequestError,
+            ChatGoogleGenerativeAIError,
+        ),
     )
