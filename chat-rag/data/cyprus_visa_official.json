@@ -8,7 +8,8 @@
     "address": "Generala Save Grujica 18, 11000 Belgrade, Serbia",
     "website": "https://www.mfa.gov.cy/embassyBelgrade",
     "phone": "+381-11-3620002",
-    "email": "belgrade@mfa.gov.cy"
+    "fax": "+381-11-3621122",
+    "email": "belgradeembassy@mfa.gov.cy"
   },
   "visa_eligibility": {
     "serbian_citizens": "Serbian citizens holding a biometric passport do NOT require a visa to enter Cyprus. They may stay up to 90 days within any 180-day period. The passport must be valid for at least 3 months after the planned date of return. It is not possible to obtain a visa or tourist pass at the border crossing.",
@@ -26,9 +27,9 @@
     "booking": "Contact the embassy directly by phone (+381-11-3620002) or email (belgrade@mfa.gov.cy) to schedule an appointment. No VFS Global center identified for Cyprus visas in Serbia — applications are submitted directly at the embassy."
   },
   "visa_fees": {
-    "adults_eur": 80,
+    "adults_eur": 90,
     "children_eur": null,
-    "service_fee": "Fees are non-refundable regardless of the outcome. Single-entry: €20; Double/multiple-entry: €60. The €80 Schengen-harmonised fee may apply in some missions — confirm current fee with the embassy in Belgrade.",
+    "service_fee": "Fees are non-refundable regardless of the outcome. As of June 2024, the standard Cyprus national visa fee is €90 (single, double, or multiple entry). Earlier rates were €20 (single) and €60 (double/multiple). Confirm the current fee with the Embassy in Belgrade before applying.",
     "fee_exemptions": [
       "Spouses and children under 18 of EU/EEA/Swiss nationals (with proof of relationship)",
       "Holders of valid double/multiple-entry Schengen visas (no Cyprus visa required)"
