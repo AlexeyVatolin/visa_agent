@@ -6,7 +6,9 @@ from langchain_core.messages import HumanMessage, SystemMessage
 
 from config import settings
 from graph.state import GraphState
-from guardrails import run_input_guardrails, run_output_guardrails
+from guardrails import run_input_guardrails
+from guardrails._internal_errors import rewrite_internal_error_leaks
+from guardrails._output_tokens import redact_output_pii
 from llm import get_embeddings, get_llm
 from logging_ import get_logger, trace
 from prompts import ANSWER_PROMPT, CLASSIFY_PROMPT, COUNTRY_DETECT_PROMPT, KNOWN_COUNTRIES
@@ -59,9 +61,15 @@ def input_guard(state: GraphState) -> dict:
 
 
 def output_guard(state: GraphState) -> dict:
+    # PII redaction is applied to chat docs in retrieve_from_chat; here we only
+    # scrub internal error details that the LLM may have echoed.
     with trace("output_guard"):
-        result = run_output_guardrails(state["answer"])
-        return {"answer": result.response_text}
+        cleaned, rewritten, concerns = rewrite_internal_error_leaks(state["answer"])
+        if rewritten:
+            logger.warning("output_guardrail internal_rewritten=True concerns=%s", concerns)
+        else:
+            logger.info("output_guardrail clean")
+        return {"answer": cleaned}
 
 
 def classify_question(state: GraphState) -> dict:
@@ -104,6 +112,10 @@ def retrieve_from_chat(state: GraphState) -> dict:
                 search_kwargs={"k": 6, "fetch_k": 20},
             )
             docs = retriever.invoke(state["question"])
+            for doc in docs:
+                doc.page_content, n_pii, _ = redact_output_pii(doc.page_content)
+                if n_pii:
+                    logger.debug("redacted %d PII tokens from chat doc", n_pii)
             logger.debug("retrieved %d docs", len(docs))
             return {"chat_docs": docs}
         except Exception as e:
