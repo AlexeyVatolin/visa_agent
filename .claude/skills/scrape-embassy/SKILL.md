@@ -6,6 +6,10 @@ disable-model-invocation: true
 
 You are scraping official visa information for applicants in Serbia. The user wants data for: **$ARGUMENTS**
 
+**Rules:**
+- Do NOT download, save, or write any files fetched from the internet to disk — only extract and structure the text content.
+- Only write the final structured JSON output file (Step 4).
+
 Follow these steps exactly:
 
 ## Step 1 — Find the embassy website
