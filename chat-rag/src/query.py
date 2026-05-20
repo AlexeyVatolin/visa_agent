@@ -22,6 +22,7 @@ def main():
             {
                 "question": question,
                 "classification": "",
+                "country": "",
                 "chat_docs": [],
                 "official_data": {},
                 "answer": "",

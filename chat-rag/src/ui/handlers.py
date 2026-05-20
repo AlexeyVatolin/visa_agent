@@ -80,6 +80,7 @@ def complete_assistant_message(history: list) -> tuple[list, str]:
             {
                 "question": question_text,
                 "classification": "",
+                "country": "",
                 "chat_docs": [],
                 "official_data": {},
                 "answer": "",
