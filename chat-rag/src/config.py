@@ -9,7 +9,7 @@ class Settings(BaseSettings):
     mistral_api_key: str
     gemini_api_key: str | None = None
     data_path: Path = _ROOT / "data/messages.json"
-    official_data_path: Path = _ROOT / "data/germany_visa_official.json"
+    official_data_dir: Path = _ROOT / "data"
     chroma_path: Path = _ROOT / "chroma_db"
     collection_name: str = "chat_history"
 
