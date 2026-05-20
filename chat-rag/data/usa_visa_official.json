@@ -1,0 +1,130 @@
+{
+  "source": "https://travel.state.gov/content/travel/en/us-visas/Supplements/Supplements_by_Post/BLG-Belgrade.html",
+  "title": "U.S. Embassy Belgrade, Serbia - Visa Information",
+  "last_updated": "2026-05-20",
+  "country": "USA",
+  "embassy_in_serbia": {
+    "name": "U.S. Embassy Belgrade",
+    "address": "Bulevar kneza Aleksandra Karađorđeviđa 92, 11040 Belgrade, Serbia",
+    "website": "https://rs.usembassy.gov",
+    "phone": "+381 11 706-4000",
+    "email": "consbelgrade@state.gov (nonimmigrant visas); belgradeiv@state.gov (immigrant visas)"
+  },
+  "visa_eligibility": {
+    "serbian_citizens": "Serbian citizens are NOT part of the US Visa Waiver Program (ESTA) and require a valid US visa to enter the United States. The most common visa for tourism and business is the B-1/B-2 combined visitor visa. B-1/B-2 visas for Serbian citizens are issued for 10 years (120 months) with multiple entries and no reciprocity fee. Serbia is not in the Visa Waiver Program, so all travelers must apply through the embassy regardless of trip length.",
+    "other_nationals": "Non-Serbian nationals residing in Serbia may apply at the US Embassy in Belgrade. Citizens of some countries are part of the US Visa Waiver Program (ESTA) and may not need a visa for short stays under 90 days. Third-country nationals should check the Visa Waiver Program list and their own country's reciprocity schedule at travel.state.gov."
+  },
+  "processing_times": {
+    "minimum_calendar_days": 7,
+    "recommended_submission_weeks_before_travel": "12–24",
+    "maximum_calendar_days": null,
+    "notes": "Interview wait times vary widely — from as little as 7 days to more than 2 years depending on the period and demand. After the interview, administrative processing (if triggered) typically resolves within 60 days. As of September 2025, interview waivers have been eliminated for nearly all nonimmigrant visa categories, including B-1/B-2 visitor visas. All applicants must attend an in-person interview. Applicants are strongly advised to apply several months before their intended travel date."
+  },
+  "application_location": {
+    "center": "U.S. Embassy Belgrade, Consular Section",
+    "address": "Bulevar kneza Aleksandra Karađorđeviđa 92, 11040 Belgrade, Serbia",
+    "booking": "Appointments must be scheduled online via https://www.ustraveldocs.com/rs/en/ (nonimmigrant visas). Applicants must first complete Form DS-160, pay the MRV fee, then schedule an interview appointment. Immigrant visa appointments are scheduled separately via the National Visa Center (NVC) process."
+  },
+  "visa_fees": {
+    "adults_eur": null,
+    "children_eur": null,
+    "service_fee": "Fees are charged in USD. Standard nonimmigrant visa (MRV) application fee: $185 USD (increases to $205 USD effective May 30, 2026). Visa Integrity Fee: $250 USD (mandatory, non-waivable surcharge introduced under the One Big Beautiful Bill Act, effective for all visas issued on or after October 1, 2025). Total cost from October 2025: approximately $435 USD. Total from May 30, 2026: approximately $455 USD. Diversity visa (immigrant): $330 USD application fee. All fees are non-refundable, even if the visa is denied.",
+    "fee_exemptions": [
+      "No reciprocity fee applies to Serbian passport holders (listed as 'None' on the official reciprocity schedule for all nonimmigrant visa categories)",
+      "Certain diplomatic and official visa categories may be exempt from standard fees — check with the embassy"
+    ]
+  },
+  "required_documents_all_applicants": [
+    "Valid passport with at least 6 months validity beyond the intended period of stay in the US",
+    "DS-160 Online Nonimmigrant Visa Application confirmation page (barcode page)",
+    "One recent color passport-sized photograph meeting US State Department specifications (51mm x 51mm, white background, no glasses)",
+    "Nonimmigrant visa (MRV) application fee payment receipt",
+    "Visa Integrity Fee payment receipt (for visas issued on or after October 1, 2025)",
+    "Appointment confirmation letter from ustraveldocs.com",
+    "Evidence of strong ties to Serbia / home country (employment letter, property ownership, family ties)",
+    "Proof of financial means to cover all trip expenses (bank statements for the past 3–6 months)",
+    "Purpose of travel documentation (itinerary, hotel reservations, invitation letter, etc.)"
+  ],
+  "additional_documents_by_nationality": [
+    "Third-country nationals residing in Serbia must provide proof of legal residency/status in Serbia (residence permit, work permit)",
+    "Citizens of countries with additional screening requirements may be asked for supplemental documents or face additional administrative processing",
+    "All applicants must be prepared to provide social media handles for the past 5 years as part of DS-160"
+  ],
+  "documents_for_minors": {
+    "required": [
+      "Valid passport of the minor",
+      "DS-160 confirmation page (completed by a parent or guardian)",
+      "Birth certificate (original + copy)",
+      "Both parents' consent letter if traveling with only one parent or without parents (notarized if required)",
+      "Passports or IDs of both parents",
+      "Evidence of parental relationship"
+    ],
+    "note": "Children under 14 may qualify for an interview waiver in some cases — check with the embassy at the time of application. Minors must have their own individual passport; they cannot be included in a parent's passport."
+  },
+  "purpose_specific_requirements": {
+    "tourism": [
+      "Round-trip flight itinerary or reservation",
+      "Hotel reservations or accommodation confirmation",
+      "Travel insurance (recommended but not mandatory)",
+      "Bank statements demonstrating sufficient funds for the trip",
+      "Evidence of employment or other strong ties to Serbia (to demonstrate intent to return)"
+    ],
+    "business": [
+      "Letter from the US company or organization describing the nature of the visit",
+      "Letter from the applicant's employer in Serbia confirming employment and authorizing the trip",
+      "Business registration documents if self-employed",
+      "Conference or trade show invitation if applicable",
+      "Proof that any compensation will come from a non-US source"
+    ],
+    "family_or_private_visit": [
+      "Invitation letter from the US host (friend or relative) with their name, address, and status in the US",
+      "Proof of relationship with the US host (family documents, photos, correspondence)",
+      "Proof of the host's legal status in the US (copy of green card, passport, visa, citizenship certificate)",
+      "Financial sponsorship letter or Affidavit of Support (I-134) from the US host if they are covering costs"
+    ],
+    "medical_treatment": [
+      "Letter from a US medical institution confirming appointment or treatment plan",
+      "Letter from a doctor in Serbia describing diagnosis and why treatment is sought in the US",
+      "Evidence of financial ability to cover medical costs",
+      "Proof of accommodation arrangements near the medical facility"
+    ],
+    "transit": [
+      "Onward ticket confirming transit through the US to a third country",
+      "Visa or entry authorization for the final destination country",
+      "For C (transit) visa: evidence that the stay in the US is only to transit between international flights"
+    ]
+  },
+  "occupational_documentation": {
+    "employees": [
+      "Letter from employer on company letterhead confirming position, salary, length of employment, and approval for leave",
+      "Recent payslips (last 3 months)",
+      "Employment contract (if available)",
+      "Tax returns or salary certificates"
+    ],
+    "entrepreneurs": [
+      "Business registration certificate",
+      "Business bank account statements (last 3–6 months)",
+      "Tax returns",
+      "Description of business activities",
+      "Evidence that the business will continue operating in Serbia during the trip"
+    ],
+    "students": [
+      "Enrollment certificate from educational institution",
+      "Letter from the institution approving leave or confirming that studies can continue remotely",
+      "Proof of tuition payment",
+      "Student ID",
+      "Evidence of financial support (parents' bank statements, scholarship letters)"
+    ],
+    "retirees": [
+      "Pension certificate or proof of pension income",
+      "Bank statements showing regular pension deposits",
+      "Evidence of property ownership or other ties to Serbia"
+    ]
+  },
+  "special_provisions": "Serbia is not a Visa Waiver Program (ESTA) country, so all Serbian citizens must apply for a visa regardless of the purpose or length of stay. As of September 2025, interview waivers have been eliminated for nearly all nonimmigrant visa categories — all applicants must appear in person at the embassy for an interview. The new Visa Integrity Fee of $250 USD applies to all visas issued on or after October 1, 2025 and cannot be waived. B-1/B-2 visas issued to Serbian citizens are valid for 10 years with multiple entries (subject to the reciprocity schedule). A US visa does not guarantee entry — CBP officers make the final admission decision at the US port of entry. Overstaying a US visa results in automatic cancellation of the visa and bars future entry. Social media handles (from the past 5 years) must be disclosed on Form DS-160.",
+  "contact_and_resources": {
+    "embassy_location": "Belgrade, Serbia",
+    "appointment_url": "https://www.ustraveldocs.com/rs/en/",
+    "consulate_website": "https://rs.usembassy.gov"
+  }
+}
