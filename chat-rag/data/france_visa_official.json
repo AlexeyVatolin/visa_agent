@@ -1,0 +1,130 @@
+{
+  "source": "https://rs.diplomatie.gouv.fr/fr/demander-un-visa | https://welcome.businessfrance.fr/wp-content/uploads/2026/05/2.-Visa_short_stays_may_2026.pdf",
+  "title": "Short-Stay Visa for France — Embassy of France in Serbia",
+  "last_updated": "2026-05-20",
+  "country": "France",
+  "embassy_in_serbia": {
+    "name": "Embassy of France in Serbia (Ambassade de France en Serbie)",
+    "address": "Pariska 11, 11000 Belgrade, Serbia",
+    "website": "https://rs.diplomatie.gouv.fr",
+    "phone": "+381 11 302 35 00",
+    "email": "service-presse.belgrade-amba@diplomatie.gouv.fr"
+  },
+  "visa_eligibility": {
+    "serbian_citizens": "Serbian citizens with a biometric passport require a Schengen short-stay (Type C) visa to enter France. The visa allows stays of up to 90 days within any 180-day period in the Schengen Area. Applications must be initiated on the official France-Visas portal (france-visas.gouv.fr) and then submitted in person at the VFS Global application center in Belgrade.",
+    "other_nationals": "Foreign nationals residing in Serbia who are not Serbian citizens should check their eligibility via the France-Visas portal. Eligibility and the competent consulate depend on the applicant's nationality and country of legal residence."
+  },
+  "processing_times": {
+    "minimum_calendar_days": 15,
+    "recommended_submission_weeks_before_travel": "4–6",
+    "maximum_calendar_days": 45,
+    "notes": "Standard processing under EU rules is up to 15 calendar days. This can be extended up to 30 or 45 days in individual cases. During peak season (May–August and public holidays) processing times can be significantly longer. Applications may be submitted up to 6 months before the planned travel date."
+  },
+  "application_location": {
+    "center": "VFS Global — Joint Visa Application Centre Belgrade (handles France Schengen visa submissions)",
+    "address": "Omladinskih brigada 88A, 11000 Belgrade, Serbia (effective 18 August 2025)",
+    "booking": "Appointments must be booked online via the VFS Global portal at visa.vfsglobal.com/srb/en/fra. The application form must be completed on france-visas.gouv.fr first, then printed and brought to the appointment. Biometric data (fingerprints) are collected in person for applicants aged 12 and over."
+  },
+  "visa_fees": {
+    "adults_eur": 90,
+    "children_eur": 45,
+    "service_fee": "VFS Global service fee applies on top of the consular fee; typically up to 50% of the visa fee (approx. €45). Fees are payable in local RSD at the National Bank of Serbia's middle exchange rate, updated periodically. The VFS service fee is non-refundable.",
+    "fee_exemptions": [
+      "Children under 6 years old — free",
+      "Children aged 6–11 — reduced rate (€45)",
+      "Family members of EU/EEA/Swiss citizens exercising free movement rights — free",
+      "School pupils, students, postgraduate students and accompanying teachers on study or educational training trips — free",
+      "Researchers traveling for scientific research purposes — free",
+      "Representatives of non-profit organizations aged 25 or under, participating in seminars, conferences, or sports/cultural/educational events — free",
+      "Fee waivers may also be granted at consular discretion on humanitarian grounds or for cultural/sporting interests"
+    ]
+  },
+  "required_documents_all_applicants": [
+    "Valid passport (or other travel document): issued within the last 10 years AND valid for at least 3 months after the planned date of departure from French territory; minimum 2 blank pages; include photocopies of the bio-data page, all previous visas, and all entry/exit stamps",
+    "Short-stay visa application form (Cerfa no. 14076*01): completed, signed, and dated via the France-Visas website (france-visas.gouv.fr); bring both the printed form and the France-Visas receipt",
+    "Three standardized passport photographs: 35×45 mm, color, white background, taken within the last 6 months, full face visible",
+    "Evidence of sufficient financial means: €32.50/day with accommodation certificate; €65/day with hotel booking proof; €120/day without hotel proof — supported by 3 months of official bank statements with bank stamp and wet signature (ATM printouts not accepted)",
+    "Proof of a guarantee of repatriation to the applicant's usual place of residence (e.g., return flight booking)",
+    "Travel health insurance: minimum €30,000 coverage for medical and hospital expenses including emergency repatriation, valid for all Schengen countries for the entire duration of stay; must bear wet stamp and signature",
+    "Round-trip flight reservation confirming entry and exit dates (not necessarily purchased tickets)",
+    "Proof of accommodation for the entire stay (hotel reservation in applicant's name, or accommodation certificate — see family/personal visit below)"
+  ],
+  "additional_documents_by_nationality": [
+    "Applicants who have previously held passports must present all previous passports (or photocopies of relevant pages)",
+    "Non-Serbian residents in Serbia must provide valid Serbian residence permit"
+  ],
+  "documents_for_minors": {
+    "required": [
+      "Completed and signed visa application form — signed by both parents or legal guardian",
+      "Valid passport of the minor",
+      "Standardized passport photographs",
+      "Original civil registration record / birth certificate",
+      "Certified written parental consent from both parents (notarized if only one parent accompanies the child)",
+      "Custody documents if applicable (court order establishing sole custody)",
+      "Proof of relationship to accompanying adult",
+      "Financial means and insurance covered by the sponsoring parent/guardian"
+    ],
+    "note": "Children under 6 are exempt from the visa fee. Children aged 6–11 pay the reduced rate of €45. Biometric fingerprints are required from age 12."
+  },
+  "purpose_specific_requirements": {
+    "tourism": [
+      "Hotel booking(s) showing the applicant's name covering the entire stay, OR lease agreement / other confirmed accommodation",
+      "Detailed travel itinerary",
+      "Proof of financial means at €65/day (hotel) or €32.50/day (private host)"
+    ],
+    "business": [
+      "Letter of invitation from the host company, seminar, or conference organizer in France — must specify the purpose, activity, duration, and location of the visit",
+      "Proof of professional status in Serbia (employment certificate, business registration, etc.)",
+      "Proof of accommodation in France (hotel booking)",
+      "Proof of financial means"
+    ],
+    "family_or_private_visit": [
+      "Original accommodation certificate (attestation d'accueil) issued by the French town hall where the host resides — host must apply in person using Cerfa form no. 10798*03; cost: €30",
+      "Photocopy of host's identity document or residence permit",
+      "Proof of family relationship or personal connection (e.g., birth certificate, marriage certificate)"
+    ],
+    "medical_treatment": [
+      "Letter from French medical institution confirming appointment, nature of treatment, and estimated duration",
+      "Proof of financial means sufficient to cover medical and living costs",
+      "Proof of accommodation during treatment",
+      "Travel health insurance"
+    ],
+    "transit": [
+      "Confirmed travel bookings (onward ticket through France to final destination)",
+      "Visa or entry authorization for the final destination country (if required)",
+      "Proof of sufficient financial means for the transit period"
+    ]
+  },
+  "occupational_documentation": {
+    "employees": [
+      "Employer letter confirming employment, position, salary, approved leave, and travel dates",
+      "3 months of payslips",
+      "Employment contract or certificate of employment",
+      "3 months of personal bank statements (stamped and signed by the bank)"
+    ],
+    "entrepreneurs": [
+      "Business registration documents / Chamber of Commerce registration",
+      "3 months of personal and/or company bank statements",
+      "Tax registration certificate",
+      "Trade registry gazette showing founder/partner information",
+      "Activity certificate (valid within the last 6 months)"
+    ],
+    "students": [
+      "Original enrollment certificate from educational institution",
+      "Signed declaration including travel dates and statement of financial sponsorship",
+      "Sponsor (usually parent/guardian) must provide full financial documentation per their occupational category",
+      "Student card (if applicable)"
+    ],
+    "retirees": [
+      "Pension certificate or retirement documentation",
+      "3 months of pension account statements",
+      "3 months of personal bank statements showing sufficient funds"
+    ]
+  },
+  "special_provisions": "Applications for France Schengen visas must always be started on the official France-Visas portal (france-visas.gouv.fr) regardless of which submission center is used. The competent consulate is determined automatically by France-Visas based on the applicant's place of residence — applicants cannot freely choose. Biometric fingerprints are collected at the time of submission for all applicants aged 12 and over (exemptions apply to those who have provided biometrics to France within the previous 59 months). The accommodation certificate (attestation d'accueil) for private stays costs €30 and must be obtained by the host in France at their local town hall before the applicant submits the visa file. As of early 2026, Serbian citizens are subject to ETIAS pre-travel authorization requirements for future Schengen travel; check etias.eu for current status.",
+  "contact_and_resources": {
+    "embassy_location": "Belgrade, Serbia",
+    "appointment_url": "https://visa.vfsglobal.com/srb/en/fra",
+    "consulate_website": "https://rs.diplomatie.gouv.fr"
+  }
+}

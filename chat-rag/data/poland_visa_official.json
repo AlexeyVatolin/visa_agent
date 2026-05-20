@@ -1,0 +1,121 @@
+{
+  "source": "https://www.gov.pl/web/serbia/wiza-typu-c",
+  "title": "Wiza typu C – złożenie wniosku | Polska w Serbii",
+  "last_updated": "2026-05-20",
+  "country": "Poland",
+  "embassy_in_serbia": {
+    "name": "Embassy of the Republic of Poland in Belgrade",
+    "address": "Ul. Neznanog junaka 1a, 11040 Belgrade, Serbia (consular department); Kneza Miloša 38, 11000 Belgrade (main embassy)",
+    "website": "https://www.gov.pl/web/serbia",
+    "phone": "+381 11 206 5301 / +381 11 206 5314 / +381 11 206 5315 / +381 11 206 5318",
+    "email": "belgrad.amb.sekretariat@msz.gov.pl"
+  },
+  "visa_eligibility": {
+    "serbian_citizens": "Serbian citizens holding a valid biometric passport may travel to all Schengen countries (including Poland) visa-free for up to 90 days within any 180-day period, under the bilateral EU–Serbia agreement. Serbian citizens with non-biometric passports (issued by Koordinaciona uprava) are also exempt. No visa is required for tourism, business visits, or family stays within the 90-day limit.",
+    "other_nationals": "Third-country nationals legally residing in Serbia may apply for a Schengen Type C visa at the Polish Embassy in Belgrade if Poland is their main or sole destination. Airport transit visa (Type A) is required for nationals of specific countries transiting Schengen airports. EU family members of Serbian citizens may apply free of charge under a simplified procedure."
+  },
+  "processing_times": {
+    "minimum_calendar_days": null,
+    "recommended_submission_weeks_before_travel": "4–6 (applications accepted from 6 months up to 15 calendar days before travel)",
+    "maximum_calendar_days": 45,
+    "notes": "Standard decision: 15 working days from payment date. Extended review: up to 45 days for thorough document verification. Expedited processing: 3 business days for justified urgent cases (Type D only)."
+  },
+  "application_location": {
+    "center": "Consular Department, Embassy of the Republic of Poland in Belgrade",
+    "address": "Ul. Neznanog junaka 1a, 11040 Belgrade, Serbia",
+    "booking": "Appointments must be booked online via the e-Konsulat portal at https://secure.e-konsulat.gov.pl/placowki/155. The visa application form is also completed online in the e-Konsulat system, then printed and signed. Consular hours: Monday–Thursday, 10:00–12:00. Applications must be submitted in person."
+  },
+  "visa_fees": {
+    "adults_eur": 90,
+    "children_eur": 45,
+    "service_fee": "No external VFS service center for Poland in Serbia; applications submitted directly at the embassy. Fee paid in cash at the consulate cashier. Non-refundable regardless of decision.",
+    "fee_exemptions": [
+      "Children under 6 years — free",
+      "EU family members (spouse, children, dependent relatives of EU citizens) — free under simplified procedure",
+      "Holders of diplomatic or service passports (subject to bilateral agreement)",
+      "Researchers and students on exchange programmes covered by EU agreements",
+      "Participants in official exchange programmes"
+    ]
+  },
+  "required_documents_all_applicants": [
+    "Completed visa application form (filled in e-Konsulat system, printed and signed by applicant)",
+    "Color photograph (3.5 × 4.5 cm, white background, taken straight-on, face occupying 70–80% of image, not older than 6 months)",
+    "Valid passport (issued within last 10 years, valid at least 3 months beyond intended return date, minimum 2 consecutive blank pages)",
+    "Photocopy of passport personal data and photo page",
+    "Travel medical insurance (minimum €30,000 coverage, valid in all Schengen states for entire stay duration, covering emergency medical treatment, hospitalisation, and repatriation)",
+    "Proof of legal residence in Serbia (valid at least 1 month after planned return date)",
+    "Proof of sufficient financial means (bank statements for last 3 months with official bank stamp, plus income documentation)",
+    "Proof of accommodation in Poland/Schengen (hotel reservation or official invitation)",
+    "Proof of return transport (ticket reservation or itinerary)",
+    "Visa fee payment receipt (€90 adults / €45 children 6–12 / free under 6)"
+  ],
+  "additional_documents_by_nationality": [
+    "Proof of ties to Serbia (family, property, employment) to demonstrate intent to return — applicable to all non-EU applicants",
+    "Marriage certificate, birth certificates, or property ownership documents establishing personal ties"
+  ],
+  "documents_for_minors": {
+    "required": [
+      "Birth certificate (original and copy)",
+      "Passports of both parents (original and copy)",
+      "Notarized consent letter from both parents/guardians (required when traveling alone or with only one parent)",
+      "If one parent has valid Schengen visa: color copy of visa plus travel itinerary listing all travelers",
+      "If one parent is visa-exempt (e.g. EU citizen): copy of passport data page plus itinerary with all travelers' names",
+      "If one parent is deceased or has sole custody: death certificate or court order copy"
+    ],
+    "note": "All minors must appear in person for biometric data collection, except fingerprints are not taken from children under 12."
+  },
+  "purpose_specific_requirements": {
+    "tourism": [
+      "Hotel reservation confirmation for full stay duration in Schengen area (or other appropriate accommodation proof)",
+      "Travel agency certificate confirming organised trip booking, OR applicant's covering letter stating purpose, duration, and list of attached documents",
+      "Flight itinerary/reservation (do not purchase tickets before visa approval)"
+    ],
+    "business": [
+      "Invitation letter from Polish/Schengen company: must include sender details, invitee details, cost coverage confirmation, visit purpose, dates, and duration",
+      "Employer letter from applicant's company confirming employment, role, salary, and business relationship with inviting entity",
+      "Trade fair/conference entry card or registration confirmation (if applicable)",
+      "Sponsoring company's registration number (NIP/KRS)",
+      "Documentation confirming business activity (orders, invoices, contracts)"
+    ],
+    "family_or_private_visit": [
+      "Official invitation registered with the Provincial Governor's Office (Urząd Wojewódzki) in Poland, OR",
+      "Host's invitation letter containing: full names and addresses of both host and applicant, cost coverage confirmation, visit purpose and duration, nature of relationship, host's residence proof",
+      "Host's passport or ID copy",
+      "Proof of relationship (birth certificate, marriage certificate, etc.)"
+    ],
+    "medical_treatment": [
+      "Medical facility document confirming applicant's care arrangements (appointment, treatment plan)",
+      "Pre-payment confirmation or financial proof covering treatment costs"
+    ],
+    "transit": [
+      "Onward travel plan (flight booking, train or car reservation)",
+      "Hotel reservation at transit point (if applicable)",
+      "Valid visa or entry permit for final destination country (if required)"
+    ]
+  },
+  "occupational_documentation": {
+    "employees": [
+      "Employer statement confirming current employment, monthly net salary, and approved vacation/leave days",
+      "Employment contract (copy)",
+      "Optional: CROSO (Central Registry of Compulsory Social Insurance) printout confirming active contributions"
+    ],
+    "entrepreneurs": [
+      "Business Registration Agency (APR) registration printout",
+      "Tax payment proof (last period)",
+      "Business bank account statements",
+      "Proof of active business activity: orders, invoices, or cash receipts from last 3 months"
+    ],
+    "students": [
+      "Official enrollment/acceptance letter from school or university confirming student status"
+    ],
+    "retirees": [
+      "Pension payment slip (latest) confirming pension amount"
+    ]
+  },
+  "special_provisions": "Serbian citizens with valid biometric passports are visa-exempt for Schengen travel. Poland implemented temporary border controls along Lithuanian and German borders from July 7, 2025 (potentially extended) due to illegal migration concerns — allow extra time at crossings. Entry from Belarus and Russia's Kaliningrad region is severely restricted; only exceptional circumstances (medical emergencies, death) are considered. Russian-registered vehicles are prohibited entry since September 2023. A visa does not guarantee entry — the Border Guard (Straż Graniczna) makes the final entry decision. Applicants may appeal a consular refusal within 14 days free of charge, and may further appeal to Warsaw Administrative Court within 30 days of reconsideration decision.",
+  "contact_and_resources": {
+    "embassy_location": "Belgrade, Serbia",
+    "appointment_url": "https://secure.e-konsulat.gov.pl/placowki/155",
+    "consulate_website": "https://www.gov.pl/web/serbia"
+  }
+}

@@ -1,0 +1,118 @@
+{
+  "source": "https://belgrad.mfa.gov.hu/eng",
+  "title": "Embassy of Hungary in Belgrade – Visa Information",
+  "last_updated": "2026-05-20",
+  "country": "Hungary",
+  "embassy_in_serbia": {
+    "name": "Embassy of Hungary in Belgrade (Consular Department)",
+    "address": "Krunska 72, 11000 Belgrade, Serbia",
+    "website": "https://belgrad.mfa.gov.hu/",
+    "phone": "+381 11 243 8395, +381 11 243 3739",
+    "email": "consulate.blg@mfa.gov.hu"
+  },
+  "visa_eligibility": {
+    "serbian_citizens": "Serbian citizens holding biometric passports do not need a visa to enter Hungary or any Schengen Area country. Visa-free stay is permitted for up to 90 days within any 180-day period. Travel documents must be issued within the last 10 years and remain valid at least 3 months beyond planned departure from the EU. Note: ETIAS authorization (~€20, valid 3 years) will be required from Q4 2026.",
+    "other_nationals": "Third-country nationals legally residing in Serbia with a valid Serbian residence permit exceeding 90 days may submit Schengen visa applications at the Hungarian Embassy in Belgrade. Proof of legal residence in Serbia (e.g., valid Serbian residence permit for a period exceeding 90 days) must be presented at the time of application."
+  },
+  "processing_times": {
+    "minimum_calendar_days": 15,
+    "recommended_submission_weeks_before_travel": "8",
+    "maximum_calendar_days": 45,
+    "notes": "Standard processing is 15 calendar days. Peak seasons or cases requiring additional verification may take up to 30 days. Complex cases may extend to 45 calendar days. Applications must be submitted no earlier than 6 months and no later than 15 calendar days before the intended departure date. Submitting 2 months in advance is recommended."
+  },
+  "application_location": {
+    "center": "Consular Department of the Embassy of Hungary in Belgrade",
+    "address": "Krunska 72, 11000 Belgrade, Serbia",
+    "booking": "Appointments must be booked online at https://konzinfoidopont.mfa.gov.hu/. The visa application form can be completed online at https://konzinfostart.mfa.gov.hu/ — print the QR-coded form and bring it with supporting documents to the in-person appointment. In-person submission is still required after completing the online form. Appointments are free of charge; any fee charged for an appointment is a scam."
+  },
+  "visa_fees": {
+    "adults_eur": 90,
+    "children_eur": 45,
+    "service_fee": "Children under 6 years: free. Nationals of Serbia and other countries with EU Visa Facilitation Agreements (Albania, Armenia, Azerbaijan, Bosnia and Herzegovina, Cape Verde, Georgia, North Macedonia, Moldova, Montenegro, Ukraine): €35.",
+    "fee_exemptions": [
+      "Children under 6 years of age",
+      "Researchers conducting scientific research",
+      "Students and accompanying teachers on school trips",
+      "Participants in seminars, conferences, cultural, educational, or sports events",
+      "Family members (spouse, minor children) of EU/EEA nationals"
+    ]
+  },
+  "required_documents_all_applicants": [
+    "Completed and signed Schengen visa application form (can be filled online at konzinfostart.mfa.gov.hu, then printed with QR code)",
+    "Passport-size colour photo with white background (not older than 6 months)",
+    "Valid passport: issued within the last 10 years, valid at least 3 months after intended departure from the Schengen Area, with at least 2 blank pages",
+    "Copies of all previous Schengen and other visas",
+    "Cover letter explaining the purpose of travel and itinerary",
+    "Travel itinerary including round-trip flight reservations",
+    "Proof of accommodation (hotel reservation, rental agreement, or invitation letter)",
+    "Travel medical insurance covering a minimum of €30,000, valid for all Schengen countries and the entire duration of stay",
+    "Proof of sufficient financial means (bank statements from the last 6 months, or sponsorship/guarantee letter)",
+    "Visa fee payment",
+    "For third-country nationals residing in Serbia: proof of legal residence in Serbia exceeding 90 days (valid Serbian residence permit)"
+  ],
+  "additional_documents_by_nationality": [
+    "Third-country nationals residing in Serbia must present a valid Serbian residence permit for a period exceeding 90 days to be eligible to apply at this consulate"
+  ],
+  "documents_for_minors": {
+    "required": [
+      "Birth certificate",
+      "Copies of both parents' passports",
+      "Visa application form signed by both parents (or legal guardians)",
+      "Court order if one parent has sole legal custody",
+      "Notarized parental consent if the minor is traveling alone or with a third party",
+      "Original and copy of the accompanying person's passport (if applicable)"
+    ],
+    "note": "Children under 12 years are generally exempt from fingerprint (biometric data) collection. Children under 6 are exempt from visa fees."
+  },
+  "purpose_specific_requirements": {
+    "tourism": [
+      "Travel agency certificate or prepaid accommodation reservation",
+      "Detailed travel itinerary for the entire stay"
+    ],
+    "business": [
+      "Invitation letter from the Hungarian company specifying the purpose, duration, and financial responsibility for the visit",
+      "Proof of business relations between the applicant's company and the Hungarian partner"
+    ],
+    "family_or_private_visit": [
+      "Invitation letter from the host in Hungary",
+      "Copy of the host's valid passport or Hungarian residence permit",
+      "Marriage certificate (if visiting a spouse)",
+      "Hungarian family record book (if the host is a Hungarian citizen)"
+    ],
+    "medical_treatment": [
+      "Official certificate from the Hungarian health institution confirming the appointment and nature of treatment",
+      "Proof of accommodation arrangements for the duration of treatment"
+    ],
+    "transit": [
+      "Valid visa or residence permit for the final destination country (where required)",
+      "Confirmed onward travel tickets through Hungary",
+      "Proof of legal entry into the destination country"
+    ]
+  },
+  "occupational_documentation": {
+    "employees": [
+      "Employment contract",
+      "Bank statements from the last 6 months",
+      "Employer's leave permission letter",
+      "Income tax return"
+    ],
+    "entrepreneurs": [
+      "Business license or company registration certificate",
+      "Company bank statements from the last 6 months",
+      "Income tax return"
+    ],
+    "students": [
+      "Proof of enrollment at an educational institution",
+      "No-objection letter from the school or university"
+    ],
+    "retirees": [
+      "Pension statement or pension book from the last 6 months"
+    ]
+  },
+  "special_provisions": "Serbian citizens with biometric passports enjoy full Schengen visa-free access and do not need to apply for a visa. Starting Q4 2026, they will additionally need ETIAS authorization (~€20, valid 3 years, obtainable online without an embassy visit). The online application system at konzinfostart.mfa.gov.hu allows completing the visa form digitally; a printed QR-coded copy must be brought to the required in-person appointment. Applications cannot be submitted without a pre-booked appointment. Appointment booking is free of charge at konzinfoidopont.mfa.gov.hu.",
+  "contact_and_resources": {
+    "embassy_location": "Belgrade, Serbia",
+    "appointment_url": "https://konzinfoidopont.mfa.gov.hu/",
+    "consulate_website": "https://belgrad.mfa.gov.hu/"
+  }
+}

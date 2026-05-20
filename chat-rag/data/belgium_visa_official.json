@@ -1,0 +1,125 @@
+{
+  "source": "https://serbia.diplomatie.belgium.be/en/travel-belgium/visa-belgium",
+  "title": "Visa for Belgium | FPS Foreign Affairs - Belgium Embassy in Serbia",
+  "last_updated": "2026-05-20",
+  "country": "Belgium",
+  "embassy_in_serbia": {
+    "name": "Embassy of Belgium in Serbia",
+    "address": "Krunska 18, 11000 Belgrade, Serbia",
+    "website": "https://serbia.diplomatie.belgium.be/en",
+    "phone": "+381 11 323 00 16 / +381 11 323 00 17 / +381 11 323 00 18 / +381 11 324 75 87",
+    "email": "belgrade@diplobel.fed.be",
+    "consular_hours": "Monday–Friday 08:00–13:00 (by appointment only); phone available Mon–Fri 08:00–16:00"
+  },
+  "visa_eligibility": {
+    "serbian_citizens": "Serbian citizens holding a biometric passport do NOT require a visa for Belgium (Schengen Area) for stays of up to 90 days within any 180-day period. The 180-day calculation starts from the date of first entry into the Schengen Area. Holders of diplomatic and official passports are also exempt. Non-biometric (old-style) Serbian passport holders must apply for a Schengen short-stay visa.",
+    "other_nationals": "Third-country nationals residing in Serbia who are citizens of visa-required countries must apply for a Schengen Type C short-stay visa at the Embassy of Belgium in Belgrade. The competent authority for visa decisions is the Immigration Office of FPS Home Affairs (dofi.ibz.be/en)."
+  },
+  "processing_times": {
+    "minimum_calendar_days": 15,
+    "recommended_submission_weeks_before_travel": "4–6",
+    "maximum_calendar_days": 45,
+    "notes": "Standard processing is 15 calendar days. During peak seasons (summer holidays, Christmas) it may extend to 30–45 days. Applications can be submitted up to 6 months before travel. In exceptional circumstances processing may take up to 60 days."
+  },
+  "application_location": {
+    "center": "Embassy of Belgium, Consular Section, Belgrade",
+    "address": "Krunska 18, 11000 Belgrade, Serbia",
+    "booking": "By appointment only. Contact the embassy by phone (+381 11 323 00 16 / 17 / 18) or email (belgrade@diplobel.fed.be) Monday–Friday 08:00–16:00 to schedule an appointment. TLScontact does not operate a visa application centre for Belgium in Serbia."
+  },
+  "visa_fees": {
+    "adults_eur": 80,
+    "children_eur": 40,
+    "service_fee": "No TLScontact service fee applies in Serbia as applications are submitted directly at the embassy.",
+    "fee_exemptions": [
+      "Children under 6 years of age — free",
+      "Holders of diplomatic or official passports (where applicable)",
+      "Certain categories under EU visa facilitation agreements",
+      "Serbian biometric passport holders are visa-exempt and pay no fee"
+    ]
+  },
+  "required_documents_all_applicants": [
+    "Valid passport (issued within the past 10 years, valid for at least 3 months after planned departure from Schengen Area, with at least 2 blank pages)",
+    "Photocopies of all used passport pages (including previous visas and entry/exit stamps)",
+    "Completed and signed Schengen visa application form",
+    "2 recent passport-size photos (35×45 mm, colour, white or light grey background, taken within the last 6 months)",
+    "Travel itinerary with confirmed round-trip flight reservations",
+    "Proof of accommodation (hotel booking, rental agreement, or invitation letter)",
+    "Travel health insurance valid for the entire Schengen Area (minimum coverage €30,000 for medical emergencies and repatriation)",
+    "Proof of financial means (bank statements for last 3 months, salary slips; minimum €50/day for hotel stays or €38/day for family/private visits; bank cards not accepted as sole proof)",
+    "Proof of employment or economic ties to Serbia (employment contract, business registration, school enrollment letter, etc.)",
+    "Return ticket or proof of onward travel from Belgium"
+  ],
+  "additional_documents_by_nationality": [
+    "Non-biometric Serbian passport holders must provide additional proof of ties to Serbia (e.g. property ownership, family ties) to demonstrate intent to return",
+    "Third-country nationals residing in Serbia must also provide valid Serbian residence permit"
+  ],
+  "documents_for_minors": {
+    "required": [
+      "Valid passport",
+      "Birth certificate",
+      "Visa application form signed by both parents or legal guardian",
+      "Written consent from the non-accompanying parent(s) notarised or certified by a commune, if travelling with only one parent or without parents",
+      "Proof of legal custody if applicable (court order)",
+      "2 passport-size photos meeting standard specifications"
+    ],
+    "note": "Children under 12 are exempt from fingerprint biometric collection. Children 6–12 pay the reduced fee of €40; children under 6 are fee-exempt. If the child holds a biometric Serbian passport, no visa is required."
+  },
+  "purpose_specific_requirements": {
+    "tourism": [
+      "Hotel bookings or other accommodation confirmation for the entire stay",
+      "Detailed travel itinerary",
+      "Proof of sufficient financial means for the duration of the trip"
+    ],
+    "business": [
+      "Invitation letter from the Belgian company or organisation on company letterhead (with company details, purpose and duration of visit, and confirmation that host covers costs)",
+      "Proof of business relationship or meeting schedule",
+      "Employer letter confirming purpose and authorisation of travel"
+    ],
+    "family_or_private_visit": [
+      "Invitation letter from the host in Belgium, certified by the commune (gemeentehuis/commune) where the host resides",
+      "Proof of relationship to the host (e.g. family documents)",
+      "Proof of financial means: minimum €38/day if hosted by a private individual"
+    ],
+    "medical_treatment": [
+      "Letter from treating doctor or medical institution in Belgium confirming appointment and treatment",
+      "Proof of financial means to cover medical expenses",
+      "Medical records or doctor referral from Serbia",
+      "Accredited medical examiner in Serbia for certain visa-related medical checks: IOM, Dr. Tamara Berberović, Belgrade"
+    ],
+    "transit": [
+      "Confirmed onward travel documents (ticket to final destination)",
+      "Visa or entry permit for the final destination country (if required)",
+      "Emergency travel document holders in transit do not require a visa unless exiting the airport transit zone or travelling onward to another Schengen state"
+    ]
+  },
+  "occupational_documentation": {
+    "employees": [
+      "Employment contract or letter from employer confirming position, salary, and approved leave",
+      "Last 3 months' payslips",
+      "Bank statements for last 3 months"
+    ],
+    "entrepreneurs": [
+      "Business registration documents (APR extract or equivalent)",
+      "Bank statements of the business account for last 3 months",
+      "Tax returns or proof of financial standing"
+    ],
+    "students": [
+      "Enrolment letter from educational institution",
+      "Proof of financial means or scholarship documentation",
+      "Letter from institution approving the trip (for school groups)"
+    ],
+    "retirees": [
+      "Pension confirmation letter or statement",
+      "Bank statements for last 3 months showing pension income",
+      "Proof of property ownership or other assets demonstrating ties to Serbia"
+    ]
+  },
+  "special_provisions": "Serbian citizens with biometric passports are visa-free for Belgium and the entire Schengen Area (up to 90 days/180-day period) under the EU visa liberalisation agreement. From 10 April 2026, all visitors on short stays must register their address in Belgium online via the 'My Address in Belgium' (MAB) form within three days of arrival — registration at municipal offices is no longer required. A bilateral social security agreement between Serbia and Belgium allows Serbian citizens to access Belgian health insurance using certificates from their Serbian insurer. The EU Entry/Exit System (EES) is being implemented for automated registration of non-EU nationals at Schengen borders; travellers should check eu.travel for current status.",
+  "contact_and_resources": {
+    "embassy_location": "Belgrade, Serbia",
+    "appointment_url": null,
+    "consulate_website": "https://serbia.diplomatie.belgium.be/en",
+    "immigration_office": "https://dofi.ibz.be/en",
+    "mfa_serbia_page": "https://www.mfa.gov.rs/en/citizens/travel-abroad/visas-and-states-travel-advisory/belgium"
+  }
+}

@@ -1,0 +1,121 @@
+{
+  "source": "https://www.gov.uk/standard-visitor/apply-standard-visitor-visa",
+  "title": "Apply for a Standard Visitor visa - GOV.UK",
+  "last_updated": "2026-05-20",
+  "country": "United Kingdom",
+  "embassy_in_serbia": {
+    "name": "British Embassy Belgrade",
+    "address": "Resavska 46, Belgrade 11000, Serbia",
+    "website": "https://www.gov.uk/world/organisations/british-embassy-belgrade",
+    "phone": null,
+    "email": null
+  },
+  "visa_eligibility": {
+    "serbian_citizens": "Serbian citizens require a visa to enter or transit the UK. They must apply for a Standard Visitor visa before travelling. The visa allows stays of up to 6 months. Applicants must demonstrate intention to leave after the visit, sufficient funds, and a genuine reason for visiting.",
+    "other_nationals": "Other nationals residing in Serbia with valid residence permits may also apply. Requirements depend on the applicant's nationality. EU/EEA/Swiss citizens have a different process and may be able to enter without a visa."
+  },
+  "processing_times": {
+    "minimum_calendar_days": null,
+    "recommended_submission_weeks_before_travel": "12",
+    "maximum_calendar_days": 21,
+    "notes": "Most decisions are made within 3 weeks (21 calendar days) after submitting biometrics. Priority processing (5 working days) is available for non-settlement visas as a paid optional service at the VFS Global application centre. Applications can be submitted up to 3 months before travel."
+  },
+  "application_location": {
+    "center": "VFS Global UK Visa Application Centre Belgrade",
+    "address": "Omladinskih Brigada 88a, Belgrade 11070 (Airport City), Serbia",
+    "booking": "Online booking via https://visa.vfsglobal.com/srb/en/gbr — applicants must submit the online application first, then book an in-person appointment at the centre to submit biometrics and documents."
+  },
+  "visa_fees": {
+    "adults_eur": 161,
+    "children_eur": 161,
+    "service_fee": "VFS Global service fee applies on top of the visa fee; exact amount displayed at booking. Optional premium services available: priority processing (5 working days), premium lounge access, courier passport return.",
+    "fee_exemptions": [
+      "Children under 6 years may be exempt — verify at time of application",
+      "Some diplomatic passport holders may be exempt"
+    ]
+  },
+  "required_documents_all_applicants": [
+    "Valid passport or travel document (valid for the entire stay)",
+    "Completed online visa application form",
+    "Biometric enrolment at VFS Global application centre",
+    "Proof of genuine visitor status (letter explaining purpose of visit)",
+    "Proof of intention to leave the UK after the visit",
+    "Bank statements or financial documents showing sufficient funds to cover the trip",
+    "Accommodation details (hotel bookings or host letter)",
+    "Travel itinerary with planned dates",
+    "Evidence of ties to Serbia (property, employment, family) to show intent to return",
+    "Non-English documents must include certified English translation with: translator confirmation of accuracy, translation date, translator's full name, signature and contact details"
+  ],
+  "additional_documents_by_nationality": [
+    "Non-Serbian residents in Serbia: valid residence permit or long-stay visa for Serbia",
+    "Applicants with previous refusals: explanation letter and updated supporting documents"
+  ],
+  "documents_for_minors": {
+    "required": [
+      "Valid passport",
+      "Birth certificate or adoption papers proving legal relationship to parent/guardian",
+      "Photocopy of parent/guardian's passport (photo page including signature and passport number)",
+      "If travelling without parents: signed parental consent letter confirming travel arrangements, caregiver details, and travel method",
+      "Evidence of relationship if child has a different family name from parent/guardian"
+    ],
+    "note": "Children under 18 travelling alone or with only one parent/guardian require additional consent documentation."
+  },
+  "purpose_specific_requirements": {
+    "tourism": [
+      "Bank statements showing sufficient funds",
+      "Evidence of accommodation",
+      "Travel itinerary",
+      "Proof of employment or ties to Serbia ensuring return"
+    ],
+    "business": [
+      "Invitation letter from UK company or event organiser on company letterhead",
+      "Details of business activities (meetings, conferences, interviews)",
+      "Letter from Serbian employer confirming leave of absence and that work will not be performed in the UK"
+    ],
+    "family_or_private_visit": [
+      "Invitation letter from the UK resident/citizen being visited",
+      "Proof of relationship (e.g. birth certificate, marriage certificate)",
+      "Evidence that the UK host can financially support the visit if sponsoring"
+    ],
+    "medical_treatment": [
+      "Letter from doctor or consultant in UK detailing: medical condition, estimated costs, treatment duration, and treatment location",
+      "Evidence of ability to fund treatment and living costs",
+      "Letter from Serbian doctor confirming diagnosis and reason for seeking treatment in UK"
+    ],
+    "transit": [
+      "Proof of onward travel departing within 48 hours",
+      "Valid visa or entry documentation for destination country",
+      "Proof of funds for onward journey"
+    ]
+  },
+  "occupational_documentation": {
+    "employees": [
+      "Letter from employer on company headed paper detailing: role/job title, salary, length of employment",
+      "Confirmation of approved leave of absence",
+      "Recent payslips (last 3 months recommended)"
+    ],
+    "entrepreneurs": [
+      "Business registration documents",
+      "Recent invoices confirming ongoing operations",
+      "Business bank statements",
+      "Accountant letter or tax returns confirming income"
+    ],
+    "students": [
+      "Acceptance/enrollment letter from educational institution",
+      "Confirmation of leave of absence from institution",
+      "Proof of funding (scholarship, parental support, savings)",
+      "For medical electives: written confirmation from UK Higher Education provider"
+    ],
+    "retirees": [
+      "Proof of pension (pension statements, bank statements showing regular pension payments)",
+      "Evidence of sufficient funds for the trip",
+      "Evidence of ties to Serbia (property ownership, family)"
+    ]
+  },
+  "special_provisions": "UK visas are now digital (eVisa) rather than physical stickers in passports for most applicants. Applicants should verify they have a UKVI account to access their eVisa after approval. Long-term visitor visas (2, 5, or 10 years) are available at higher fees and allow multiple entries with stays of up to 6 months per visit. The 'Keep My Passport' service is available at VFS Global but cannot be combined with priority processing.",
+  "contact_and_resources": {
+    "embassy_location": "Belgrade, Serbia",
+    "appointment_url": "https://visa.vfsglobal.com/srb/en/gbr",
+    "consulate_website": "https://www.gov.uk/world/organisations/british-embassy-belgrade"
+  }
+}

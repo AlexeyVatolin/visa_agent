@@ -1,0 +1,111 @@
+{
+  "source": "https://belgrado.embaixadaportugal.mne.gov.pt/en/consular-section/general-information",
+  "title": "Visa & Consular Services — Embassy of Portugal in Serbia",
+  "last_updated": "2026-05-20",
+  "country": "Portugal",
+  "embassy_in_serbia": {
+    "name": "Embassy of Portugal in Serbia",
+    "address": "Vladimira Gacinovica 4, 11040 Belgrade, Serbia",
+    "website": "https://belgrado.embaixadaportugal.mne.gov.pt/en/",
+    "phone": "+381 11 2662 894 / +381 11 2662 897",
+    "email": "belgrado@mne.pt (general) | visas.belgrado@mne.pt (visa inquiries) | sconsular.belgrado@mne.pt (consular section)"
+  },
+  "visa_eligibility": {
+    "serbian_citizens": "Serbian citizens holding a biometric passport do NOT require a visa for short-stay tourism visits up to 90 days within any 180-day period in Portugal/Schengen area. Recommended supporting documents even without a visa: health/travel insurance covering Schengen, return ticket, hotel reservation or invitation letter (especially for stays of 30–90 days). Exception: Serbian passports issued by the Coordination Board (coordinating body for Serbian citizens in Kosovo) DO require a visa regardless of biometric status. Diplomatic passport holders are fully exempt. For stays exceeding 90 days (study, work, volunteering, etc.) a national long-stay visa is required.",
+    "other_nationals": "Third-country nationals legally residing in Serbia who are not Serbian citizens must check their own nationality's visa requirements. Residents of Montenegro and North Macedonia with biometric passports are also visa-exempt for short stays, as the Belgrade embassy also covers those countries."
+  },
+  "processing_times": {
+    "minimum_calendar_days": 15,
+    "recommended_submission_weeks_before_travel": "4–6",
+    "maximum_calendar_days": 45,
+    "notes": "Standard decision period is 15 calendar days from the date the application is deemed admissible. May be extended up to 45 calendar days when further scrutiny is required. An additional 7-day extension is possible when other Schengen member states are consulted (Art. 22 Visa Code). Applications may be submitted up to 6 months before travel (9 months for seafarers). The absolute latest is 15 calendar days before the intended trip. For national (D-type) visas the embassy indicates approximately 3 months processing time. All Schengen applications are currently accepted by email only on designated opening dates — as of May 2026, the next opening is June 16, 2026 (20 vacancies, 9:00 AM Belgrade time). Do not book travel before receiving visa confirmation."
+  },
+  "application_location": {
+    "center": "Embassy of Portugal in Belgrade — Consular Section",
+    "address": "Vladimira Gacinovica 4, 11040 Belgrade, Serbia",
+    "booking": "All applications are submitted exclusively by email to visas.belgrado@mne.pt on the announced opening date. The embassy publishes vacancy dates on its website and news section. No phone inquiries are accepted for visa matters. Once the embassy responds with a document list, the applicant must submit all documents within 30 days or the process is closed. Appointments for document submission require prior scheduling via sconsular.belgrado@mne.pt or +381 11 2662 895 (Mon–Fri 10:00–12:30). Appointments are conducted in Serbian, English, or Portuguese; applicants without sufficient fluency must bring an interpreter or the appointment will not proceed."
+  },
+  "visa_fees": {
+    "adults_eur": 35,
+    "children_eur": 35,
+    "service_fee": "External service providers may charge an additional fee not exceeding half the visa fee (~17.50 EUR for Serbian applicants). In countries without a Portuguese consulate, up to ~80 EUR; in exceptional circumstances up to 120 EUR.",
+    "fee_exemptions": [
+      "Children under 6 years old — free",
+      "Students and educators participating in study/training programs",
+      "Researchers conducting scientific research",
+      "Representatives of non-profit organizations under 25 years attending seminars/conferences/events",
+      "Family members of EU, EEA, Swiss, and UK nationals",
+      "Administrative appeal fee: 75 EUR (excluding family reunification)"
+    ]
+  },
+  "required_documents_all_applicants": [
+    "Completed and signed Schengen visa application form",
+    "Recent passport-size photograph (biometric standard)",
+    "Valid travel document (passport) — must remain valid at least 3 months beyond the intended date of departure from the Schengen area",
+    "Photocopy of all pages of current passport and photocopies of previously issued passports/visas",
+    "Certificate of regular status / proof of legal residence if applying from a country other than country of nationality",
+    "Confirmed return travel reservation (flight or other transport)",
+    "Travel/health medical insurance covering the entire Schengen area and the full duration of stay (minimum coverage 30,000 EUR)"
+  ],
+  "additional_documents_by_nationality": [
+    "Serbian citizens with Coordination Board passports: must apply for a visa even though other Serbian biometric passport holders are exempt — same document list as above applies"
+  ],
+  "documents_for_minors": {
+    "required": [
+      "Travel authorization signed by both parents/legal guardians, OR",
+      "Court decision granting travel authorization (where applicable)",
+      "Birth certificate (to establish parentage)",
+      "Passport/travel document of the minor"
+    ],
+    "note": "If only one parent accompanies the minor, written consent from the absent parent is required unless a court order already grants sole custody."
+  },
+  "purpose_specific_requirements": {
+    "tourism": [
+      "Hotel reservation or other confirmed accommodation for the full stay, OR",
+      "Written statement of responsibility (invitation letter) from a host in Portugal/Schengen area confirming they will cover accommodation"
+    ],
+    "business": [
+      "Official invitation letter from the host company/organization in Portugal specifying: purpose of visit, travel dates, name of contact person, and company details"
+    ],
+    "family_or_private_visit": [
+      "Invitation letter / statement of responsibility from the host (family member or private individual)",
+      "Proof of family relationship (birth certificate, marriage certificate, etc.)",
+      "Proof of the host's housing conditions (if requested by consulate)",
+      "If host is a non-Portuguese EU/Schengen resident: proof that the host is legally residing in Portugal"
+    ],
+    "medical_treatment": [
+      "Official document from the medical institution in Portugal confirming the need for treatment and appointment dates",
+      "Proof of sufficient financial means to cover all medical expenses"
+    ],
+    "transit": [
+      "Proof of onward travel / confirmed transit itinerary",
+      "Visa or residence permit for the final destination country (if required)",
+      "Transit airport visa may be required depending on nationality — confirm with embassy"
+    ]
+  },
+  "occupational_documentation": {
+    "employees": [
+      "Employment certificate stating position, salary, length of employment, and confirmation of approved leave",
+      "Last 3 months' payslips or bank statements showing salary deposits"
+    ],
+    "entrepreneurs": [
+      "Business registration certificate",
+      "Last 3 months' bank statements for the business account",
+      "Tax returns or financial statements demonstrating income"
+    ],
+    "students": [
+      "Enrollment certificate from educational institution",
+      "Proof of financial means (parental support letter, scholarship documentation, or bank statements)"
+    ],
+    "retirees": [
+      "Pension certificate or statement showing pension amount",
+      "Last 3 months' bank statements"
+    ]
+  },
+  "special_provisions": "The Embassy of Portugal in Belgrade also has consular jurisdiction over Montenegro and North Macedonia. Citizens of all three countries with biometric passports are exempt from short-stay Schengen visa requirements. The embassy operates a strictly quota-based, email-only application system for Schengen visas: as of May 2026 the next batch opens June 16, 2026 (20 slots). Long-stay national visas (D1–D4, D7, E6) have separate opening dates; several categories are fully booked or suspended (Work Search visa discontinued; D1/D2/D3 and Digital Nomad/D7 dates pending new announcement). Emergency consular assistance (for Portuguese citizens abroad): +351 217 929 714 / +351 961 706 472.",
+  "contact_and_resources": {
+    "embassy_location": "Belgrade, Serbia",
+    "appointment_url": null,
+    "consulate_website": "https://belgrado.embaixadaportugal.mne.gov.pt/en/"
+  }
+}

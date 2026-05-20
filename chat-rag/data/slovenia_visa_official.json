@@ -1,0 +1,129 @@
+{
+  "source": "https://www.gov.si/en/representations/embassy-belgrade/visa-information-of-the-embassy-belgrade/",
+  "title": "Visa Information - Embassy of the Republic of Slovenia in Belgrade",
+  "last_updated": "2026-05-20",
+  "country": "Slovenia",
+  "embassy_in_serbia": {
+    "name": "Embassy of the Republic of Slovenia in Belgrade",
+    "address": "Dositejeva ulica 41, RS-11158 Belgrade, Serbia",
+    "website": "https://www.gov.si/en/representations/embassy-belgrade/",
+    "phone": "+381 11 303 8470 (consular section), +381 11 303 8477 (main line), +381 63 773 1094 (24/7 emergency)",
+    "email": "consular.belgrade@gov.si"
+  },
+  "visa_eligibility": {
+    "serbian_citizens": "Holders of valid biometric Serbian passports do NOT require a Schengen visa for stays up to 90 days within any 180-day period. However, holders of non-biometric Serbian passports and passports issued by 'Koordinaciona uprava' DO require a Schengen visa.",
+    "other_nationals": "Other third-country nationals residing in Serbia whose home country appears on the EU visa-required list must apply for a Schengen visa at the Embassy of Slovenia in Belgrade."
+  },
+  "processing_times": {
+    "minimum_calendar_days": 15,
+    "recommended_submission_weeks_before_travel": "4–6",
+    "maximum_calendar_days": 45,
+    "notes": "Applications must be submitted at least 15 calendar days before intended travel and no earlier than 6 months in advance. Standard processing is up to 15 days. In exceptional or complex cases processing may extend up to 45 days. Late applications (less than 15 days before travel) are accepted but processing may take up to 15 additional calendar days."
+  },
+  "application_location": {
+    "center": "Embassy of the Republic of Slovenia in Belgrade, Consular Section",
+    "address": "Dositejeva ulica 41, RS-11158 Belgrade, Serbia",
+    "booking": "Send an email to consular.belgrade@gov.si providing your name, surname, date of birth, and purpose of visit to schedule an appointment. Consular section reception hours: Monday–Thursday 9:00–12:00. Telephone consultations: Monday–Thursday 14:00–15:00, Friday 13:00–14:00."
+  },
+  "visa_fees": {
+    "adults_eur": 90,
+    "children_eur": 45,
+    "service_fee": null,
+    "fee_exemptions": [
+      "Children under 6 years old — free",
+      "Citizens of Armenia, Azerbaijan, and Belarus — reduced fee of €35",
+      "Citizens of Cape Verde — reduced fee of €67.50",
+      "Close family members of Slovenian or EU citizens applying for a long-stay (Type D) visa — exempt from fee (€0)",
+      "Other categories exempt under EU Visa Code provisions (e.g. researchers, school pupils on educational trips)"
+    ]
+  },
+  "required_documents_all_applicants": [
+    "Valid passport issued within the last 10 years, with at least 2 blank pages, valid for at least 3 months beyond the intended departure date from the Schengen Area",
+    "Completed and signed Schengen visa application form (Type C)",
+    "Recent passport-size photograph meeting ICAO standards",
+    "Biometric fingerprints (collected at the consular section at time of submission)",
+    "Travel medical insurance with minimum €30,000 coverage valid across the entire Schengen Area",
+    "Proof of accommodation (hotel booking confirmation, rental contract, or certified host invitation letter)",
+    "Proof of sufficient financial means (bank statements, sponsor letter, traveller's cheques, etc.)",
+    "Visa fee payment"
+  ],
+  "additional_documents_by_nationality": [
+    "Holders of non-biometric Serbian passports: must apply for a Schengen visa regardless of stay duration",
+    "Holders of passports issued by 'Koordinaciona uprava': must apply for a Schengen visa",
+    "Citizens of Armenia, Azerbaijan, Belarus: same documents apply but reduced fee of €35",
+    "Citizens of Cape Verde: same documents apply but reduced fee of €67.50"
+  ],
+  "documents_for_minors": {
+    "required": [
+      "Birth certificate",
+      "Parental consent form signed by both parents (if travelling alone or with only one parent)",
+      "Copy of both parents' passports or national ID documents",
+      "Court order or legal guardian documentation (if applicable)",
+      "School enrollment certificate (if applicable)"
+    ],
+    "note": "Children under 6 are exempt from visa fees. Children aged 6–12 pay a reduced fee of €45. Children under 18 travelling without both parents require notarized parental consent."
+  },
+  "purpose_specific_requirements": {
+    "tourism": [
+      "Round-trip flight reservation or detailed travel itinerary",
+      "Proof of accommodation for the entire stay (hotel bookings, Airbnb confirmation, or certified host invitation letter)",
+      "Travel itinerary with planned activities",
+      "Bank statements for the last 3–6 months showing sufficient funds"
+    ],
+    "business": [
+      "Invitation letter from the Slovenian company or organization (must be certified and registered at the relevant administrative unit in Slovenia)",
+      "Letter from the applicant's employer in Serbia confirming the business trip purpose, dates, and financial sponsorship",
+      "Company registration documents (if self-employed or business owner)",
+      "Bank statements for the last 3–6 months"
+    ],
+    "family_or_private_visit": [
+      "Invitation letter from the host in Slovenia (certified at the relevant administrative unit in Slovenia)",
+      "Proof of host's legal residence in Slovenia (copy of residence permit, national ID, or passport)",
+      "Proof of relationship with the host (birth certificate, marriage certificate, etc.)",
+      "Host's bank statement or income proof (if host is covering costs)"
+    ],
+    "medical_treatment": [
+      "Letter from the Slovenian medical institution confirming the appointment, treatment dates, and expected duration",
+      "Proof of financial means to cover all medical and living costs",
+      "Medical records, diagnosis, or referral letter from home country physician",
+      "Proof of accommodation near the medical facility"
+    ],
+    "transit": [
+      "Valid visa or entry permit for the final destination country (if required)",
+      "Confirmed onward travel tickets showing the transit route",
+      "Proof of transit route and final destination",
+      "Airport transit visa (Type A) required for certain nationalities during layovers in Slovenian airports"
+    ]
+  },
+  "occupational_documentation": {
+    "employees": [
+      "Employment contract or letter from employer confirming position, salary, and approved leave",
+      "Recent payslips (last 3 months)",
+      "Bank statements (last 3–6 months)",
+      "Employer's leave approval letter"
+    ],
+    "entrepreneurs": [
+      "Business registration certificate",
+      "Tax returns from the last 1–2 years",
+      "Business bank account statements (last 3–6 months)",
+      "Proof of ongoing business operations"
+    ],
+    "students": [
+      "Enrollment certificate from educational institution in Serbia",
+      "Proof of financial support (parental sponsor letter, scholarship documentation, or own bank statements)",
+      "Bank statements of student or sponsor (last 3–6 months)",
+      "Academic calendar or leave approval from institution (if applicable)"
+    ],
+    "retirees": [
+      "Pension certificate or official proof of pension status",
+      "Recent pension payment slips (last 3 months)",
+      "Bank statements showing sufficient funds (last 3–6 months)"
+    ]
+  },
+  "special_provisions": "Long-stay visas (Type D), for intended stays of 90 days to 1 year, are issued for specific purposes such as employment, study, or family reunification. Type D visa fee is €77 and is waived for close family members of Slovenian or EU citizens. Family reunification applications require a simultaneous in-person interview: the applicant appears at the Embassy in Belgrade while the spouse or partner appears at the relevant Administrative Unit in Slovenia. An EU Entry/Exit System (EES) is planned for launch on October 12, 2025, which will require biometric data (fingerprints and facial image) to be collected at all Schengen external borders. Cash amounts exceeding €10,000 must be declared at the border with proof of origin.",
+  "contact_and_resources": {
+    "embassy_location": "Belgrade, Serbia",
+    "appointment_url": null,
+    "consulate_website": "https://www.gov.si/en/representations/embassy-belgrade/"
+  }
+}
