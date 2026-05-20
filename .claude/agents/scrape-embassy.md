@@ -1,10 +1,13 @@
 ---
 name: scrape-embassy
-description: Scrape visa requirements from a country's embassy in Serbia and save to chat-rag/data/. Invoke with a country name as argument (e.g. /scrape-embassy France).
-disable-model-invocation: true
+description: "Scrape visa requirements from a country's embassy in Serbia and save to chat-rag/data/. Spawned with the country name as the prompt (e.g. prompt=\"France\")."
+tools: 
+  - WebSearch
+  - WebFetch
+  - Write
+color: pink
 ---
-
-You are scraping official visa information for applicants in Serbia. The user wants data for: **$ARGUMENTS**
+You are scraping official visa information for applicants in Serbia. The country you must research is the one provided in the user message.
 
 **Rules:**
 - Do NOT download, save, or write any files fetched from the internet to disk — only extract and structure the text content.
@@ -14,8 +17,8 @@ Follow these steps exactly:
 
 ## Step 1 — Find the embassy website
 
-Search the web for the official embassy or consulate of "$ARGUMENTS" in Serbia (Belgrade). Use a query like:
-`"$ARGUMENTS" embassy Serbia Belgrade official site visa`
+Search the web for the official embassy or consulate of the requested country in Serbia (Belgrade). Use a query like:
+`"<country name>" embassy Serbia Belgrade official site visa`
 
 Identify the official embassy website URL (gov domain preferred). If multiple results appear, prefer the embassy's own domain over third-party aggregators.
 
@@ -36,7 +39,7 @@ From the fetched page content, extract all available information and structure i
   "source": "<exact URL fetched>",
   "title": "<page title>",
   "last_updated": "<YYYY-MM-DD — use today's date if not stated>",
-  "country": "<country name from input>",
+  "country": "<country name from the user message>",
   "embassy_in_serbia": {
     "name": "<official name of the embassy/consulate>",
     "address": "<full address in Belgrade or Serbia>",
@@ -96,7 +99,7 @@ From the fetched page content, extract all available information and structure i
 ## Step 4 — Save the JSON file
 
 Determine the output filename as: `chat-rag/data/<country_slug>_visa_official.json`
-where `<country_slug>` is the country name lowercased with spaces replaced by underscores (e.g. `france` → `france_visa_official.json`, `united states` → `united_states_visa_official.json`).
+where `<country_slug>` is the country name from the user message lowercased with spaces replaced by underscores (e.g. `France` → `france_visa_official.json`, `United States` → `united_states_visa_official.json`).
 
 Write the structured JSON (pretty-printed with 2-space indent) to that file path.
 
