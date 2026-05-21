@@ -365,6 +365,43 @@ Replace `France` with any supported country name. The agent resolves to `scrape-
 
 The file is immediately usable by the RAG pipeline — `_detect_country_llm` will pick it up for queries about that country.
 
+## Docker
+
+Build the image (chroma_db is downloaded automatically via the Makefile):
+
+```bash
+docker build -t chat-rag .
+```
+
+Run the Gradio web UI on http://localhost:7860:
+
+```bash
+docker run --rm -p 7860:7860 --env-file .env -e GRADIO_SERVER_NAME=0.0.0.0 chat-rag
+```
+
+**Interactive shell** (useful for debugging, running one-off scripts, or ad-hoc queries):
+
+```bash
+docker run --rm -it --env-file .env -e GRADIO_SERVER_NAME=0.0.0.0 -p 7860:7860 chat-rag bash
+```
+
+**Dev mode** — mount local `src/` and `data/` so edits on the host are reflected instantly inside the container (chroma_db is baked into the image). To get a shell in dev mode instead of launching the app:
+
+```bash
+docker run --rm -it \
+  -p 7860:7860 \
+  --env-file .env \
+  -e GRADIO_SERVER_NAME=0.0.0.0 \
+  -v ./src:/app/src \
+  -v ./data:/app/data \
+  chat-rag bash
+```
+
+| Variable | Default | Description |
+|---|---|---|
+| `APP_MODE` | `query_app` | Entry point script (`query_app` or `langsmith_launch`) |
+| `GRADIO_SERVER_NAME` | `127.0.0.1` | Set to `0.0.0.0` to access Gradio from the host |
+
 ## Notes
 
 - `chroma_db/` is gitignored — download it with `make chroma-db`; re-run `ingest/ingest.py` if `messages.json` changes
