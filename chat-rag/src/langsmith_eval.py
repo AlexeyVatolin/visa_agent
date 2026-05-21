@@ -13,7 +13,8 @@ from graph import visa_graph
 load_dotenv()
 
 # DATASET_NAME = "visa_qa_7_v1"
-DATASET_NAME = "visa_qa_germany_3_v1"
+# DATASET_NAME = "visa_qa_germany_3_v1"
+DATASET_NAME = "visa_qa_11_simple_v1"
 
 
 class EvalScore(BaseModel):
@@ -32,7 +33,7 @@ judge_llm = ChatMistralAI(
 
 JUDGE_PROMPT = """You are an expert evaluator. Compare the model's answer with the reference answer for a visa-related question.
 
-Rate how well the model's answer covers the key information from the reference on a categorical scale:
+Rate how well the model's answer covers the key information from the reference on a categorical scale (OBLY scores 0.0 or 0.5 or 1.0):
 - 1.0: All key facts from the reference are present and correct
 - 0.5: Some key facts are present, but important details are missing or partially wrong
 - 0.0: The answer is incorrect, irrelevant, or misses all key facts

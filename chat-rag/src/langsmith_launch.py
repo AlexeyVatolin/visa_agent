@@ -16,7 +16,10 @@ from langsmith import Client
 load_dotenv()
 
 # TEST_CASES_PATH = Path(__file__).resolve().parents[2] / "data" / "test_cases.json"
-TEST_CASES_PATH = Path(__file__).resolve().parents[2] / "data" / "test_cases_germany.json"
+# TEST_CASES_PATH = Path(__file__).resolve().parents[2] / "data" / "test_cases_germany.json"
+# TEST_CASES_PATH = Path(__file__).resolve().parents[2] / "data" / "test_cases_easy.json"
+# TEST_CASES_PATH = Path(__file__).resolve().parents[2] / "data" / "test_cases_easy_en.json"
+TEST_CASES_PATH = Path(__file__).resolve().parents[2] / "data" / "test_cases_easy_srb.json"
 
 
 def load_test_cases() -> list[dict]:
@@ -46,7 +49,13 @@ async def main():
     ls_client = Client()
 
     # DATASET_NAME = "visa_qa_7_v1"
-    DATASET_NAME = "visa_qa_germany_3_v1"
+    # DATASET_NAME = "visa_qa_germany_3_v1"
+    # DATASET_NAME = "visa_qa_11_simple_v1"
+    # DATASET_NAME = "visa_qa_11_simple_en_v1"
+    # DATASET_NAME = "visa_qa_10_simple_ru_v1"
+    # DATASET_NAME = "visa_qa_10_simple_en_v1"
+    DATASET_NAME = "visa_qa_10_simple_srb_v1"
+
 
     if not ls_client.has_dataset(dataset_name=DATASET_NAME):
         dataset = ls_client.create_dataset(

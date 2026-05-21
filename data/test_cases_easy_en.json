@@ -1,0 +1,103 @@
+[
+  {
+    "case_number": 11,
+    "topic": "Германия (Visametric) 🇩🇪",
+    "input": "What is the most delicious beer in Germany?",
+    "output": "I can only answer questions about visas, travel documents, and embassy procedures. Please ask a related question.",
+    "message_ids": [],
+    "complexity": "easy",
+    "language": "en",
+    "answer_type": "off_topic"
+  },
+  {
+    "case_number": 12,
+    "topic": "Германия (Visametric) 🇩🇪",
+    "input": "How often do appointment slots for German visa applications become available in 2026?",
+    "output": "[COMMUNITY] In 2026, appointment slots for German visa applications (through the Visametric visa center) become available on a regular basis. Key observations from chat participants:\n\n1. Bulk slot releases happen once a week, typically on Monday mornings (around 8:00-9:00 AM). Slots are available for the next 5-12 days.\n\n2. Individual slots may appear on any day of the week, including weekends. Participants note that a slot can appear even a minute after checking.\n\n3. Catching a slot is not easy — the Visametric website is unstable, often glitches, and shows no availability even when slots exist. It is recommended to check every 15-30 minutes, use different browsers, and subscribe to notifications in the \"Slot Alerts\" topic.\n\n4. Slots for multiple people (family) are harder to catch than single ones. Many people book separate slots for each family member.\n\n5. According to data from the slot alerts topic, slots appeared regularly in January-March 2026: bulk releases were recorded on January 5, January 12, January 18-20, February 2-6, February 9, February 16, February 23, March 2-4, and March 9-10.\n",
+    "message_ids": [309359, 309360, 309500, 309508, 309734, 310291, 310309, 310369, 311064, 311070, 312522, 312524, 313958, 313981, 313982, 314054, 314062, 315052, 315337, 315748, 316011, 316803, 317567, 318107, 318124, 318152, 318377, 318378, 318597, 318600, 318699, 318871, 319612, 319643, 319955, 320317, 320822, 320940, 321134, 322057, 322148, 322166, 322187, 322194, 322228, 322234, 322923, 323829, 323831, 323843, 323844, 323871, 324125, 324143, 309241, 310383, 312140, 312347, 312586, 315742, 316996, 317452, 318700, 320247, 320248, 320578, 322059, 322176, 322646, 322922, 323830, 323850],
+    "complexity": "easy",
+    "language": "en",
+    "answer_type": "on_topic"
+  },
+  {
+    "case_number": 13,
+    "topic": "Германия (Visametric) 🇩🇪",
+    "input": "How many photos are needed for a German visa application?",
+    "output": "[OFFICIAL] 3 biometric photographs are required (35x45 mm, no older than 6 months, white background). [COMMUNITY] In the community chat (from messages.json), some applicants mention that they submitted with 2 photographs through the TLScontact visa center — and that was sufficient. Also from the chat: You do not need to glue the photo to the application — just attach it. Recommended photo studios in Belgrade: Jika Slika, foto Zhivkovic. They even accept photos with rounded corners.",
+    "message_ids": [],
+    "complexity": "easy",
+    "language": "en",
+    "answer_type": "on_topic"
+  },
+  {
+    "case_number": 14,
+    "topic": "Albania",
+    "input": "What photo size is required for an Albania visa application?",
+    "output": "[OFFICIAL] To apply for an Albanian visa, you must provide a photograph:\nSize: 35 x 45 mm (passport format)\nBackground: white\nDate: no earlier than 6 months before the application date.",
+    "message_ids": [],
+    "complexity": "easy",
+    "language": "en",
+    "answer_type": "on_topic"
+  },
+  {
+    "case_number": 15,
+    "topic": "Германия (Visametric) 🇩🇪",
+    "input": "How much is the visa fee for a German visa application?",
+    "output": "[OFFICIAL] The visa fee for a German visa depends on the visa type:\n\nSchengen visa (type C):\n- Adults: 90 EUR\n- Children 6-11 years: 45 EUR\n- Children under 6: free\n- Under the EU-Serbia visa facilitation agreement: 35 EUR (adults), free (children under 12)\n\nNational visa (type D):\n- Work visa (adults): 75 EUR\n- Family reunification / marriage visa (adults): 75 EUR\n- Family reunification visa (children under 18): 37.50 EUR\n- Student visa (adults): 75 EUR\n- Student visa (children under 18): 37.50 EUR\n- Reunification with a German/EU citizen: free\n\nVisaMetric visa center service fee:\n- For Schengen visa: 3,600 RSD\n- For national visa: 4,700 RSD\n\nPayment of the visa fee and service fee does not guarantee visa issuance.\n\n[COMMUNITY] Chat participants confirm:\n- Schengen visa (business/tourism): in 2023 they paid 8,000-9,400 dinars visa fee + 3,600 dinars visa center service fee. Payment in cash in dinars.\n- National visa (work, Blue Card): 8,800 dinars visa fee (75 EUR) at the embassy, cash payment with exact change.\n- Total expenses when applying through the visa center: ~15,400 dinars (9,400 visa fee + 3,600 visa center services + 2,400 courier).\n- Payment of visa fee and visa center services — cash only in dinars.",
+    "message_ids": [20771, 20974, 22965, 42100, 42287, 42290, 42293, 44543, 44549, 44552, 45755, 46945, 66957, 67180, 76986, 85696, 86793, 161836],
+    "complexity": "easy",
+    "language": "en",
+    "answer_type": "on_topic"
+  },
+  {
+    "case_number": 16,
+    "topic": "Испания",
+    "input": "How much is the visa fee for a Spanish visa application?",
+    "output": "[OFFICIAL] The visa fee is paid in cash in dinars (RSD); euros and bank cards are not accepted. Adults (12+): 10,520 RSD. Children (6-11): 5,260 RSD. Children under 6: free. The fee is non-refundable and paid upon application. Exemptions: children under 6, holders of diplomatic/service passports, participants in school trips and scientific visits. [COMMUNITY] For reference: this is equivalent to approximately 90 EUR for adults and approximately 45 EUR for children aged 6-11.",
+    "message_ids": [],
+    "complexity": "easy",
+    "language": "en",
+    "answer_type": "on_topic"
+  },
+  {
+    "case_number": 17,
+    "topic": "Венгрия",
+    "input": "How much is the visa fee for a type C visa to Hungary?",
+    "output": "[OFFICIAL] The visa fee for a type C visa at the Embassy of Hungary in Belgrade is:\nAdults: 90 EUR\nChildren (6-12 years): 45 EUR\nChildren under 6: free.\n [COMMUNITY] The visa fee for a type C visa (short-stay Schengen) to Hungary is 90 EUR. Children under 6 are exempt from the fee.",
+    "message_ids": [165433, 176752, 178246, 183724, 266552, 314452, 316211],
+    "complexity": "easy",
+    "language": "en",
+    "answer_type": "on_topic"
+  },
+  {
+    "case_number": 18,
+    "topic": "Венгрия",
+    "input": "In which Serbian cities can you apply for a Hungarian visa?",
+    "output": "[OFFICIAL] According to official information from the Embassy of Hungary in Serbia, documents are submitted at the Consular Section of the Embassy of Hungary in Belgrade at: Krunska 72, 11000 Belgrade, Serbia. Appointments are booked online through the website https://konzinfoidopont.mfa.gov.hu/, and the application form can be filled out online at https://konzinfostart.mfa.gov.hu/. Personal appearance is mandatory.\n\n[COMMUNITY] Chat participants confirm that in practice, you can apply for a Hungarian visa in two cities in Serbia:\n\n1. Belgrade — the main consulate (embassy) at Krunska 72 / entrance from Kneginje Zorke 74. An embassy staff member handles applications here. Booking is done through the website or by tracking available slots.\n\n2. Subotica — a consulate in northern Serbia (in Vojvodina, near the Hungarian border). The consul personally handles applications here. You can book an appointment in Subotica by phone (unlike Belgrade, which is online only).\n\nImportant caveat: there is a long-standing discussion about whether someone who does not live in Vojvodina can apply in Subotica. Opinions in the chat differ:\n- Several participants claim that Subotica is only for Vojvodina residents, and the consulate cancels slots booked by non-residents of Vojvodina.\n- Other participants report that they personally applied in Subotica while living in Belgrade, with no issues (\"they don't care where you live\").\n- In December 2025, one participant reported that the consulate in Subotica confirmed the possibility of applying for those who do not live in Vojvodina.\n\nCatching slots for application is difficult in both cities — participants have to check the website several times a day. Sometimes in Subotica it is easier to book by phone than to catch an online slot.",
+    "message_ids": [20775, 21785, 23475, 23485, 37312, 43760, 43761, 46142, 248637, 270348, 284524, 303620],
+    "complexity": "easy",
+    "language": "en",
+    "answer_type": "on_topic"
+  },
+  {
+    "case_number": 19,
+    "topic": "",
+    "input": "How many cigarettes can I bring from Ukraine to Germany?",
+    "output": "I can only answer questions about visas, travel documents, and embassy procedures. Please ask a related question.",
+    "message_ids": [],
+    "complexity": "easy",
+    "language": "en",
+    "answer_type": "off_topic"
+  },
+  {
+    "case_number": 20,
+    "topic": "Швейцария",
+    "input": "Can a Russian citizen apply for a Swiss visa from Serbia?",
+    "output": "[OFFICIAL] Yes, Russian citizens can apply for a Swiss Schengen visa from Serbia if they have proof of legal residence in Serbia (a valid Serbian residence permit / boravak). [COMMUNITY] Yes, Russians with a Serbian residence permit regularly apply for and receive Swiss visas from Serbia.",
+    "message_ids": [],
+    "complexity": "easy",
+    "language": "en",
+    "answer_type": "on_topic"
+  }
+
+]
