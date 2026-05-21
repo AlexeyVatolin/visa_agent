@@ -12,8 +12,25 @@ DATA_DIR = "/root/chat-rag/data"
 CHROMA_DIR = "/root/chat-rag/chroma_db"
 EXTRACTED_DIR = "/root/data/extracted"
 
+CHROMA_ZIP_URL = (
+    "https://storage.yandexcloud.net/ai-visa/chroma_db.zip"
+    "?X-Amz-Algorithm=AWS4-HMAC-SHA256"
+    "&X-Amz-Credential=YCAJE4o7Ul_CBprgFUlN9JEfB%2F20260521%2Fru-central1%2Fs3%2Faws4_request"
+    "&X-Amz-Date=20260521T130738Z"
+    "&X-Amz-Expires=2592000"
+    "&X-Amz-Signature=b3409ceb0ef54125a610ea4e606a46452ef33ec5b4e904d4cfb03db27b246ee7"
+    "&X-Amz-SignedHeaders=host"
+    "&response-content-disposition=attachment"
+)
+
 image = (
     modal.Image.debian_slim(python_version="3.14")
+    .apt_install("curl", "unzip")
+    .run_commands(
+        f"curl -sL '{CHROMA_ZIP_URL}' -o /tmp/chroma_db.zip"
+        f" && unzip -o /tmp/chroma_db.zip -d /root/chat-rag/"
+        f" && rm -rf /tmp/chroma_db.zip /root/chat-rag/__MACOSX"
+    )
     .uv_sync()
     .env(
         {
@@ -23,8 +40,6 @@ image = (
             "CHROMA_PATH": CHROMA_DIR,
         }
     )
-    .add_local_dir(HERE / "chroma_db", remote_path=CHROMA_DIR, copy=True)
-    .run_commands(f"gunzip -f {CHROMA_DIR}/chroma.sqlite3.gz")
     .add_local_dir(HERE / "src", remote_path=SRC_DIR)
     .add_local_dir(HERE / "data", remote_path=DATA_DIR)
     .add_local_dir(PROJECT_ROOT / "data" / "extracted", remote_path=EXTRACTED_DIR)
