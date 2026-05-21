@@ -1,0 +1,8 @@
+__pycache__
+*.pyc
+.gradio/
+.ruff_cache/
+chroma_db/
+chroma_db_old/
+.env
+*.egg-info/
