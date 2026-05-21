@@ -5,7 +5,7 @@ from graph import visa_graph
 from ingest import ChunkMetadata
 from logging_ import configure_logging
 
-configure_logging(level=logging.DEBUG if settings.chat_rag_debug else logging.INFO)
+configure_logging(level=getattr(logging, settings.loglevel, logging.INFO))
 
 
 def main():

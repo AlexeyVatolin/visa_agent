@@ -12,7 +12,13 @@ from guardrails._internal_errors import rewrite_internal_error_leaks
 from guardrails._output_tokens import redact_output_pii
 from llm import get_embeddings, get_llm
 from logging_ import get_logger, trace
-from prompts import ANSWER_PROMPT, CLASSIFY_PROMPT, COUNTRY_DETECT_PROMPT, KNOWN_COUNTRIES
+from prompts import (
+    ANSWER_PROMPT,
+    CLASSIFY_PROMPT,
+    COUNTRY_DETECT_PROMPT,
+    KNOWN_COUNTRIES,
+    slug_to_collection,
+)
 
 logger = get_logger(__name__)
 
@@ -97,12 +103,24 @@ def reject(state: GraphState) -> dict:
     return {"answer": msg}
 
 
+def detect_country(state: GraphState) -> dict:
+    with trace("detect_country", question=state["question"][:60]):
+        slug = _detect_country_llm(state["question"])
+        if slug is None:
+            logger.debug("no country detected in question")
+            return {"country": ""}
+        logger.debug("detected country=%s", slug)
+        return {"country": slug}
+
+
 def retrieve_from_chat(state: GraphState) -> dict:
     with trace("retrieve_from_chat"):
         try:
+            country = state.get("country", "")
+            collection_name = slug_to_collection(country) if country else settings.collection_name
             embeddings = get_embeddings()
             vectorstore = Chroma(
-                collection_name=settings.collection_name,
+                collection_name=collection_name,
                 embedding_function=embeddings,
                 persist_directory=settings.chroma_path,
             )
@@ -115,7 +133,7 @@ def retrieve_from_chat(state: GraphState) -> dict:
                 doc.page_content, n_pii, _ = redact_output_pii(doc.page_content)
                 if n_pii:
                     logger.debug("redacted %d PII tokens from chat doc", n_pii)
-            logger.debug("retrieved %d docs", len(docs))
+            logger.debug("retrieved %d docs from collection=%s", len(docs), collection_name)
             return {"chat_docs": docs}
         except Exception as e:
             logger.warning("chroma retrieval failed: %s", e)
@@ -124,36 +142,48 @@ def retrieve_from_chat(state: GraphState) -> dict:
 
 def _detect_country_llm(question: str) -> str | None:
     llm = get_llm(temperature=0)
-    response = llm.invoke([
-        SystemMessage(content=COUNTRY_DETECT_PROMPT),
-        HumanMessage(content=question),
-    ])
+    response = llm.invoke(
+        [
+            SystemMessage(content=COUNTRY_DETECT_PROMPT),
+            HumanMessage(content=question),
+        ]
+    )
     slug = response.content.strip().lower().replace(" ", "_")
     return slug if slug in KNOWN_COUNTRIES else None
 
 
 def load_official_data(state: GraphState) -> dict:
     with trace("load_official_data"):
-        country = _detect_country_llm(state["question"])
-        if country is None:
-            logger.debug("no country detected in question")
-            return {"official_data": {}, "country": ""}
+        country = state.get("country", "")
+        if not country:
+            logger.debug("no country detected; skipping official data")
+            return {"official_data": {}}
 
         file_path = Path(settings.official_data_dir) / f"{country}_visa_official.json"
         try:
             with file_path.open(encoding="utf-8") as f:
                 data = json.load(f)
             logger.debug("loaded official data country=%s keys=%s", country, list(data.keys())[:5])
-            return {"official_data": data, "country": country}
+            return {"official_data": data}
         except (FileNotFoundError, json.JSONDecodeError) as e:
             logger.warning("official data load failed country=%s: %s", country, e)
-            return {"official_data": {}, "country": country, "error": "Official visa data temporarily unavailable."}
+            return {"official_data": {}, "error": "Official visa data temporarily unavailable."}
 
 
 def generate_answer(state: GraphState) -> dict:
     with trace("generate_answer", docs=len(state.get("chat_docs") or [])):
         if state.get("error"):
-            return {"answer": "I'm having trouble accessing my knowledge sources right now. Please try again shortly."}
+            return {
+                "answer": "I'm having trouble accessing my knowledge sources right now. Please try again shortly."
+            }
+        if not state.get("country"):
+            return {
+                "answer": (
+                    "I couldn't determine which country you're asking about. "
+                    "Could you please specify the country in your question? "
+                    'For example: "What are the visa requirements for Germany?"'
+                )
+            }
         chat_context = (
             "\n\n".join(doc.page_content for doc in state["chat_docs"])
             if state["chat_docs"]

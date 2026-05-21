@@ -34,6 +34,8 @@ class HierarchicalFormatter(logging.Formatter):
 
 
 def get_logger(name: str | None = None) -> logging.Logger:
+    if name and name != _DEFAULT_LOGGER_NAME:
+        name = f"{_DEFAULT_LOGGER_NAME}.{name}"
     return logging.getLogger(name or _DEFAULT_LOGGER_NAME)
 
 
@@ -45,7 +47,8 @@ def configure_logging(level: int = logging.INFO) -> None:
     handler = logging.StreamHandler(sys.stdout)
     handler.setFormatter(HierarchicalFormatter())
     root.addHandler(handler)
-    root.setLevel(level)
+    root.setLevel(logging.ERROR)
+    logging.getLogger(_DEFAULT_LOGGER_NAME).setLevel(level)
 
 
 @contextmanager

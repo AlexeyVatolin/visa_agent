@@ -9,7 +9,7 @@ import logging
 from config import settings
 from logging_ import configure_logging
 
-configure_logging(level=logging.DEBUG if settings.chat_rag_debug else logging.INFO)
+configure_logging(level=getattr(logging, settings.loglevel, logging.INFO))
 
 import gradio as gr
 import typer

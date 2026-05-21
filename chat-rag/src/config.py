@@ -1,5 +1,6 @@
 from pathlib import Path
 
+from pydantic import field_validator
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 _ROOT = Path(__file__).parent.parent  # chat-rag/
@@ -13,8 +14,12 @@ class Settings(BaseSettings):
     chroma_path: Path = _ROOT / "chroma_db"
     collection_name: str = "chat_history"
 
-    # Logging: CHAT_RAG_DEBUG=0 for INFO-only output
-    chat_rag_debug: bool = True
+    loglevel: str = "INFO"
+
+    @field_validator("loglevel")
+    @classmethod
+    def loglevel_upper(cls, v: str) -> str:
+        return v.upper()
 
     # LangSmith tracing — set LANGSMITH_TRACING=true and LANGSMITH_API_KEY to enable
     langsmith_tracing: bool = False
