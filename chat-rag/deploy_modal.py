@@ -23,9 +23,10 @@ image = (
             "CHROMA_PATH": CHROMA_DIR,
         }
     )
+    .add_local_dir(HERE / "chroma_db", remote_path=CHROMA_DIR, copy=True)
+    .run_commands(f"gunzip -f {CHROMA_DIR}/chroma.sqlite3.gz")
     .add_local_dir(HERE / "src", remote_path=SRC_DIR)
     .add_local_dir(HERE / "data", remote_path=DATA_DIR)
-    .add_local_dir(HERE / "chroma_db", remote_path=CHROMA_DIR)
     .add_local_dir(PROJECT_ROOT / "data" / "extracted", remote_path=EXTRACTED_DIR)
 )
 
@@ -45,6 +46,7 @@ secrets = (
 @app.function(
     image=image,
     secrets=[secrets],
+    env={"CHROMA_DIR": CHROMA_DIR},
     max_containers=1,
 )
 @modal.concurrent(max_inputs=100)

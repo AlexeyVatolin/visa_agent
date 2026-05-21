@@ -1,6 +1,6 @@
 # Chat History RAG
 
-A local RAG (Retrieval-Augmented Generation) system for querying visa-related Telegram chat history, enriched with official embassy data, using LangChain, LangGraph, ChromaDB, and Mistral AI.
+A local RAG (Retrieval-Augmented Generation) system for querying visa-related Telegram chat history, enriched with official embassy data, using LangChain, LangGraph, ChromaDB, and Mistral AI. Embeddings are generated locally with Octen/Octen-Embedding-0.6B (CPU, 4 threads).
 
 ## Tech Stack
 
@@ -8,9 +8,9 @@ A local RAG (Retrieval-Augmented Generation) system for querying visa-related Te
 - **LangGraph** — graph with input/output guardrails, classification, country detection, and parallel retrieval (community + official sources)
 - **[LangSmith](https://smith.langchain.com)** — optional tracing, observability, dataset management, and LLM-as-judge evaluation
 - **ChromaDB** — local vector store
-- **Mistral AI** — embeddings + LLM (`mistral-embed` + `mistral-small-latest`)
-- **Google Generative AI** — alternative LLM backend (`langchain-google-genai`)
-- **OpenAI Agents SDK + LiteLLM** — used for LangSmith dataset population and demo agents
+- **Octen/Octen-Embedding-0.6B** — local embeddings via `sentence-transformers` (CPU, 4 threads, preloaded in background)
+- **Mistral AI** — LLM (`mistral-small-latest` with `gemini-3.1-flash-lite` fallback)
+- - **OpenAI Agents SDK + LiteLLM** — used for LangSmith dataset population and demo agents
 - **Gradio** — web UI
 - **Pydantic / pydantic-settings** — data models and settings validation
 - **Python 3.14**
@@ -55,10 +55,11 @@ chat-rag/
 │   ├── switzerland_visa_official.json
 │   ├── united_kingdom_visa_official.json
 │   └── usa_visa_official.json
+│   └── evaluations/           # embedding model comparison reports
 ├── src/
 │   ├── __init__.py
 │   ├── config.py              # settings via pydantic-settings
-│   ├── llm.py                 # LLM + embeddings factory functions (max_retries=6)
+│   ├── llm.py                 # LLM + embeddings (Octen model preloaded in background thread, singleton)
 │   ├── dashboard.py           # visa statistics from extracted data
 │   ├── query.py               # interactive CLI
 │   ├── query_app.py           # Gradio app entry point (assembles tabs, launches with Citrus theme)
@@ -362,7 +363,8 @@ The file is immediately usable by the RAG pipeline — `_detect_country_llm` wil
 ## Notes
 
 - `chroma_db/` is committed to this repo so the index is shared — re-run `ingest/ingest.py` if `messages.json` changes
+- The ChromaDB index was built with `Octen/Octen-Embedding-0.6B` embeddings (1024-dim); do not mix with `mistral-embed` (same dim but different vector space)
 - `.env` is gitignored — never commit your API key
 - Messages with empty `text` field are skipped during ingestion
-- Ingestion is batched (100 docs / batch, 3 s delay) to stay within Mistral API rate limits
+- The embedding model loads in a background thread at import time — app startup is not blocked; first query waits for the model to be ready
 - Off-topic questions are rejected before retrieval by the `classify_question` guardrail
