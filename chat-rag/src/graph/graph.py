@@ -2,6 +2,7 @@ from langgraph.graph import END, START, StateGraph
 
 from graph.nodes import (
     classify_question,
+    detect_country,
     generate_answer,
     input_guard,
     load_official_data,
@@ -18,10 +19,16 @@ def route_after_input_guard(state: GraphState) -> str:
     return "classify_question"
 
 
-def route_after_classify(state: GraphState) -> list[str] | str:
+def route_after_classify(state: GraphState) -> str:
     if state["classification"] == "relevant":
-        return ["retrieve_from_chat", "load_official_data"]
+        return "detect_country"
     return "reject"
+
+
+def route_after_detect(state: GraphState) -> str:
+    if state.get("country"):
+        return ["retrieve_from_chat", "load_official_data"]
+    return "generate_answer"
 
 
 def build_graph() -> StateGraph:
@@ -29,6 +36,7 @@ def build_graph() -> StateGraph:
 
     graph.add_node("input_guard", input_guard)
     graph.add_node("classify_question", classify_question)
+    graph.add_node("detect_country", detect_country)
     graph.add_node("retrieve_from_chat", retrieve_from_chat)
     graph.add_node("load_official_data", load_official_data)
     graph.add_node("generate_answer", generate_answer)
@@ -38,6 +46,7 @@ def build_graph() -> StateGraph:
     graph.add_edge(START, "input_guard")
     graph.add_conditional_edges("input_guard", route_after_input_guard)
     graph.add_conditional_edges("classify_question", route_after_classify)
+    graph.add_conditional_edges("detect_country", route_after_detect)
 
     graph.add_edge("retrieve_from_chat", "generate_answer")
     graph.add_edge("load_official_data", "generate_answer")

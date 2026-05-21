@@ -3,6 +3,7 @@ KNOWN_COUNTRIES = [
     "austria",
     "belgium",
     "bulgaria",
+    "china",
     "croatia",
     "cyprus",
     "france",
@@ -10,10 +11,13 @@ KNOWN_COUNTRIES = [
     "greece",
     "hungary",
     "italy",
+    "japan",
+    "macedonia",
     "netherlands",
     "poland",
     "portugal",
     "romania",
+    "slovakia",
     "slovenia",
     "spain",
     "sweden",
@@ -21,6 +25,19 @@ KNOWN_COUNTRIES = [
     "united_kingdom",
     "usa",
 ]
+
+# Only slugs that differ from slug.title() / need special mapping.
+_COLLECTION_OVERRIDES: dict[str, str] = {
+    "bulgaria": "Bulgaria_Romania_Cyprus",
+    "poland": "Poland_visa_D",
+    "united_kingdom": "United_Kingdom",
+    "usa": "USA",
+}
+
+
+def slug_to_collection(slug: str) -> str:
+    return _COLLECTION_OVERRIDES.get(slug, slug.replace("_", " ").title().replace(" ", "_"))
+
 
 COUNTRY_DETECT_PROMPT = (
     "You are a country extractor. Given a visa-related question in any language, "

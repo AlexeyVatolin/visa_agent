@@ -94,7 +94,7 @@ chat-rag/
 │       ├── chat_tab.py        # Chat tab layout and wiring (two-step: user message → LLM answer); sources rendered via gr.HTML + gr.State
 │       ├── dashboard_tab.py   # Dashboard tab with tourist visa stats table
 │       └── handlers.py        # Gradio event handlers (stage_user_message, complete_assistant_message, _sources_to_html)
-└── chroma_db/                 # auto-created after ingestion
+└── chroma_db/                 # downloaded via make chroma-db (gitignored)
 ```
 
 ## Setup
@@ -115,7 +115,12 @@ curl -LsSf https://astral.sh/uv/install.sh | sh
 uv sync
 ```
 
-**4. Create `.env` file from the template**
+**4. Download the ChromaDB vector index**
+```bash
+make chroma-db
+```
+
+**5. Create `.env` file from the template**
 ```bash
 cp .env.example .env
 ```
@@ -131,9 +136,9 @@ Then fill in your values in `.env`. Required keys:
 | `LANGSMITH_PROJECT` | No | LangSmith project name (e.g. `visa-agent`) |
 | `LANGSMITH_ENDPOINT` | No | LangSmith API endpoint |
 
-**5. Add your chat export to `data/messages.json`**
+**6. Add your chat export to `data/messages.json`**
 
-**6. Add official embassy data** for each supported country as `data/{country}_visa_official.json` (see format below). Supported country slugs: `albania`, `austria`, `belgium`, `bulgaria`, `croatia`, `cyprus`, `france`, `germany`, `greece`, `hungary`, `italy`, `netherlands`, `poland`, `portugal`, `romania`, `slovenia`, `spain`, `sweden`, `switzerland`, `united_kingdom`, `usa`.
+**7. Add official embassy data** for each supported country as `data/{country}_visa_official.json` (see format below). Supported country slugs: `albania`, `austria`, `belgium`, `bulgaria`, `croatia`, `cyprus`, `france`, `germany`, `greece`, `hungary`, `italy`, `netherlands`, `poland`, `portugal`, `romania`, `slovenia`, `spain`, `sweden`, `switzerland`, `united_kingdom`, `usa`.
 
 ## Usage
 
@@ -362,7 +367,7 @@ The file is immediately usable by the RAG pipeline — `_detect_country_llm` wil
 
 ## Notes
 
-- `chroma_db/` is committed to this repo so the index is shared — re-run `ingest/ingest.py` if `messages.json` changes
+- `chroma_db/` is gitignored — download it with `make chroma-db`; re-run `ingest/ingest.py` if `messages.json` changes
 - The ChromaDB index was built with `Octen/Octen-Embedding-0.6B` embeddings (1024-dim); do not mix with `mistral-embed` (same dim but different vector space)
 - `.env` is gitignored — never commit your API key
 - Messages with empty `text` field are skipped during ingestion
